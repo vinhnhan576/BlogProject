@@ -7,7 +7,6 @@ function App() {
   const [age, setAge] = useState(0);
 
   const addUser = () => {
-    console.log("initilize adding");
     Axios.post("http://localhost:3001/insertuser", {
       name: name,
       age: age,
