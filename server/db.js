@@ -1,25 +1,28 @@
-const express = require("express");
-const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "dbBlog",
-});
-
-db.connect((err) => {
-  if (err) {
-    console.log("error");
-    throw err;
-  }
-  console.log("mysql");
-});
+var db;
+connectDb = () => {
+  if (!db) {
+    db = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+    });
+    db.connect((err) => {
+      if (!err) {
+        console.log("Database is connected");
+      } else {
+        console.log("Database cannot be connected");
+      }
+    });
+  } 
+  return db;
+};
+module.exports = connectDb();
 
 app.get("/createdb", (req, res) => {
   let sql = "CREATE DATABASE dbBlog";
@@ -54,8 +57,4 @@ app.post("/insertuser", (req, res) => {
       res.send("User added");
     }
   );
-});
-
-app.listen("3001", () => {
-  console.log("yay");
 });
