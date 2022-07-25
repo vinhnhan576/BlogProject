@@ -83,7 +83,7 @@ User.updateUser = (id, userReqData, result) => {
     ],
     (err, res) => {
       if (!err) {
-        console.log("user added successfully");
+        console.log("user updated successfully");
         result(null, {
           status: true,
           message: "user updated successfully",
