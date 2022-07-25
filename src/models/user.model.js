@@ -1,4 +1,15 @@
-var dbConnection = require("../../config/db.config");
+var db = require("../../config/db.config");
+// const Sequelize = require("sequelize");
+
+// module.exports = sequelize.define("User", {
+//   id: {
+//     type: Sequelize.INTEGER(10),
+//     allowNull: false,
+//     autoIncrement: true,
+//     primaryKey: true,
+//   },
+//   name: Sequelize.STRING(50),
+// });
 
 //constructor
 var User = function (user) {
@@ -18,7 +29,7 @@ var User = function (user) {
 //get all users
 User.getAllUsers = (result) => {
   let sql = "SELECT * FROM user";
-  dbConnection.query(sql, (err, res) => {
+  db.query(sql, (err, res) => {
     if (!err) {
       console.log("users fetched successfully");
       result(null, res);
@@ -32,7 +43,7 @@ User.getAllUsers = (result) => {
 //get user by id
 User.getUserByID = (id, result) => {
   let sql = "SELECT * FROM user WHERE id = ?";
-  dbConnection.query(sql, id, (err, res) => {
+  db.query(sql, id, (err, res) => {
     if (!err) {
       console.log("user fetched by id successfully");
       result(null, res);
@@ -46,7 +57,7 @@ User.getUserByID = (id, result) => {
 //add new user
 User.addNewUser = (userReqData, result) => {
   let sql = "INSERT INTO user SET ?";
-  dbConnection.query(sql, userReqData, (err, res) => {
+  db.query(sql, userReqData, (err, res) => {
     if (!err) {
       console.log("user added successfully");
       result(null, {
@@ -65,7 +76,7 @@ User.addNewUser = (userReqData, result) => {
 User.updateUser = (id, userReqData, result) => {
   let sql =
     "UPDATE user SET name=?,alias=?,gender=?,date=?,tel=?,job=?,address=?,email=?,profilepic=?,upperpic=?,lowerpic=? WHERE id = ?";
-  dbConnection.query(
+  db.query(
     sql,
     [
       userReqData.name,
@@ -100,7 +111,7 @@ User.updateUser = (id, userReqData, result) => {
 //delete user
 User.deleteUser = (id, result) => {
   let sql = "DELETE FROM user WHERE id = ?";
-  dbConnection.query(sql, id, (err, res) => {
+  db.query(sql, id, (err, res) => {
     if (!err) {
       console.log("user deleted successfully");
       result(null, res);
