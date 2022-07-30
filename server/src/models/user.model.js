@@ -1,15 +1,4 @@
 var db = require("../../config/db.config");
-// const Sequelize = require("sequelize");
-
-// module.exports = sequelize.define("User", {
-//   id: {
-//     type: Sequelize.INTEGER(10),
-//     allowNull: false,
-//     autoIncrement: true,
-//     primaryKey: true,
-//   },
-//   name: Sequelize.STRING(50),
-// });
 
 //constructor
 var User = function (user) {
