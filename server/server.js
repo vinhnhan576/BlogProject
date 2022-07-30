@@ -1,19 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const connectDb = require("./config/db.config");
+
+require("dotenv").config();
 
 const app = express();
 
-const port = process.env.port || 5000;
-
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const userRoutes = require("./src/routes/user.routes");
-app.use("/api/user", userRoutes);
+const port = process.env.PORT || 8080;
 
-const createTableRoutes = require("./config/createtable.config");
-app.use("/createtable", createTableRoutes);
+connectDb();
+
+const userRoutes = require("./routes/user.routes");
+app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("hello world");
