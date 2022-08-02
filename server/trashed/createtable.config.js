@@ -2,7 +2,7 @@ const mysql = require("mysql");
 const express = require("express");
 const router = express.Router();
 
-const dbConnection = require("./db.config");
+const dbConnection = require("../config/db.config");
 
 router.get("/createusertable", (req, res) => {
   let sql =

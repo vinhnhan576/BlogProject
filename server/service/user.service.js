@@ -3,7 +3,9 @@ const db = require("../models");
 let getAllUsers = async () => {
   return new Promise(async (resolve, reject) => {
     try {
-      await db.User.findAll().then((userList) => {
+      await db.User.findAll({
+        include: [{ model: db.Account, as: "Account" }],
+      }).then((userList) => {
         if (userList) {
           resolve(userList);
         }
@@ -18,7 +20,9 @@ let getAllUsers = async () => {
 let getUserByID = async (id) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let user = await db.User.findByPk(id);
+      let user = await db.User.findByPk(id, {
+        include: [{ model: db.Account, as: "Account" }],
+      });
       if (user) resolve(user);
       resolve("Cannot find user with id " + id);
     } catch (e) {
