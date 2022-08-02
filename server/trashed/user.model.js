@@ -1,4 +1,4 @@
-var db = require("../../config/db.config");
+var db = require("../config/db.config");
 
 //constructor
 var User = function (user) {

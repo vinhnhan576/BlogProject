@@ -13,8 +13,8 @@ const port = process.env.PORT || 8080;
 
 connectDb();
 
-const userRoutes = require("./routes/user.routes");
-app.use("/api/user", userRoutes);
+const apiRoutes = require("./routes/api.routes");
+app.use("/api", apiRoutes);
 
 app.get("/", (req, res) => {
   res.send("hello world");
