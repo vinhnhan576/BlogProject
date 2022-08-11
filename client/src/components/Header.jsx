@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import searchIcon from "../assets/icon/searchIcon.png";
-
 const mainNav = [
   {
     display: "TRANG CHỦ",
@@ -44,7 +42,10 @@ function Header() {
   return (
     <div className="header" ref={headerRef}>
       <div className="container">
-        <div className="header__logo">Huong Le Blog</div>
+        <div className="header__logo">
+          Huong Le Blog
+          <img src="" alt="" />
+        </div>
         <div className="header__menu">
           <div className="header__menu__mobile-toggle" onClick={menuToggle}>
             <i className="bx bx-menu-alt-left"></i>
