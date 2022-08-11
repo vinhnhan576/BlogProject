@@ -23,12 +23,12 @@ a {
   color: unset;
 
   &:hover {
-    color: $text-secondary-color;
+    color: $text-primary-color;
   }
 }
 
 i {
-  color: white;
+  color: $primary-color;
 }
 
 .container {
