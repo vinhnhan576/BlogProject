@@ -65,7 +65,7 @@ function Header() {
           </div>
           <div className="header__menu__right">
             <div className="header__menu__right__item header__menu__item">
-              <img src={searchIcon} alt="" />
+              <i class="bx bx-search-alt-2"></i>
             </div>
           </div>
         </div>
