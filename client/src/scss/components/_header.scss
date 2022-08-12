@@ -50,7 +50,6 @@
       color: $primary-color;
       font-family: "Dancing Script", sans-serif;
       font-size: 50px;
-
       @include mobile {
         font-size: 22px;
       }

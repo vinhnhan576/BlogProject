@@ -1,0 +1,44 @@
+.whole{
+    display: inline-flex;
+    margin-left: 8em;
+&__whole1 {
+    border: 2px solid white;
+    height: 46em;
+    margin-top: 20em;
+    width: 34.5em;
+    border-radius: 15px;
+    &__part1 {
+     img {
+      margin-top: 50px;
+      border-radius: 15px;
+      position: relative;
+      top: -5em;
+      right: 1em;
+    //   box-shadow: 6px 6px 6px white;
+    }}}
+&__whole2 {
+border: 2px solid white;
+height: 20em;
+margin-top: 20em;
+width: 69em;
+border-radius: 15px;
+position: relative;
+left: -6em;
+top: 6em;
+    &__greeting {
+    position: relative;
+    left: -4em;
+    top: -15.9em;
+    font-size: 30px;
+    font-weight: 100;
+    color: white;
+    width: 30em;
+    height: fit-content;
+    margin-top: 15em;
+    margin-left: 3em;
+    border-radius: 10px;
+    padding-left: 2em;
+    background-color: rgba(52,24,12,1);
+    font-family: "Dancing Script", sans-serif;
+}}
+}
