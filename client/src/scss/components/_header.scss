@@ -97,6 +97,15 @@
       @include flex(flex-start, center);
       padding-top: 20px;
       height: 100%;
+
+      @include tablet {
+        @include flex(center, center);
+        padding-top: 0;
+      }
+      @include mobile {
+        @include flex(center, center);
+        padding-top: 0;
+      }
     }
 
     &__right {
@@ -142,7 +151,6 @@
 
     &__left {
       &__item {
-        
         font-family: "Genos", sans-serif;
         color: $text-secondary-color;
       }
