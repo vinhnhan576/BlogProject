@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+
+import Helmet from "../components/Helmet";
 
 function Category() {
-  return (
-    <div>Category</div>
-  )
+  return <Helmet title="Chủ đề">Category</Helmet>;
 }
 
-export default Category
+export default Category;

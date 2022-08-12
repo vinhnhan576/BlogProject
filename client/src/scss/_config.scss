@@ -7,11 +7,13 @@
   margin: 0;
   padding: 0;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   font-size: 13px;
   font-family: "Roboto", sans-serif;
+  background-color: $primary-bg;
 }
 
 ul {

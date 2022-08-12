@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+
+import Helmet from "../components/Helmet";
 
 function About() {
-  return (
-    <div>About</div>
-  )
+  return <Helmet title="Tớ là?">TỚ LÀ</Helmet>;
 }
 
-export default About
+export default About;

@@ -19,11 +19,23 @@
 
   .container {
     height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background: url("../../assets/image/banner/banner.png") center bottom -20px;
+    transition: background-image 0.3s ease-in-out;
+
+    &.shrink {
+      background: url("../../assets/image/banner/banner.png") center bottom -20px;
+    }
   }
 
   &.shrink {
     height: $header-shrink-height;
     box-shadow: $box-shadow;
+
+    @include mobile {
+      height: $header-mobile-shrink-height;
+    }
   }
 
   &__logo {
@@ -31,12 +43,25 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    transition: all 0.3s ease;
+    margin-top: $header-height;
 
-    img {
-      height: 28px;
+    p {
+      color: $primary-color;
+      font-family: "Dancing Script", sans-serif;
+      font-size: 50px;
 
       @include mobile {
-        height: 16px;
+        font-size: 22px;
+      }
+    }
+
+    &.shrink {
+      margin-top: $header-shrink-height;
+      // transform: scale(125%);
+
+      @include mobile {
+        margin-top: $header-mobile-shrink-height;
       }
     }
   }
@@ -69,7 +94,8 @@
 
     &__left,
     &__right {
-      @include flex(center, center);
+      @include flex(flex-start, center);
+      padding-top: 20px;
       height: 100%;
     }
 
@@ -116,6 +142,7 @@
 
     &__left {
       &__item {
+        
         font-family: "Genos", sans-serif;
         color: $text-secondary-color;
       }
