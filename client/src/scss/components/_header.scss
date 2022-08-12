@@ -55,11 +55,20 @@
       }
     }
 
+    @include tablet {
+      margin-top: $header-tablet-height;
+    }
+
+    @include mobile {
+      margin-top: 0;
+    }
+
     &.shrink {
       margin-top: $header-shrink-height;
       // transform: scale(125%);
 
       @include mobile {
+        transform: scale(125%);
         margin-top: $header-mobile-shrink-height;
       }
     }
