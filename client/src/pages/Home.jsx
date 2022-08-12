@@ -1,8 +1,10 @@
 import React from 'react'
 
+import Helmet from "../components/Helmet";
+
 function Home() {
   return (
-    <div>Home</div>
+    <Helmet title='Trang chủ'>Trang chủ</Helmet>
   )
 }
 

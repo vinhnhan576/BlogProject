@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+
+import Helmet from "../components/Helmet";
 
 function Title() {
-  return (
-    <div>Title</div>
-  )
+  return <Helmet title="Blog">Bài viết</Helmet>;
 }
 
-export default Title
+export default Title;

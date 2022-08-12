@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import Banner from "../assets/image/banner/banner.png";
+
 const mainNav = [
   {
     display: "TRANG CHỦ",
@@ -21,13 +23,19 @@ function Header() {
   const activeNav = mainNav.findIndex((e) => e.path === pathName);
 
   const headerRef = useRef(null);
+  const logoRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (document.documentElement.scrollTop > 80) {
         headerRef.current.classList.add("shrink");
+        logoRef.current.classList.add("shrink");
+        containerRef.current.classList.add("shrink");
       } else {
         headerRef.current.classList.remove("shrink");
+        logoRef.current.classList.remove("shrink");
+        containerRef.current.classList.remove("shrink");
       }
     });
     return () => {
@@ -41,10 +49,11 @@ function Header() {
 
   return (
     <div className="header" ref={headerRef}>
-      <div className="container">
-        <div className="header__logo">
-          Huong Le Blog
-          <img src="" alt="" />
+      <div className="container" ref={containerRef}>
+        <div className="header__logo" ref={logoRef}>
+          <Link to="/">
+            <p>Huong Le Blog</p>
+          </Link>
         </div>
         <div className="header__menu">
           <div className="header__menu__mobile-toggle" onClick={menuToggle}>
@@ -56,6 +65,7 @@ function Header() {
             </div>
             {mainNav.map((item, index) => (
               <div
+                onClick={menuToggle}
                 key={index}
                 className={`header__menu__left__item header__menu__item ${
                   activeNav === index ? "active" : ""
@@ -66,7 +76,7 @@ function Header() {
           </div>
           <div className="header__menu__right">
             <div className="header__menu__right__item header__menu__item">
-              <i class="bx bx-search-alt-2"></i>
+              <i class="bx bx-search"></i>
             </div>
           </div>
         </div>
