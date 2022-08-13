@@ -112,6 +112,7 @@ $mobile-border-radius: 10px;
 }
 &__icon {
   height: fit-content;
+  margin-top: 7em;
   @include flex(center,center);
   img{
     height: 8em;
@@ -119,11 +120,12 @@ $mobile-border-radius: 10px;
     padding-top:0;
   }}
 &__pic {
-  margin-top: 5em;
+  margin-top: 7em;
   @include flex(center,center);
   img {
     width: 100em;
     height: 50em;
+    border-radius: $border-radius;
   }
 }
 &__intro {
