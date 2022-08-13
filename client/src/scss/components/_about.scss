@@ -10,7 +10,8 @@ $mobile-shrink-ratio: 3.55;
 $border-radius: 15px;
 $mobile-border-radius: 10px;
 
-.whole {
+.bigwhole{
+&__whole {
   display: inline-flex;
   padding-left: 8em;
   padding-top: 5em;
@@ -93,6 +94,7 @@ $mobile-border-radius: 10px;
       width: 100%;
       margin: 20px;
       border-radius: $border-radius;
+      padding-left: 1em;
 
       @include tablet {
         font-size: 21px;
@@ -107,4 +109,46 @@ $mobile-border-radius: 10px;
       z-index: -8;
     }
   }
+}
+&__icon {
+  height: fit-content;
+  margin-top: 7em;
+  @include flex(center,center);
+  img{
+    height: 8em;
+    width: 55em;
+    padding-top:0;
+  }}
+&__pic {
+  margin-top: 7em;
+  @include flex(center,center);
+  img {
+    width: 100em;
+    height: 50em;
+    border-radius: $border-radius;
+  }
+}
+&__intro {
+  margin-top: 50px;
+  font-size: 80px;
+  color: white;
+  text-align:left;
+  font-family:"Dancing Script", sans-serif;
+}
+&__concept {
+  margin-top: 30px;
+  font-size: 50px;
+  color: white;
+  text-align:left;
+  font-family:"Dancing Script", sans-serif;
+  border-top: 2px dotted white;
+}
+&__sign {
+  text-align: right;
+  margin-top: 2em;
+  img {
+    height: 6em;
+    width: 20em;
+  }
+}
 }
