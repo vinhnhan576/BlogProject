@@ -4,6 +4,9 @@ const sequelize = new Sequelize("dbblog", "root", "", {
   host: "localhost",
   dialect: "mysql",
   logging: false,
+  define: {
+    timestamps: false,
+  },
 });
 
 let connectDB = async () => {

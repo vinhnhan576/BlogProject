@@ -52,10 +52,10 @@ module.exports = {
     });
     await queryInterface.addColumn("Users", "testID", {
       type: Sequelize.INTEGER,
-      references: {
-        model: "User",
-        key: "id",
-      },
+      // references: {
+      //   model: "User",
+      //   key: "id",
+      // },
     });
   },
   async down(queryInterface, Sequelize) {
