@@ -1,0 +1,61 @@
+
+.body{
+     font-family: "Roboto", sans-serif;
+}
+.container{
+.topic{
+    display: inline-flex;
+    width: 85%;
+    &-name{
+        font-size:3.5em;
+        color: white;
+        font-weight:400;
+        letter-spacing: 0.1rem;
+    }
+    &-underline{
+        margin-left: 1em;
+        width: 75%;
+        height: 4em;
+        position: relative;
+        top:2em;
+        border-top: 2px solid white;
+    }
+}
+}
+
+.body{
+    display: inline-flex;
+    margin-top: 2em;
+    &-image {    
+    width: 25em;
+    height:25em;
+    border: 1px solid white;
+    border-radius: 10px;
+    img{
+        position: relative;
+        right: 1em;
+        top:-1em;
+        border-radius: 10px;
+        width: 25em;
+        height: 25em;
+    }
+}
+    &-content{
+        margin-left: 2em;
+        h3{
+        width: 6.5em;
+        font-size:2.5em;
+        border-bottom: 1.5px solid white;
+        color: white;
+        font-weight:400;
+        letter-spacing: 0.2rem;
+        }
+        p{
+            margin-top: 1.5em;
+            color: white;
+            font-size: 1.4em;
+            font-weight: 200;
+        }
+    }
+}
+   
