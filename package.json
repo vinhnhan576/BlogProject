@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/vinhnhan576/BlogProject/issues"
   },
-  "homepage": "https://github.com/vinhnhan576",
+  "homepage": "https://github.com/vinhnhan576/BlogProject#readme",
   "dependencies": {
     "gh-pages": "^4.0.0"
   }
