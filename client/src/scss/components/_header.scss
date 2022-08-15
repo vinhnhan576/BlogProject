@@ -50,10 +50,17 @@
       color: $primary-color;
       font-family: "Dancing Script", sans-serif;
       font-size: 50px;
-
       @include mobile {
         font-size: 22px;
       }
+    }
+
+    @include tablet {
+      margin-top: $header-tablet-height;
+    }
+
+    @include mobile {
+      margin-top: 0;
     }
 
     &.shrink {
@@ -61,6 +68,7 @@
       // transform: scale(125%);
 
       @include mobile {
+        transform: scale(125%);
         margin-top: $header-mobile-shrink-height;
       }
     }
