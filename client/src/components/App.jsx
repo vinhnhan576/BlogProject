@@ -1,24 +1,10 @@
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import React from "react";
 
-import Footer from "./Footer";
-import Header from "./Header";
-import Routes from "../routes/routes";
+import Layout from "./Layout";
+import Login from "../pages/Login";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Header></Header>
-        
-        <div className="container">
-          <div className="main">
-            <Routes />
-          </div>
-        </div>
-        <Footer></Footer>
-      </div>
-    </BrowserRouter>
-  );
-}
+const App = () => {
+	return <Layout />;
+};
 
 export default App;

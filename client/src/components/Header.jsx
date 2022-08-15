@@ -4,18 +4,18 @@ import { Link, useLocation } from "react-router-dom";
 import Banner from "../assets/image/banner/banner.png";
 
 const mainNav = [
-  {
-    display: "TRANG CHỦ",
-    path: "/",
-  },
-  {
-    display: "TỚ LÀ?",
-    path: "/about",
-  },
-  {
-    display: "CHỦ ĐỀ",
-    path: "/category",
-  },
+	{
+		display: "TRANG CHỦ",
+		path: "/",
+	},
+	{
+		display: "TỚ LÀ?",
+		path: "/about",
+	},
+	{
+		display: "CHỦ ĐỀ",
+		path: "/topic",
+	},
 ];
 
 function Header() {
@@ -48,41 +48,41 @@ function Header() {
   const menuToggle = () => menuLeft.current.classList.toggle("active");
 
   return (
-    <div className="header" ref={headerRef}>
-      <div className="container" ref={containerRef}>
-        <div className="header__logo" ref={logoRef}>
-          <Link to="/">
-            <p>Huong Le Blog</p>
-          </Link>
-        </div>
-        <div className="header__menu">
-          <div className="header__menu__mobile-toggle" onClick={menuToggle}>
-            <i className="bx bx-menu-alt-left"></i>
-          </div>
-          <div className="header__menu__left" ref={menuLeft}>
-            <div className="header__menu__left__close" onClick={menuToggle}>
-              <i className="bx bx-x"></i>
-            </div>
-            {mainNav.map((item, index) => (
-              <div
-                onClick={menuToggle}
-                key={index}
-                className={`header__menu__left__item header__menu__item ${
-                  activeNav === index ? "active" : ""
-                }`}>
-                <Link to={item.path}>{item.display}</Link>
-              </div>
-            ))}
-          </div>
-          <div className="header__menu__right">
-            <div className="header__menu__right__item header__menu__item">
-              <i class="bx bx-search"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+		<div className="header" ref={headerRef}>
+			<div className="container" ref={containerRef}>
+				<div className="header__logo" ref={logoRef}>
+					<Link to="/BlogProject/">
+						<p>Huong Le Blog</p>
+					</Link>
+				</div>
+				<div className="header__menu">
+					<div className="header__menu__mobile-toggle" onClick={menuToggle}>
+						<i className="bx bx-menu-alt-left"></i>
+					</div>
+					<div className="header__menu__left" ref={menuLeft}>
+						<div className="header__menu__left__close" onClick={menuToggle}>
+							<i className="bx bx-x"></i>
+						</div>
+						{mainNav.map((item, index) => (
+							<div
+								onClick={menuToggle}
+								key={index}
+								className={`header__menu__left__item header__menu__item ${
+									activeNav === index ? "active" : ""
+								}`}>
+								<Link to={item.path}>{item.display}</Link>
+							</div>
+						))}
+					</div>
+					<div className="header__menu__right">
+						<div className="header__menu__right__item header__menu__item">
+							<i class="bx bx-search"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default Header;
