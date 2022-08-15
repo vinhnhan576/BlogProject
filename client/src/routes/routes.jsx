@@ -11,8 +11,8 @@ function routes() {
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/about" element={<About />} />
-			<Route path="category" element={<Category />} />
-			<Route path="/category/:slug" element={<Blog />} />
+			<Route path="/topic" element={<Category />} />
+			<Route path="/topic/:slug" element={<Blog />} />
 		</Routes>
 	);
 }
