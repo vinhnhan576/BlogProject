@@ -10,6 +10,6 @@ router.get("/", accountController.getAllAccounts);
 router.get("/:id", accountController.getAccountByID);
 
 //add new account
-router.post("/", accountController.addNewUser);
+router.post("/", accountController.addNewAccount);
 
 module.exports = router;
