@@ -15,7 +15,7 @@ export const getAllBlogsByUserIDAsync = createAsyncThunk(
 const PostSlice = createSlice({
   name: "post",
   initialState: [],
-  reducers: {},
+  reducers: {}, 
   extraReducers: {
     [getAllBlogsByUserIDAsync.fulfilled]: (state, action) => {
       console.log("fetching data successfully");
