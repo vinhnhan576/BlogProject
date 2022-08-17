@@ -8,12 +8,13 @@ import Banner from "../components/Banner";
 
 function Blog(props) {
 	const slug = useParams();
+	console.log(slug);
 	var blog;
 
 	return (
 		<Helmet title="Blog">
 			<div className="blog">
-				<Banner img={testImg} quote="sup bitch" />
+				<Banner img={testImg} quote="hi mn" />
 				<div className="blog__timestamp">Huế 14/8/2022</div>
 				<div className="blog__content">
 					<div className="blog__content__title">
