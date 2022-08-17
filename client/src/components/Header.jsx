@@ -6,15 +6,15 @@ import Banner from "../assets/image/banner/banner.png";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
-		path: "/BlogProject/",
+		path: "/",
 	},
 	{
 		display: "TỚ LÀ?",
-		path: "/BlogProject/about",
+		path: "/about",
 	},
 	{
 		display: "CHỦ ĐỀ",
-		path: "/BlogProject/topic",
+		path: "/topic",
 	},
 ];
 
