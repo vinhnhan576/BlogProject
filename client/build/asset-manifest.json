@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/BlogProject/static/css/main.80fc0a2d.css",
-    "main.js": "/BlogProject/static/js/main.c59906e9.js",
+    "main.css": "/BlogProject/static/css/main.f2a386cb.css",
+    "main.js": "/BlogProject/static/js/main.aadc3248.js",
     "static/js/787.c4e7f8f9.chunk.js": "/BlogProject/static/js/787.c4e7f8f9.chunk.js",
     "static/media/boxicons.svg": "/BlogProject/static/media/boxicons.0153fb5e5b5f697b4bcc.svg",
     "static/media/banner.png": "/BlogProject/static/media/banner.e942bfc471088867ddb7.png",
+    "static/media/login-image-01.png": "/BlogProject/static/media/login-image-01.85d0dba7b256f583107c.png",
     "static/media/xinchao2.png": "/BlogProject/static/media/xinchao2.a60b52917fa00d706c02.png",
     "static/media/boxicons.eot": "/BlogProject/static/media/boxicons.21f7c5dd64d88e1fc666.eot",
     "static/media/xinchao.png": "/BlogProject/static/media/xinchao.26cafb56986644554d1b.png",
@@ -15,12 +16,12 @@
     "static/media/sloganblog.png": "/BlogProject/static/media/sloganblog.f391c6d4b755859fceb1.png",
     "static/media/Logo.png": "/BlogProject/static/media/Logo.3e47ded7734e8f247fb9.png",
     "index.html": "/BlogProject/index.html",
-    "main.80fc0a2d.css.map": "/BlogProject/static/css/main.80fc0a2d.css.map",
-    "main.c59906e9.js.map": "/BlogProject/static/js/main.c59906e9.js.map",
+    "main.f2a386cb.css.map": "/BlogProject/static/css/main.f2a386cb.css.map",
+    "main.aadc3248.js.map": "/BlogProject/static/js/main.aadc3248.js.map",
     "787.c4e7f8f9.chunk.js.map": "/BlogProject/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80fc0a2d.css",
-    "static/js/main.c59906e9.js"
+    "static/css/main.f2a386cb.css",
+    "static/js/main.aadc3248.js"
   ]
 }
