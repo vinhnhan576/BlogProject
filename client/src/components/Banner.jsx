@@ -8,7 +8,7 @@ const Banner = (props) => {
 				<img
 					src={props.img}
 					alt=""
-					// style={{ height: `${Number(props.height)}px` }}
+					style={{ height: `${Number(props.height)}px` }}
 				/>
 				<div className="banner__quote">"{props.quote}"</div>
 			</div>
