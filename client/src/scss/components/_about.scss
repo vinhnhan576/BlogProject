@@ -97,16 +97,20 @@ $mobile-border-radius: 10px;
       padding-left: 1em;
 
       @include tablet {
-        font-size: 21px;
+        font-size: 25px;
+        height: fit-content;
       }
 
       @include mobile {
-        font-size: 13px;
+        font-size: 17px;
       }
     }
 
     &__outline {
       z-index: -8;
+      @include tablet {
+        height: calc();
+      }
     }
   }
 }
@@ -114,6 +118,15 @@ $mobile-border-radius: 10px;
   height: fit-content;
   margin-top: 7em;
   @include flex(center,center);
+  @include tablet {
+    height: calc(#{$upper-pic-height} / #{$tablet-shrink-ratio});
+    width: calc(#{$upper-pic-width} / #{$tablet-shrink-ratio});
+  }
+
+  @include mobile {
+    height: calc(#{$upper-pic-height} / #{$mobile-shrink-ratio});
+    width: calc(#{$upper-pic-width} / #{$mobile-shrink-ratio});
+  }
   img{
     height: 8em;
     width: 55em;

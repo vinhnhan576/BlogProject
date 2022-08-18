@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import Banner from "../assets/image/banner/banner.png";
-
 const mainNav = [
   {
     display: "TRANG CHỦ",
@@ -69,7 +68,8 @@ function Header() {
                 key={index}
                 className={`header__menu__left__item header__menu__item ${
                   activeNav === index ? "active" : ""
-                }`}>
+                }`}
+              >
                 <Link to={item.path}>{item.display}</Link>
               </div>
             ))}
@@ -77,6 +77,8 @@ function Header() {
           <div className="header__menu__right">
             <div className="header__menu__right__item header__menu__item">
               <i class="bx bx-search"></i>
+              <i class="bx bx-bell"></i>
+              <i class="bx bx-wrench"></i>
             </div>
           </div>
         </div>
