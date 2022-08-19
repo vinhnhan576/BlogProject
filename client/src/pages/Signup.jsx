@@ -41,26 +41,60 @@ const Login = () => {
       <form className="login__form" onSubmit={handleLogin}>
         <div className="login__form__item">
           <div className="login__form__item">
-            <div className="login__form__item__title">Full name </div>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              onChange={handleChange("username")}
-              placeholder={"Cẩm Lan Sục".toString()}
-            />
+            <div className="login__form__item__whole__small__title">
+              <div className="login__form__item__small__title">
+                <div className="login__form__item__title"> Họ</div>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  onChange={handleChange("username")}
+                  placeholder={"Cẩm".toString()}
+                />{" "}
+              </div>
+              <div className="login__form__item__small__title">
+                <div className="login__form__item__title"> Tên</div>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  onChange={handleChange("username")}
+                  placeholder={"Sục".toString()}
+                />
+              </div>
+            </div>
           </div>
-          <div className="login__form__item__title">Gmail</div>
+          <div className="login__form__item__title">Tên tài khoản </div>
           <input
             type="text"
             name="username"
             id="username"
             onChange={handleChange("username")}
-            placeholder={"bloggit@gmail.com".toString()}
+            placeholder={"huongleehere".toString()}
           />
         </div>
         <div className="login__form__item">
-          <div className="login__form__item__title">Phone number </div>
+          <div className="login__form__item__title">Mật khẩu</div>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={handleChange("password")}
+            placeholder={"Abc_123456".toString()}
+          />
+        </div>
+        <div className="login__form__item">
+          <div className="login__form__item__title">Gmail </div>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            onChange={handleChange("username")}
+            placeholder={"Bloggit@gmail.com".toString()}
+          />
+        </div>
+        <div className="login__form__item">
+          <div className="login__form__item__title">Số điện thoại </div>
           <input
             type="text"
             name="username"
@@ -70,17 +104,17 @@ const Login = () => {
           />
         </div>
         <div className="login__form__item">
-          <div className="login__form__item__title">Job </div>
+          <div className="login__form__item__title">Ngày sinh </div>
           <input
             type="text"
             name="username"
             id="username"
             onChange={handleChange("username")}
-            placeholder={"Má thiên hạ".toString()}
+            placeholder={"02/11/2002".toString()}
           />
         </div>
         <div className="login__form__item">
-          <div className="login__form__item__title">Address </div>
+          <div className="login__form__item__title">Địa chỉ </div>
           <input
             type="text"
             name="username"
@@ -89,35 +123,15 @@ const Login = () => {
             placeholder={"ex: Thủy Phương, Hương Thủy".toString()}
           />
         </div>
-        <div className="login__form__item">
-          <div className="login__form__item__title">Date of birth </div>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            onChange={handleChange("username")}
-            placeholder={"Nhập đây nè má".toString()}
-          />
-        </div>
 
         <div className="login__form__item">
-          <div className="login__form__item__title"> Account </div>
+          <div className="login__form__item__title"> Nghề nghiệp </div>
           <input
             type="text"
             name="username"
             id="username"
             onChange={handleChange("username")}
-            placeholder={"Nhập đây nè má".toString()}
-          />
-        </div>
-        <div className="login__form__item">
-          <div className="login__form__item__title">Password</div>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={handleChange("password")}
-            placeholder={"Nhập đây nè má".toString()}
+            placeholder={"Má thiên hạ".toString()}
           />
         </div>
         <button type="submit" className="login__form__button">
