@@ -136,6 +136,20 @@
         }
       }
 
+      &__pfp{
+        width:  2.5rem;
+        height: 2.5rem;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-left: 10px;
+
+        img{
+          width: 2.5rem;
+          position: relative;
+          top: -20%;
+        }
+      }
+
       @include mobile {
         font-size: 1.5rem;
       }
