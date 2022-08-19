@@ -1,7 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectAccount } from "../features/account/accountSlice";
 
 import Banner from "../assets/image/banner/banner.png";
+import pfp from "../assets/image/user/pfp.jpg";
 
 const mainNav = [
 	{
@@ -19,35 +22,37 @@ const mainNav = [
 ];
 
 function Header() {
-  const pathName = useLocation().pathname;
-  const activeNav = mainNav.findIndex((e) => e.path === pathName);
+	const pathName = useLocation().pathname;
+	const activeNav = mainNav.findIndex((e) => e.path === pathName);
 
-  const headerRef = useRef(null);
-  const logoRef = useRef(null);
-  const containerRef = useRef(null);
+	const headerRef = useRef(null);
+	const logoRef = useRef(null);
+	const containerRef = useRef(null);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (document.documentElement.scrollTop > 80) {
-        headerRef.current.classList.add("shrink");
-        logoRef.current.classList.add("shrink");
-        containerRef.current.classList.add("shrink");
-      } else {
-        headerRef.current.classList.remove("shrink");
-        logoRef.current.classList.remove("shrink");
-        containerRef.current.classList.remove("shrink");
-      }
-    });
-    return () => {
-      window.removeEventListener("scroll", null);
-    };
-  }, []);
+	const account = useSelector(selectAccount);
 
-  const menuLeft = useRef(null);
+	useEffect(() => {
+		window.addEventListener("scroll", () => {
+			if (document.documentElement.scrollTop > 80) {
+				headerRef.current.classList.add("shrink");
+				logoRef.current.classList.add("shrink");
+				containerRef.current.classList.add("shrink");
+			} else {
+				headerRef.current.classList.remove("shrink");
+				logoRef.current.classList.remove("shrink");
+				containerRef.current.classList.remove("shrink");
+			}
+		});
+		return () => {
+			window.removeEventListener("scroll", null);
+		};
+	}, []);
 
-  const menuToggle = () => menuLeft.current.classList.toggle("active");
+	const menuLeft = useRef(null);
 
-  return (
+	const menuToggle = () => menuLeft.current.classList.toggle("active");
+
+	return (
 		<div className="header" ref={headerRef}>
 			<div className="container" ref={containerRef}>
 				<div className="header__logo" ref={logoRef}>
@@ -78,6 +83,13 @@ function Header() {
 						<div className="header__menu__right__item header__menu__item">
 							<i class="bx bx-search"></i>
 						</div>
+						{account ? (
+							<div className="header__menu__right__pfp">
+								<img src={pfp} alt="" />
+							</div>
+						) : (
+							""
+						)}
 					</div>
 				</div>
 			</div>
