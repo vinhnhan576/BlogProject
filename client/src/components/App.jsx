@@ -1,23 +1,29 @@
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import React from "react";
+import { useSelector } from "react-redux";
+import { Route, Routes, HashRouter } from "react-router-dom";
 
-import Footer from "./Footer";
-import Header from "./Header";
-import Routes from "../routes/routes";
+import Layout from "./Layout";
+import Signup from "../pages/Signup";
+import Login from "../pages/Login";
+import { selectAccount } from "../features/account/accountSlice";
 
-function App() {
+const App = () => {
+  const account = useSelector(selectAccount);
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header></Header>
-        <div className="container">
-          <div className="main">
-            <Routes />
-          </div>
-        </div>
-        <Footer></Footer>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      {account ? (
+        <Layout />
+      ) : (
+        <HashRouter>
+          <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/" element={<Login />} />
+          </Routes>
+        </HashRouter>
+      )}
+    </div>
   );
-}
+};
 
 export default App;

@@ -3,18 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 
 import Banner from "../assets/image/banner/banner.png";
 const mainNav = [
-  {
-    display: "TRANG CHỦ",
-    path: "/",
-  },
-  {
-    display: "TỚ LÀ?",
-    path: "/about",
-  },
-  {
-    display: "CHỦ ĐỀ",
-    path: "/category",
-  },
+	{
+		display: "TRANG CHỦ",
+		path: "/",
+	},
+	{
+		display: "TỚ LÀ?",
+		path: "/about",
+	},
+	{
+		display: "CHỦ ĐỀ",
+		path: "/topic",
+	},
 ];
 
 function Header() {
@@ -76,9 +76,9 @@ function Header() {
           </div>
           <div className="header__menu__right">
             <div className="header__menu__right__item header__menu__item">
-              <i class="bx bx-search"></i>
-              <i class="bx bx-bell"></i>
-              <i class="bx bx-wrench"></i>
+              <i className="bx bx-search"></i>
+              <i className="bx bx-bell"></i>
+              <i className="bx bx-wrench"></i>
             </div>
           </div>
         </div>

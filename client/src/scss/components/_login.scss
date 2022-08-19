@@ -1,0 +1,81 @@
+.login {
+	@include mobile {
+		@include flex(center, center);
+	}
+
+	&__image {
+		position: absolute;
+		top: 12%;
+		left: 10%;
+		z-index: 1;
+
+		img {
+			height: 560px;
+		}
+
+		@include mobile {
+			display: none;
+			// position: relative;
+		}
+	}
+
+	&__logo {
+    margin-bottom: 40px;
+
+		img {
+			height: 200px;
+		}
+	}
+
+	&__form {
+		display: block;
+		position: absolute;
+		height: 100vh;
+		width: 64%;
+		right: 0;
+		@include flex(center, center);
+		flex-direction: column;
+
+		@include mobile {
+			position: relative;
+		}
+
+		&__item {
+      margin-bottom: 20px;
+
+			&__title {
+				font-family: "Lobster", cursive;
+				font-size: 21px;
+				color: $text-primary-color;
+			}
+
+			input {
+				width: 360px;
+				line-height: 36px;
+				font-family: "Lobster", cursive;
+				font-size: 21px;
+				background: $primary-color;
+				color: $text-inverted-color;
+				outline: none;
+				border: none;
+				padding: 0 15px;
+				// padding-left: 20px;
+				border-radius: 18px;
+			}
+		}
+
+		&__button {
+			width: 360px;
+			height: 45px;
+			font-family: "Lobster", cursive;
+			font-size: 28px;
+			background-color: $button-primary-color;
+			color: $text-primary-color;
+			outline: none;
+			border: none;
+			cursor: pointer;
+			border-radius: 12px;
+			margin: 5px 3px;
+    }
+	}
+}
