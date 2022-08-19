@@ -5,7 +5,6 @@ import { selectAccount } from "../features/account/accountSlice";
 
 import Banner from "../assets/image/banner/banner.png";
 import pfp from "../assets/image/user/pfp.jpg";
-
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -49,7 +48,6 @@ function Header() {
 	}, []);
 
 	const menuLeft = useRef(null);
-
 	const menuToggle = () => menuLeft.current.classList.toggle("active");
 
 	return (
@@ -95,6 +93,7 @@ function Header() {
 			</div>
 		</div>
 	);
+
 }
 
 export default Header;
