@@ -4,6 +4,9 @@ const router = express.Router();
 const userController = require("../controllers/user.controllers");
 const db = require("../models");
 
+//get user by username
+router.post("/getuserbyusername/", userController.getUserByUsername);
+
 //get all users
 router.get("/", userController.getAllUsers);
 

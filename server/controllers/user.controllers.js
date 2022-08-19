@@ -1,28 +1,33 @@
 const userService = require("../service/user.service");
 
 exports.getAllUsers = async (req, res) => {
-  let userList = await userService.getAllUsers();
-  return res.send(userList);
+	let userList = await userService.getAllUsers();
+	return res.send(userList);
 };
 
 exports.getUserByID = async (req, res) => {
-  let user = await userService.getUserByID(req.params.id);
-  return res.send(user);
+	let user = await userService.getUserByID(req.params.id);
+	return res.send(user);
 };
 
 exports.addNewUser = async (req, res) => {
-  let message = await userService.addNewUser(req.body);
-  return res.send(message);
+	let message = await userService.addNewUser(req.body);
+	return res.send(message);
 };
 
 exports.updateUser = async (req, res) => {
-  let message = await userService.updateUser(req.params.id, req.body);
-  return res.send(message);
+	let message = await userService.updateUser(req.params.id, req.body);
+	return res.send(message);
 };
 
 exports.deleteUserByID = async (req, res) => {
-  let message = await userService.deleteUserByID(req.params.id);
-  return res.send(message);
+	let message = await userService.deleteUserByID(req.params.id);
+	return res.send(message);
+};
+
+exports.getUserByUsername = async (req, res) => {
+	let user = await userService.getUserByUsername(req.body);
+	return res.send(user);
 };
 
 // //update user
