@@ -5,7 +5,7 @@ import Header from "./Header";
 import Routes from "../routes/routes";
 
 function Layout() {
-  return (
+	return (
 		<HashRouter>
 			<div className="App">
 				<Header></Header>
