@@ -40,7 +40,7 @@ const Login = () => {
       </div>
       <form className="login__form" onSubmit={handleLogin}>
         <div className="login__form__item">
-          <div className="login__form__item">
+          
             <div className="login__form__item__whole__small__title">
               <div className="login__form__item__small__title">
                 <div className="login__form__item__title"> Họ</div>
@@ -63,7 +63,8 @@ const Login = () => {
                 />
               </div>
             </div>
-          </div>
+            </div>
+            <div className="login__form__item">
           <div className="login__form__item__title">Tên tài khoản </div>
           <input
             type="text"
@@ -71,8 +72,8 @@ const Login = () => {
             id="username"
             onChange={handleChange("username")}
             placeholder={"huongleehere".toString()}
-          />
-        </div>
+          /> </div>
+        
         <div className="login__form__item">
           <div className="login__form__item__title">Mật khẩu</div>
           <input
