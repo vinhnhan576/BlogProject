@@ -98,7 +98,8 @@ $mobile-border-radius: 10px;
         padding-left: 1em;
 
         @include tablet {
-          font-size: 21px;
+          font-size: 25px;
+
         }
 
         @include mobile {
@@ -115,10 +116,17 @@ $mobile-border-radius: 10px;
     height: fit-content;
     margin-top: 7em;
     @include flex(center, center);
+    // @include tablet{
+    //   align-items: center;
+    // }
     img {
       height: 8em;
       width: 55em;
       padding-top: 0;
+      @include tablet {
+        height: 4em;
+        width: 27.5em;
+      }
     }
   }
   &__pic {
