@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { authenticateUserAsync } from "../features/account/accountSlice";
@@ -8,12 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 import loginImage01 from "../assets/image/login/login-image-01.png";
 import logo from "../assets/image/login/login-logo.png";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const Login = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const user = useSelector(selectUser);
-	console.log(user);
 
 	const initialUserState = {
 		username: "",
@@ -26,28 +26,22 @@ const Login = () => {
 		setAccount({ ...account, [input]: event.target.value });
 	};
 
-	const handleLogin = (e) => {
+	const handleLogin = async (e) => {
 		e.preventDefault();
 		console.log("form submitted");
-
-		Promise.all([
-			dispatch(
-				authenticateUserAsync({
-					username: account.username,
-					password: account.password,
-				})
-			),
-			dispatch(
-				getUserByUsernameAsync({
-					username: account.username,
-				})
-			),
-		]).then(() => {
-			console.log(user);
-			navigate(`/${user.alias}`);
-		});
-
-		console.log(user.alias);
+		dispatch(
+			authenticateUserAsync({
+				username: account.username,
+				password: account.password,
+			})
+		);
+		const result = await dispatch(
+			getUserByUsernameAsync({
+				username: account.username,
+			})
+		);
+		const originalPromiseResult = unwrapResult(result);
+		navigate(`/${originalPromiseResult.tasks.alias}`);
 	};
 
 	return (

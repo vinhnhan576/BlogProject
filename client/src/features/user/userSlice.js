@@ -4,7 +4,6 @@ import Axios from "axios";
 export const getUserByUsernameAsync = createAsyncThunk(
 	"api/user/getUserByUsernameAsync",
 	async (username) => {
-		console.log(username);
 		const response = await Axios.post(
 			"http://localhost:5000/api/user/getuserbyusername",
 			username
@@ -23,9 +22,10 @@ export const userSlice = createSlice({
 	extraReducers: {
 		[getUserByUsernameAsync.fulfilled]: (state, action) => {
 			console.log("get user by username successfully");
-			if (action.payload.tasks) state.user = action.payload.tasks;
-			else state.user = null;
-			console.log(state.user);
+			if (action.payload.tasks)
+				// state.user = action.payload.tasks;
+				return action.payload.tasks;
+			return null;
 		},
 	},
 });

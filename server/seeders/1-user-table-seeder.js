@@ -24,6 +24,16 @@ module.exports = {
 					address: "Thủy Châu, Huế",
 					email: "vinhnhan576@gmail.com",
 				},
+				{
+					name: "Nguyễn Thị Thảo Quyên",
+					alias: "Shuu211",
+					gender: false,
+					date: new Date(2, 11, 2002),
+					tel: "0845505135",
+					job: "undergraduate",
+					address: "Thủy Phương, Huế",
+					email: "thaoquyen2112002@gmail.com",
+				},
 			],
 			{}
 		);

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 
@@ -21,8 +21,11 @@ const mainNav = [
 ];
 
 function Header() {
+	const params = useParams();
 	const pathName = useLocation().pathname;
-	const activeNav = mainNav.findIndex((e) => e.path === pathName);
+	const activeNav = mainNav.findIndex(
+		(e) => `/${params.alias}`.concat(e.path) === pathName
+	);
 
 	const headerRef = useRef(null);
 	const logoRef = useRef(null);
@@ -73,15 +76,19 @@ function Header() {
 								className={`header__menu__left__item header__menu__item ${
 									activeNav === index ? "active" : ""
 								}`}>
-								<Link to={item.path}>{item.display}</Link>
+								<Link to={`/${params.alias}${item.path}`}>{item.display}</Link>
 							</div>
 						))}
 					</div>
 					<div className="header__menu__right">
 						<div className="header__menu__right__item header__menu__item">
+<<<<<<< HEAD
 							<i class="bx bx-search"></i>
 							<i class="bx bx-wrench"></i>
 							<i class="bx bx-bell"></i>
+=======
+							<i className="bx bx-search"></i>
+>>>>>>> d8044ef25c5451d52da71c161b45c5bfe5672cdf
 						</div>
 						{account ? (
 							<div className="header__menu__right__pfp">
@@ -95,7 +102,6 @@ function Header() {
 			</div>
 		</div>
 	);
-
 }
 
 export default Header;
