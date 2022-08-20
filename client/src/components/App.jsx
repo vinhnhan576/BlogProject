@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Routes, HashRouter, Navigate } from "react-router-dom";
-
-
+import { Route, Routes, HashRouter } from "react-router-dom";
 
 import Layout from "./Layout";
 import Signup from "../pages/Signup";
@@ -14,16 +12,17 @@ const App = () => {
 
 	return (
 		<div className="App">
-			{account ? (
+			{/* {account ? (
 				<Layout />
-			) : (
+			) : ( */}
 				<HashRouter>
 					<Routes>
+						<Route path="/:alias/*" element={<Layout />} />
 						<Route path="/signup" element={<Signup />} />
 						<Route path="/" element={<Login />} />
 					</Routes>
 				</HashRouter>
-			)}
+			{/* )} */}
 		</div>
 	);
 };

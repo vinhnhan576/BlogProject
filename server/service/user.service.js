@@ -106,6 +106,11 @@ let getUserByUsername = async (userReqData) => {
 						where: { username: username },
 						attributes: [],
 					},
+					{
+						model: db.Topic,
+						as: "Topic",
+						include: [{ model: db.Blog, as: "Blog" }],
+					},
 				],
 			}).then((user) => {
 				if (user) {
