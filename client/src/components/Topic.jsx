@@ -6,9 +6,11 @@ import PostSlice, {
   getAllBlogsByUserIDAsync,
 } from "../features/post/PostSlice";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Topic(props) {
   const [userID, setUserID] = useState(1);
+  const [topicID, setTopicID] = useState(1);
   const allPosts = useSelector((state) => state.post);
   console.log(allPosts);
   const dispatch = useDispatch();
@@ -29,10 +31,11 @@ export default function Topic(props) {
   return (
     <div className="container">
       <div className="topic">
-        <h2 className="topic-name">{props.topicName}</h2>
+        <h2 className="topic-name">
+          <Link to={"/topic/${topicID}"}>{props.topicName}</Link>
+        </h2>
         <div className="topic-underline"></div>
       </div>
-
       <div>{allPostsElements}</div>
     </div>
   );

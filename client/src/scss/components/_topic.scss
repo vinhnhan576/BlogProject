@@ -1,61 +1,104 @@
 
-.body{
-     font-family: "Roboto", sans-serif;
+
+.body {
+  font-family: "Roboto", sans-serif;
 }
-.container{
-.topic{
+.container {
+  .topic {
     display: inline-flex;
-    width: 85%;
-    &-name{
-        font-size:3.5em;
-        color: white;
-        font-weight:400;
-        letter-spacing: 0.1rem;
+    width: 90%;
+    &-name {
+      width: 30%;
+      font-size: 3.5em;
+      color: white;
+      font-weight: 400;
+      letter-spacing: 0.1rem;
+      padding-right: 1em;
+      @include tablet {
+        font-size: 2.5em;
+      }
+      @include mobile {
+        font-size: 1.25em
+      }
     }
-    &-underline{
-        margin-left: 1em;
-        width: 75%;
-        height: 4em;
-        position: relative;
-        top:2em;
-        border-top: 2px solid white;
+    &-underline {
+      margin-left: 1em;
+      width: 75%;
+      height: 4em;
+      position: relative;
+      top: 2em;
+      border-top: 2px solid white;
+      @include mobile {
+        top: 0.75em;
+      }
     }
-}
+  }
 }
 
-.body{
-    display: inline-flex;
-    margin-top: 2em;
-    &-image {    
-    width: 25em;
-    height:25em;
+.body {
+  display: inline-flex;
+  margin-top: 2em;
+  width:100%;
+  &-image {
+    width: $image-width;
+    height: $image-width;
     border: 1px solid white;
     border-radius: 10px;
-    img{
-        position: relative;
-        right: 1em;
-        top:-1em;
-        border-radius: 10px;
-        width: 25em;
-        height: 25em;
+    @include tablet {
+      width: 20em;
+      height: 20em;
     }
-}
-    &-content{
-        margin-left: 2em;
-        h3{
-        width: 6.5em;
-        font-size:2.5em;
-        border-bottom: 1.5px solid white;
-        color: white;
-        font-weight:400;
-        letter-spacing: 0.2rem;
-        }
-        p{
-            margin-top: 1.5em;
-            color: white;
-            font-size: 1.4em;
-            font-weight: 200;
-        }
+    @include mobile {
+      width: 10em;
+      height: 10em;
     }
+    img {
+      position: relative;
+      right: 1em;
+      top: -1em;
+      border-radius: 10px;
+      width: $image-width;
+      height: $image-width;
+      @include tablet {
+        width: 20em;
+        height: 20em;
+      }
+      @include mobile {
+        width: 10em;
+        height: 10em;
+        right: 0.65em;
+        top: -0.65em;
+      }
+    }
+  }
+  &-content {
+    margin-left: 2em;
+    h3 {
+      width:80%;
+      padding-right: 25px;
+      font-size: 2.5em;
+      border-bottom: 1.5px solid white;
+      color: white;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+       @include tablet {
+        font-size: 2em;
+      }
+      @include mobile {
+        font-size: 1.5em;
+      }
+    }
+    p {
+      margin-top: 1em;
+      color: white;
+      font-size: 1.4em;
+      font-weight: 200;
+       @include tablet {
+        font-size: 1em;
+      }
+      @include mobile {
+        font-size: 1em;
+      }
+    }
+  }
 }
-   
