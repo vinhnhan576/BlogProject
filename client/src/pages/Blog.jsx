@@ -1,15 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { getBlogBySlugAsync } from "../features/post/PostSlice";
 
 import testImg from "../assets/image/blog/blog-cover-img.jpg";
 
 import Helmet from "../components/Helmet";
 import Banner from "../components/Banner";
+import { useDispatch } from "react-redux";
 
 function Blog(props) {
 	const slug = useParams();
 	console.log(slug);
-	var blog;
+
+	const dispatch = useDispatch();
+	const blog = dispatch(getBlogBySlugAsync(slug));
+	console.log(blog);
 
 	return (
 		<Helmet title="Blog">
@@ -17,9 +22,7 @@ function Blog(props) {
 				<Banner img={testImg} quote="hi mn" />
 				<div className="blog__timestamp">Huế 14/8/2022</div>
 				<div className="blog__content">
-					<div className="blog__content__title">
-						Đầm sen cùng các hot gơ Dạ Lê nha cả nhà iu
-					</div>
+					<div className="blog__content__title">{blog.title}</div>
 					<div className="blog__content__body">
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore,
 						officiis ipsum dolores amet reiciendis error cum non molestiae, rem
