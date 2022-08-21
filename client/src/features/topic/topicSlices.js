@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit";
 import Axios from "axios";
 import Hello from "../../assets/image/About/xinchao.png";
 
-export const getAllBlogsByUserIDAsync = createAsyncThunk(
+export const getAllTopicsByUserIDAsync = createAsyncThunk(
   "blogs/getAllBlogsByUserIDAsync",
   async (userID) => {
     const response = await Axios.get(

@@ -31,12 +31,11 @@ export default function Topic(props) {
   return (
     <div className="container">
       <div className="topic">
-        <Link to={'/topic/${topicID}'}>
-          <h2 className="topic-name">{props.topicName}</h2>
-        </Link>
+        <h2 className="topic-name">
+          <Link to={"/topic/${topicID}"}>{props.topicName}</Link>
+        </h2>
         <div className="topic-underline"></div>
       </div>
-
       <div>{allPostsElements}</div>
     </div>
   );

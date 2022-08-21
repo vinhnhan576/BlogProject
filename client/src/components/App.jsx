@@ -8,22 +8,23 @@ import Login from "../pages/Login";
 import { selectAccount } from "../features/account/accountSlice";
 
 const App = () => {
-  const account = useSelector(selectAccount);
+	const account = useSelector(selectAccount);
 
-  return (
-    <div className="App">
-      {account ? (
-        <Layout />
-      ) : (
-        <HashRouter>
-          <Routes>
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/" element={<Login />} />
-          </Routes>
-        </HashRouter>
-      )}
-    </div>
-  );
+	return (
+		<div className="App">
+			{/* {account ? (
+				<Layout />
+			) : ( */}
+				<HashRouter>
+					<Routes>
+						<Route path="/:alias/*" element={<Layout />} />
+						<Route path="/signup" element={<Signup />} />
+						<Route path="/" element={<Login />} />
+					</Routes>
+				</HashRouter>
+			{/* )} */}
+		</div>
+	);
 };
 
 export default App;
