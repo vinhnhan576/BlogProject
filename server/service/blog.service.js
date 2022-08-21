@@ -38,7 +38,19 @@ let getAllBlogsByUserID = async (userID) => {
 		}
 	});
 };
-
+let getBlogBySlug = async (slug) => {
+	return new Promise(async (resolve, reject) => {
+	  try {
+		console.log(slug)
+		let blog = await db.Blog.findOne({ where: { slug: slug }});
+		if (blog !== null) resolve(blog);
+		resolve("Cannot find blog with slug " + slug);
+	  } catch (e) {
+		reject("Error fetching blog by slug: " + e);
+	  }
+	});
+};
 module.exports = {
 	getAllBlogsByUserID: getAllBlogsByUserID,
+	getBlogBySlug:getBlogBySlug,
 };
