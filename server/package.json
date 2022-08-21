@@ -18,7 +18,13 @@
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
     "qs": "^6.11.0",
+<<<<<<< HEAD
     "sequelize": "^6.21.4",
+=======
+    "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+>>>>>>> 134d5973c5f2a01b798a91c66008ad005e0cd07f
     "sequelize-cli": "^6.4.1"
   }
 }
