@@ -63,5 +63,8 @@ $banner-border-radius: 7px;
 
 			font-size: 2rem;
 		}
+		@include mobile {
+			font-size: 20px;
+		}
 	}
 }
