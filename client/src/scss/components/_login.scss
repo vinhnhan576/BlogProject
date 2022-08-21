@@ -17,6 +17,9 @@
 			display: none;
 			// position: relative;
 		}
+		@include tablet {
+			display: none;
+		}
 	}
 
 	&__logo {
@@ -38,6 +41,12 @@
 
 		@include mobile {
 			position: relative;
+			background-image: url(./pngtree-cute-seamless-pattern-cartoon-cupcake-and-strawberry-png-image_8130376.png);
+
+		}
+		@include tablet {
+			width: 100%;
+			background-image: url(./pngtree-cute-seamless-pattern-cartoon-cupcake-and-strawberry-png-image_8130376.png);
 		}
 
 		&__item {
