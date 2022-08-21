@@ -17,3 +17,9 @@ exports.addNewTopic = async (req, res) => {
   let message = await topicService.addNewTopic(req.body);
   return res.send(message);
 };
+
+exports.getAllTopicsByUserID = async (req, res) => {
+    console.log(req.query.userId);
+    let topicList = await topicService.getAllTopicsByUserID(req.query.userId);
+  return res.send(topicList);
+};

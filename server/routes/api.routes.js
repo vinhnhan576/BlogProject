@@ -11,6 +11,6 @@ const blogRoutes = require("./blog.routes");
 router.use("/blog", blogRoutes);
 
 const topicRoutes = require("./topic.routes");
-router.use("/topic", blogRoutes);
+router.use("/topic", topicRoutes);
 
 module.exports = router;

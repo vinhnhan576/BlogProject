@@ -114,6 +114,11 @@
         @include flex(center, center);
         padding-top: 0;
       }
+      i {
+       margin-right: 15px;
+       cursor: pointer;
+       font-size: 40px;
+      }
     }
 
     &__right {

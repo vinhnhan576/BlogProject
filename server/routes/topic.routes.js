@@ -12,4 +12,6 @@ router.get("/:id", topicController.getTopicByID);
 //add new topic
 router.post("/", topicController.addNewTopic);
 
+router.get("/query", topicController.getAllTopicsByUserID);
+
 module.exports = router;

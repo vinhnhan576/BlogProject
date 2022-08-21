@@ -81,10 +81,33 @@ let deleteTopicByID = async (id) => {
   });
 };
 
+let getAllTopicsByUserID = async (userId) => {
+  return new Promise(async (resolve, reject) => {
+      try {
+          let topic = await db.Topic.findAll({
+            where: {
+              userID: userId,
+            },
+            attributes: [
+              "id",
+              "topicName",
+              "userID",
+              // We had to list all attributes... // To add the aggregation...
+            ],
+          });
+      if (topic) resolve(topic);
+      resolve("Cannot find topic with id " + userId);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   getAllTopics: getAllTopics,
   getTopicByID: getTopicByID,
   addNewTopic: addNewTopic,
   updateTopic: updateTopic,
   deleteTopicByID: deleteTopicByID,
+  getAllTopicsByUserID: getAllTopicsByUserID,
 };

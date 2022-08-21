@@ -9,7 +9,7 @@ import Blog from "../pages/Blog";
 function routes() {
 	return (
 		<Routes>
-			<Route path="/" element={<Home />} />
+			<Route path="/" exact element={<Home />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/topic" element={<Category />} />
 			<Route path="/topic/:slug" element={<Blog />} />

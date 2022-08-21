@@ -42,6 +42,7 @@ export const accountSlice = createSlice({
 			console.log("authenticate user successfully");
 			if (action.payload.tasks) state.account = action.payload.tasks;
 			else state.account = null;
+			console.log(state.account);
 		},
 	},
 });

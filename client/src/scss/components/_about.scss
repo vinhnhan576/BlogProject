@@ -17,6 +17,7 @@ $mobile-border-radius: 10px;
     padding-top: 5em;
 
     @include tablet {
+
       padding: 0;
     }
 
@@ -151,5 +152,4 @@ $mobile-border-radius: 10px;
       height: 6em;
       width: 20em;
     }
-  }
-}
+  }}
