@@ -5,7 +5,6 @@ import Topic from '../components/Topic';
 import Category from './Category';
 
 function Home() {
-  
   return (
     <div>
       <Helmet title="Trang chủ">Trang chủ</Helmet>
