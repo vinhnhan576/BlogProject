@@ -4,11 +4,17 @@ import PropTypes from "prop-types";
 const Banner = (props) => {
 	return (
 		<div className="banner">
-			<div className={`banner__image ${props.quote ? "overlay" : ""} `}>
+			<div
+				className={`banner__image ${props.quote ? "overlay" : ""} `}
+				style={{
+					width: `${Number(props.width)}%`,
+				}}>
 				<img
 					src={props.img}
 					alt=""
-					style={{ height: `${Number(props.height)}px` }}
+					style={{
+						height: `${Number(props.height)}px`,
+					}}
 				/>
 				<div className="banner__quote">"{props.quote}"</div>
 			</div>
@@ -18,6 +24,7 @@ const Banner = (props) => {
 
 Banner.propTypes = {
 	img: PropTypes.string.isRequired,
+	width: PropTypes.string,
 	height: PropTypes.string,
 	quote: PropTypes.string,
 };

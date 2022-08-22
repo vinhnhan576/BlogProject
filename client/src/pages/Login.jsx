@@ -42,7 +42,7 @@ const Login = () => {
 		);
 		const originalPromiseResult = unwrapResult(result);
 		if (originalPromiseResult.tasks.alias !== undefined)
-			navigate(`/${originalPromiseResult.tasks.alias}`);
+			navigate(`/${originalPromiseResult.tasks.alias}/`);
 	};
 
 	return (

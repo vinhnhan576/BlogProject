@@ -16,7 +16,7 @@ export const getBlogBySlugAsync = createAsyncThunk(
 	"blog/getBlogBySlugAsync",
 	async (slug) => {
 		const response = await Axios.get(
-			`http://localhost:5000/api/blog?slug=${slug}`
+			`http://localhost:5000/api/blog/getblogbyslug?slug=${slug}`
 		);
 		const tasks = response.data;
 		return { tasks };
@@ -39,4 +39,7 @@ const PostSlice = createSlice({
 	},
 });
 export const {} = PostSlice.actions;
+
+export const selectPost = (state) => state.post.post;
+
 export default PostSlice.reducer;
