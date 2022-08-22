@@ -82,9 +82,9 @@ function Header() {
 					</div>
 					<div className="header__menu__right">
 						<div className="header__menu__right__item header__menu__item">
-							<i class="bx bx-search"></i>
-							<i class="bx bx-wrench"></i>
-							<i class="bx bx-bell"></i>
+							<i className="bx bx-search"></i>
+							<i className="bx bx-wrench"></i>
+							<i className="bx bx-bell"></i>
 						</div>
 						{account ? (
 							<div className="header__menu__right__pfp">
