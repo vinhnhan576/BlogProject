@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import { selectAccount } from "../features/account/accountSlice";
+import PageNotFound from "../pages/PageNotFound";
 
 const App = () => {
 	const account = useSelector(selectAccount);
@@ -15,13 +16,13 @@ const App = () => {
 			{/* {account ? (
 				<Layout />
 			) : ( */}
-				<HashRouter>
-					<Routes>
-						<Route path="/:alias/*" element={<Layout />} />
-						<Route path="/signup" element={<Signup />} />
-						<Route path="/" element={<Login />} />
-					</Routes>
-				</HashRouter>
+			<HashRouter>
+				<Routes>
+					<Route path="/:alias/*" element={<Layout />} />
+					<Route path="/signup" element={<Signup />} />
+					<Route path="/" element={<Login />} />
+				</Routes>
+			</HashRouter>
 			{/* )} */}
 		</div>
 	);

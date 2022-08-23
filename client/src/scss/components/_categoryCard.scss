@@ -2,55 +2,82 @@ $image-width: 30em;
 $image-width-tablet: 25em;
 $image-width-mobile: 25em;
 
-.allCategoryCards_container {
-  display: grid;
-  margin-top: 30px;
-  row-gap: 2.5em;
-  grid-template-columns: repeat(auto-fill, minmax($image-width, 1fr));
-  margin-left: auto;
-  margin-right: auto;
+.allCategoryCards {
+	&_banner {
+		padding-top: 60px;
+		margin: 0 40px;
+
+    @include tablet{
+      padding-top: 40px;
+      margin: 0 60px;
+    }
+
+    @include mobile{
+      padding-top: 20px;
+      margin: 0 10px;
+    }
+	}
+
+	&_container {
+		display: grid;
+		margin-top: 30px;
+		row-gap: 2.5em;
+		grid-template-columns: repeat(auto-fill, minmax($image-width, 1fr));
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
+
 .category_container {
-  color: white;
-  width: $image-width;
-  margin-left: auto;
-  margin-right: auto;
-  @include tablet {
-    width: $image-width-tablet;
-  }
-  @include mobile {
-    margin-left: auto;
-    margin-right: auto;
-    width: $image-width-mobile;
-  }
-  &-image {
-    img {
-      width: $image-width;
-      height: $image-width;
-      border-radius: 10px;
-      padding-bottom: 2px;
-      @include tablet {
-        width: $image-width-tablet;
-        height: $image-width-tablet;
-      }
-      @include mobile {
-        width: $image-width-mobile;
-        height: $image-width-mobile;
-      }
-    }
-  }
-  &-content {
-    h3 {
-      padding-top: 3px;
-      font-weight: 300;
-      padding-bottom: 2px;
-    }
-    h1 {
-      font-size: 2em;
-    }
-    p {
-      font-size: 1.35em;
-      font-weight: 300;
-    }
-  }
+	color: white;
+	width: $image-width;
+	margin: 15px auto;
+
+	@include tablet {
+		width: $image-width-tablet;
+	}
+
+	@include mobile {
+		margin-left: auto;
+		margin-right: auto;
+		width: $image-width-mobile;
+	}
+
+	&-image {
+		width: $image-width;
+		height: 14rem;
+		overflow: hidden;
+		border-radius: 7px;
+
+		@include tablet {
+			width: $image-width-tablet;
+			height: 16rem;
+		}
+
+		@include mobile {
+			width: $image-width-mobile;
+			height: 12rem;
+		}
+	}
+
+	&-content {
+		h3 {
+			font-family: "Playfair Display", serif;
+			padding-top: 6px;
+			font-weight: 300;
+			color: $text-third-color;
+		}
+
+		h1 {
+			font-family: "Playfair Display", serif;
+			font-size: 2em;
+			padding: 7px 0;
+		}
+
+		p {
+			font-size: 1.1em;
+			font-weight: 300;
+			color: $text-third-color;
+		}
+	}
 }
