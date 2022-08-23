@@ -9,10 +9,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Topic(props) {
-	const [userID, setUserID] = useState(1);
-	const [topicID, setTopicID] = useState(1);
+	const [userID, setUserID] = useState(2);
+	const [topicID, setTopicID] = useState(props.id);
+	console.log(topicID)
 	const allPosts = useSelector((state) => state.post);
+	const allPostsBytopicID = allPosts.find(post => post.topicID === topicID);
 	console.log(allPosts);
+	console.log(allPostsBytopicID);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllBlogsByUserIDAsync(userID));
@@ -29,10 +32,10 @@ export default function Topic(props) {
 		);
 	});
 	return (
-		<div className="container">
+		<div className="container" id={props.id}>
 			<div className="topic">
 				<h2 className="topic-name">
-					<Link to={"/topic/${topicID}"}>{props.topicName}</Link>
+					<Link to={`/topic/params/${props.slug}`}>{props.topicName}</Link>
 				</h2>
 				<div className="topic-underline"></div>
 			</div>
