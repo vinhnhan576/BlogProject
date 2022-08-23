@@ -12,10 +12,12 @@ $banner-border-radius: 7px;
 
 		@include tablet{
 				height: $image-width-tablet;
+				border-radius: $banner-border-radius;
 		}
 		
 		@include mobile{
 				height: 15em;
+				border-radius: $banner-border-radius;
 		}
 
 		&.overlay::after {
@@ -44,6 +46,7 @@ $banner-border-radius: 7px;
 
 			@include tablet{
 				height: 200px;
+				border-radius: $banner-border-radius;
 			}
 		}
 	}

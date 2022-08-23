@@ -23,8 +23,8 @@ export const getBlogBySlugAsync = createAsyncThunk(
 	}
 );
 
-const PostSlice = createSlice({
-	name: "post",
+const blogSlice = createSlice({
+	name: "blog",
 	initialState: [],
 	reducers: {},
 	extraReducers: {
@@ -38,8 +38,8 @@ const PostSlice = createSlice({
 		},
 	},
 });
-export const {} = PostSlice.actions;
+export const {} = blogSlice.actions;
 
-export const selectPost = (state) => state.post.post;
+export const selectPost = (state) => state.blog.blog;
 
-export default PostSlice.reducer;
+export default blogSlice.reducer;
