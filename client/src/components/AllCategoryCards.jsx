@@ -4,15 +4,6 @@ import Hello from "../assets/image/topic/huonglehere_du-lich.jpg";
 import Banner from "./Banner";
 
 const AllCategoryCards = () => {
-<<<<<<< HEAD
-
-  return (
-    <div>
-      Hello
-    </div>
-  );
-}
-=======
 	// const allCardsElements = allCards.map((card) => {
 	//   return (
 	//     <CategoryCard
@@ -90,6 +81,6 @@ const AllCategoryCards = () => {
 		</div>
 	);
 };
->>>>>>> 91c8cc2a00c859c8d7c99f24833d7eec099f63c0
+
 
 export default AllCategoryCards;

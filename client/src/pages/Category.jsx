@@ -30,11 +30,6 @@ function Category() {
 	return (
 		<div>
 			<Helmet title="Chủ đề">
-<<<<<<< HEAD
-				<Banner img={Hello} width="100" height="640" />
-				<h2>slug</h2>
-=======
->>>>>>> 91c8cc2a00c859c8d7c99f24833d7eec099f63c0
 				<AllCategoryCards />
 			</Helmet>
 		</div>

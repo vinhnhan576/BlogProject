@@ -6,17 +6,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Topic(props) {
-<<<<<<< HEAD
-	const [userID, setUserID] = useState(2);
-	const [topicID, setTopicID] = useState(props.id);
-	console.log(topicID)
-	const allPosts = useSelector((state) => state.post);
-	const allPostsBytopicID = allPosts.find(post => post.topicID === topicID);
-=======
 	const [userID, setUserID] = useState(1);
 	const [topicID, setTopicID] = useState(1);
 	const allPosts = useSelector((state) => state.blog);
->>>>>>> 91c8cc2a00c859c8d7c99f24833d7eec099f63c0
 	console.log(allPosts);
 	console.log(allPostsBytopicID);
 	const dispatch = useDispatch();
@@ -40,11 +32,7 @@ export default function Topic(props) {
 		<div className="container" id={props.id}>
 			<div className="topic">
 				<h2 className="topic-name">
-<<<<<<< HEAD
 					<Link to={`/topic/params/${props.slug}`}>{props.topicName}</Link>
-=======
-					<Link to={`/topic/${topicID}`}>{props.topicName}</Link>
->>>>>>> 91c8cc2a00c859c8d7c99f24833d7eec099f63c0
 				</h2>
 				<div className="topic-underline"></div>
 			</div>
