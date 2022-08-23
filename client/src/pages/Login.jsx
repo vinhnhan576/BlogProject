@@ -41,7 +41,8 @@ const Login = () => {
 			})
 		);
 		const originalPromiseResult = unwrapResult(result);
-		navigate(`/${originalPromiseResult.tasks.alias}`);
+		if (originalPromiseResult.tasks.alias !== undefined)
+			navigate(`/${originalPromiseResult.tasks.alias}/`);
 	};
 
 	return (
