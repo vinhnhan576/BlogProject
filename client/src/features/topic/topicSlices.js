@@ -89,7 +89,7 @@ const TopicSlice = createSlice({
   ],
   reducers: {},
   extraReducers: {
-    [getAllBlogsByUserIDAsync.fulfilled]: (state, action) => {
+    [getAllTopicsByUserIDAsync.fulfilled]: (state, action) => {
       console.log("fetching data successfully");
       return action.payload.tasks;
     },
