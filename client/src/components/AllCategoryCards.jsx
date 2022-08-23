@@ -22,52 +22,60 @@ const AllCategoryCards = () => {
 			</div>
 			<div className="allCategoryCards_container">
 				<CategoryCard
-					urlImage={Hello}
+					urlImage={require("../assets/image/blog/huonglehere_du-lich_du-lich-bien-canh-duong.jpg")}
 					date="Huế - 22/7/2022"
-					title="Đầm Sen cùng Hương Lê"
+					title="Biển Tân Cảnh Dương cùng Hương Lê và những người bạn"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug="du-lich-bien-canh-duong"
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 				<CategoryCard
 					urlImage={Hello}
 					date="22/7/2022"
 					title="Đầm Sen cùng Hương Lê"
 					content="Lorem Ipsum is simply dummy teIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. s"
+					slug=""
 				/>
 			</div>
 		</div>

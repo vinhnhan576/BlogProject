@@ -14,7 +14,7 @@ function Blog(props) {
 	const blog = useSelector((state) => state.blog);
 	useEffect(() => {
 		dispatch(getBlogBySlugAsync(slug));
-	}, [slug]);
+	}, [dispatch, slug]);
 	console.log(blog.coverImg)
 	if (
 		(typeof blog !== "undefined" && blog.length === 0) ||

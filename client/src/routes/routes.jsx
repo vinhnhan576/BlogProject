@@ -12,7 +12,7 @@ function routes() {
 			<Route path="/" exact element={<Home />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/topic" element={<Category />} />
-			<Route path="/topic/:slug" element={<Blog />} />
+			<Route path="/blog/:slug" element={<Blog />} />
 		</Routes>
 	);
 }

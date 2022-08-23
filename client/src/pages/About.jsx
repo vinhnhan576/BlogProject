@@ -55,7 +55,7 @@ function About() {
 					<br /> Xin chào mọi người, mình tên là abcxyz.
 				</div>
 				<div className="bigwhole__sign">
-					<img src={Sign} />
+					<img src={Sign} alt="" />
 				</div>
 			</div>
 		</Helmet>
