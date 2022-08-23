@@ -82,4 +82,5 @@ const AllCategoryCards = () => {
 	);
 };
 
+
 export default AllCategoryCards;

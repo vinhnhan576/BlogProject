@@ -10,6 +10,7 @@ export default function Topic(props) {
 	const [topicID, setTopicID] = useState(1);
 	const allPosts = useSelector((state) => state.blog);
 	console.log(allPosts);
+	console.log(allPostsBytopicID);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllBlogsByUserIDAsync(userID));
@@ -28,10 +29,10 @@ export default function Topic(props) {
 		);
 	});
 	return (
-		<div className="container">
+		<div className="container" id={props.id}>
 			<div className="topic">
 				<h2 className="topic-name">
-					<Link to={`/topic/${topicID}`}>{props.topicName}</Link>
+					<Link to={`/topic/params/${props.slug}`}>{props.topicName}</Link>
 				</h2>
 				<div className="topic-underline"></div>
 			</div>

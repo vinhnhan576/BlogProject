@@ -81,17 +81,18 @@ let deleteTopicByID = async (id) => {
 	});
 };
 
-let getAllTopicsByUserID = async (userId) => {
+let getAllTopicsByUserID = async (userID) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			let topic = await db.Topic.findAll({
 				where: {
-					userID: userId,
+					userID: userID,
 				},
 				attributes: [
 					"id",
 					"topicName",
 					"userID",
+					"slug"
 					// We had to list all attributes... // To add the aggregation...
 				],
 			});

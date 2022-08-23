@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", topicController.getAllTopics);
 
 //get topic by id
-router.get("/:id", topicController.getTopicByID);
+//router.get("/:id", topicController.getTopicByID);
 
 //add new topic
 router.post("/", topicController.addNewTopic);

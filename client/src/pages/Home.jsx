@@ -1,23 +1,32 @@
-import React from 'react'
-import CategoryCard from '../components/CategoryCard'
+import React from "react";
+import CategoryCard from "../components/CategoryCard";
 import Helmet from "../components/Helmet";
-import Topic from '../components/Topic';
-import Category from './Category';
+import Topic from "../components/Topic";
+import Category from "./Category";
+import { useSelector, useDispatch } from "react-redux";
+import PostSlice, {
+  getAllTopicsByUserIDAsync,
+} from "../features/topic/topicSlice";
+import { useState, useEffect } from "react";
 
 function Home() {
+  const allPosts = useSelector((state) => state.topic);
+  const [userID, setUserID] = useState(2);
+  console.log(allPosts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllTopicsByUserIDAsync(userID));
+  }, [dispatch]);
+  const allTopicIDElements = allPosts.map((post) => {
+    return <Topic topicName={post.topicName} id={post.id} slug={post.slug} />;
+  });
+  console.log(allTopicIDElements);
   return (
     <div>
       <Helmet title="Trang chủ">Trang chủ</Helmet>
-      <Topic topicName="Đời sống" />
-      <Topic topicName="Du lịch" />
-      <CategoryCard
-        //urlImage="https://cdn.pixabay.com/photo/2022/07/25/18/47/wat."
-        date="22/7/2022"
-        title="title1"
-        content="content1"
-      />
+      {allTopicIDElements}
     </div>
   );
 }
 
-export default Home
+export default Home;

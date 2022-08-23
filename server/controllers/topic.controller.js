@@ -19,7 +19,8 @@ exports.addNewTopic = async (req, res) => {
 };
 
 exports.getAllTopicsByUserID = async (req, res) => {
-	console.log(req.query.userId);
-	let topicList = await topicService.getAllTopicsByUserID(req.query.userId);
-	return res.send(topicList);
+    console.log(req.query.userID);
+    let topicList = await topicService.getAllTopicsByUserID(req.query.userID);
+  return res.send(topicList);
 };
+
