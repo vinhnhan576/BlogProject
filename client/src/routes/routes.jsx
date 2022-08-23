@@ -8,6 +8,7 @@ import Blog from "../pages/Blog";
 
 function routes() {
 	return (
+<<<<<<< HEAD
     <Routes>
       <Route path="/" exact element={<Home />} />
       <Route path="/about" element={<About />} />
@@ -16,6 +17,15 @@ function routes() {
       <Route path="/topic/:slug" element={<Blog />} />
     </Routes>
   );
+=======
+		<Routes>
+			<Route path="/" exact element={<Home />} />
+			<Route path="/about" element={<About />} />
+			<Route path="/topic" element={<Category />} />
+			<Route path="/blog/:slug" element={<Blog />} />
+		</Routes>
+	);
+>>>>>>> 91c8cc2a00c859c8d7c99f24833d7eec099f63c0
 }
 
 export default routes;

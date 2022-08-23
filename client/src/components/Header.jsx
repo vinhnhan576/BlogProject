@@ -3,7 +3,6 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 
-import Banner from "../assets/image/banner/banner.png";
 import pfp from "../assets/image/user/pfp.jpg";
 const mainNav = [
 	{

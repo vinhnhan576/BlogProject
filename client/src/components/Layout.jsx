@@ -1,5 +1,3 @@
-import { HashRouter } from "react-router-dom";
-
 import Footer from "./Footer";
 import Header from "./Header";
 import Routes from "../routes/routes";
