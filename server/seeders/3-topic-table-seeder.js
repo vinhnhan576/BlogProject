@@ -23,6 +23,13 @@ module.exports = {
 					userID: userRows[0].id, //userRow[0] = huongle
 				},
 				{
+					topicName: "Ăn uống",
+					img: "huonglehere_an-uong.jpg",
+					quote: "Phải có làm thì mới có ăn không làm đòi có ăn ăn đb ăn c",
+					slug: "an-uong",
+					userID: userRows[0].id, //userRow[0] = huongle
+				},
+				{
 					topicName: "Du lịch",
 					img: "",
 					quote: "Phải có làm thì mới có ăn không làm đòi có ăn ăn đb ăn c",

@@ -5,7 +5,7 @@ import Banner from "../components/Banner";
 import { useSelector, useDispatch } from "react-redux";
 import PostSlice, {
   getAllBlogsByUserIDAsync,
-} from "../features/post/PostSlice";
+} from "../features/post/blogSlice";
 import { useState, useEffect } from "react";
 import { Link,useNavigate, useParams} from "react-router-dom";
 
