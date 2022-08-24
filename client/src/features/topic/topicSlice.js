@@ -1,6 +1,5 @@
-import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import Axios from "axios";
-import Hello from "../../assets/image/about/upper-pic.png";
 
 export const getAllTopicsByUserIDAsync = createAsyncThunk(
 	"blogs/getAllTopicssByUserIDAsync",
