@@ -18,7 +18,7 @@ function Layout() {
 	return (
 		// <HashRouter>
 		<div className="App">
-			<Header></Header>
+			<Header blogger={blogger}></Header>
 			<div className="container">
 				<div className="main">
 					<Routes blogger={blogger} />
