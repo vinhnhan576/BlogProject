@@ -12,7 +12,7 @@ function routes(props) {
 		<Routes>
 			<Route path="/" exact element={<Home blogger={props.blogger} />} />
 			<Route path="/about" element={<About />} />
-			<Route path="/topic" element={<Category />} />
+			<Route path="/topic/:slug" element={<Category />} />
 			<Route path="/blog/:slug" element={<Blog />} />
 		</Routes>
 	);

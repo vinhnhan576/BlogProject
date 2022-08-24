@@ -2,8 +2,10 @@ import React, { useRef, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
+import DropdownMenu from "./DropdownMenu";
 
 import pfp from "../assets/image/user/pfp.jpg";
+import { useState } from "react";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -13,13 +15,13 @@ const mainNav = [
 		display: "TỚ LÀ?",
 		path: "/about",
 	},
-	{
-		display: "CHỦ ĐỀ",
-		path: "/topic",
-	},
+	// {
+	// 	display: "CHỦ ĐỀ",
+	// 	path: "/",
+	// },
 ];
 
-function Header() {
+function Header(props) {
 	const params = useParams();
 	const pathName = useLocation().pathname;
 	const activeNav = mainNav.findIndex(
@@ -52,6 +54,8 @@ function Header() {
 	const menuLeft = useRef(null);
 	const menuToggle = () => menuLeft.current.classList.toggle("active");
 
+	const [openTopics, setOpenTopics] = useState(false);
+
 	return (
 		<div className="header" ref={headerRef}>
 			<div className="container" ref={containerRef}>
@@ -78,6 +82,17 @@ function Header() {
 								<Link to={`/${params.alias}${item.path}`}>{item.display}</Link>
 							</div>
 						))}
+						<div
+							onClick={() => {
+								menuToggle();
+								setOpenTopics(!openTopics);
+							}}
+							className={`header__menu__left__item header__menu__item ${
+								activeNav === 2 ? "active" : ""
+							}`}>
+							CHỦ ĐỀ
+							{openTopics && <DropdownMenu blogger={props.blogger} />}
+						</div>
 					</div>
 					<div className="header__menu__right">
 						<div className="header__menu__right__item header__menu__item">
