@@ -23,19 +23,13 @@ export const getBlogBySlugAsync = createAsyncThunk(
 	}
 );
 
-<<<<<<< HEAD:client/src/features/post/PostSlice.js
-
-const PostSlice = createSlice({
-	name: "post",
-=======
 const blogSlice = createSlice({
 	name: "blog",
->>>>>>> 91c8cc2a00c859c8d7c99f24833d7eec099f63c0:client/src/features/post/blogSlice.js
 	initialState: [],
 	reducers: {},
 	extraReducers: {
 		[getAllBlogsByUserIDAsync.fulfilled]: (state, action) => {
-			console.log("fetching data successfully");
+			console.log("fetching blogs by userID successfully");
 			return action.payload.tasks;
 		},
 		[getBlogBySlugAsync.fulfilled]: (state, action) => {

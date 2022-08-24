@@ -5,28 +5,34 @@ import Topic from "../components/Topic";
 import Category from "./Category";
 import { useSelector, useDispatch } from "react-redux";
 import PostSlice, {
-  getAllTopicsByUserIDAsync,
+	getAllTopicsByUserIDAsync,
 } from "../features/topic/topicSlice";
 import { useState, useEffect } from "react";
 
 function Home() {
-  const allPosts = useSelector((state) => state.topic);
-  const [userID, setUserID] = useState(2);
-  console.log(allPosts);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllTopicsByUserIDAsync(userID));
-  }, [dispatch]);
-  const allTopicIDElements = allPosts.map((post) => {
-    return <Topic topicName={post.topicName} id={post.id} slug={post.slug} />;
-  });
-  console.log(allTopicIDElements);
-  return (
-    <div>
-      <Helmet title="Trang chủ">Trang chủ</Helmet>
-      {allTopicIDElements}
-    </div>
-  );
+	const allTopics = useSelector((state) => state.topic);
+	const [userID, setUserID] = useState(10);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getAllTopicsByUserIDAsync(userID));
+	}, [dispatch, userID]);
+	const allTopicElements = allTopics.map((topic) => {
+		return (
+			<Topic
+				key={topic.id}
+				id={topic.id}
+				userID={topic.userID}
+				topicName={topic.topicName}
+				slug={topic.slug}
+			/>
+		);
+	});
+	console.log(allTopicElements);
+	return (
+		<div>
+			<Helmet title="Trang chủ">{allTopicElements}</Helmet>
+		</div>
+	);
 }
 
 export default Home;

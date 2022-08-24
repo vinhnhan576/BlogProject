@@ -6,22 +6,24 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Topic(props) {
-	const [userID, setUserID] = useState(1);
-	const [topicID, setTopicID] = useState(1);
-	const allPosts = useSelector((state) => state.blog);
-	console.log(allPosts);
-	console.log(allPostsBytopicID);
 	const dispatch = useDispatch();
+	const userID = 10;
+	const topicID = props.id;
+	console.log(topicID);
+	const allBlogs = useSelector((state) => state.blog);
 	useEffect(() => {
 		dispatch(getAllBlogsByUserIDAsync(userID));
-	}, [dispatch]);
-	const allPostsElements = allPosts.map((blog) => {
+	}, [dispatch, userID]);
+	const allBlogsByTopicID = allBlogs.filter((blog) => blog.topicID === topicID);
+	console.log(allBlogsByTopicID);
+
+	const allPostsElements = allBlogsByTopicID.map((blog) => {
 		return (
 			// eslint-disable-next-line react/jsx-pascal-case
 			<Topic_Post
 				key={blog.id}
 				id={blog.id}
-				urlImage={blog.coverImg}
+				urlImage={require(`../assets/image/blog/${blog.coverImg}`)}
 				content={blog.content}
 				title={blog.title}
 				slug={blog.slug}

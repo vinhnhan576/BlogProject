@@ -7,7 +7,7 @@ import Banner from "../components/Banner";
 import { useDispatch, useSelector } from "react-redux";
 import PageNotFound from "./PageNotFound";
 
-function Blog(props) {
+function Blog() {
 	const params = useParams();
 	const slug = params.slug;
 	const dispatch = useDispatch();
@@ -15,7 +15,6 @@ function Blog(props) {
 	useEffect(() => {
 		dispatch(getBlogBySlugAsync(slug));
 	}, [dispatch, slug]);
-	console.log(blog.coverImg)
 	if (
 		(typeof blog !== "undefined" && blog.length === 0) ||
 		typeof blog === "string"
