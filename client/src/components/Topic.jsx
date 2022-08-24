@@ -1,5 +1,5 @@
 import React from "react";
-import Topic_Post from "./BlogCard";
+import BlogCard from "./BlogCard";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllBlogsByUserIDAsync } from "../features/post/blogSlice";
 import { useState, useEffect } from "react";
@@ -9,18 +9,17 @@ export default function Topic(props) {
 	const dispatch = useDispatch();
 	const userID = 10;
 	const topicID = props.id;
-	console.log(topicID);
 	const allBlogs = useSelector((state) => state.blog);
 	useEffect(() => {
 		dispatch(getAllBlogsByUserIDAsync(userID));
 	}, [dispatch, userID]);
 	const allBlogsByTopicID = allBlogs.filter((blog) => blog.topicID === topicID);
-	console.log(allBlogsByTopicID);
+	// console.log(allBlogsByTopicID);
 
 	const allPostsElements = allBlogsByTopicID.map((blog) => {
 		return (
 			// eslint-disable-next-line react/jsx-pascal-case
-			<Topic_Post
+			<BlogCard
 				key={blog.id}
 				id={blog.id}
 				urlImage={require(`../assets/image/blog/${blog.coverImg}`)}

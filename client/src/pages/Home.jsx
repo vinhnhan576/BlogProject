@@ -9,9 +9,10 @@ import PostSlice, {
 } from "../features/topic/topicSlice";
 import { useState, useEffect } from "react";
 
-function Home() {
+function Home(props) {
 	const allTopics = useSelector((state) => state.topic);
-	const [userID, setUserID] = useState(10);
+	const userID = props.blogger.id;
+	console.log(userID);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllTopicsByUserIDAsync(userID));
@@ -27,7 +28,7 @@ function Home() {
 			/>
 		);
 	});
-	console.log(allTopicElements);
+	// console.log(allTopicElements);
 	return (
 		<div>
 			<Helmet title="Trang chủ">{allTopicElements}</Helmet>
