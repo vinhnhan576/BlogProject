@@ -7,7 +7,6 @@ import About from "../pages/About";
 import Blog from "../pages/Blog";
 
 function routes(props) {
-	console.log(props.blogger);
 	return (
 		<Routes>
 			<Route path="/" exact element={<Home blogger={props.blogger} />} />

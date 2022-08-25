@@ -3,7 +3,6 @@ import { Link, useLocation, useParams } from "react-router-dom";
 
 const CategoryCard = (props) => {
 	const params = useParams();
-	console.log(params.alias);
 
 	return (
 		<div className="category_container" id={props.id}>

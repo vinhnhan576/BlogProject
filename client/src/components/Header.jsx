@@ -1,11 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 import DropdownMenu from "./DropdownMenu";
 
 import pfp from "../assets/image/user/pfp.jpg";
 import { useState } from "react";
+import { getAllTopicsByUserIDAsync } from "../features/topic/topicSlice";
+import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
+import { getBlogBySlugAsync } from "../features/post/blogSlice";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -24,9 +27,16 @@ const mainNav = [
 function Header(props) {
 	const params = useParams();
 	const pathName = useLocation().pathname;
-	const activeNav = mainNav.findIndex(
+	console.log(pathName);
+	var activeNav = mainNav.findIndex(
 		(e) => `/${params.alias}`.concat(e.path) === pathName
 	);
+
+	const [currentTopic, setCurrentTopic] = useState("");
+	const handleTopic = (topicName) => {
+		setCurrentTopic(topicName);
+	};
+	currentTopic && (activeNav = 2);
 
 	const headerRef = useRef(null);
 	const logoRef = useRef(null);
@@ -56,6 +66,8 @@ function Header(props) {
 
 	const [openTopics, setOpenTopics] = useState(false);
 
+	const [openSettings, setOpenSettings] = useState(false);
+
 	return (
 		<div className="header" ref={headerRef}>
 			<div className="container" ref={containerRef}>
@@ -84,14 +96,22 @@ function Header(props) {
 						))}
 						<div
 							onClick={() => {
-								menuToggle();
+								// menuToggle();
 								setOpenTopics(!openTopics);
 							}}
 							className={`header__menu__left__item header__menu__item ${
 								activeNav === 2 ? "active" : ""
 							}`}>
-							CHỦ ĐỀ
-							{openTopics && <DropdownMenu blogger={props.blogger} />}
+							{params["*"].includes("topic") || params["*"].includes("blog")
+								? currentTopic.toUpperCase()
+								: "CHỦ ĐỀ"}
+							{openTopics && (
+								<DropdownMenu
+									blogger={props.blogger}
+									onclick={menuToggle}
+									handleTopic={handleTopic}
+								/>
+							)}
 						</div>
 					</div>
 					<div className="header__menu__right">
@@ -101,8 +121,11 @@ function Header(props) {
 							<i className="bx bx-bell"></i>
 						</div>
 						{account ? (
-							<div className="header__menu__right__pfp">
+							<div
+								className="header__menu__right__pfp"
+								onClick={() => setOpenSettings(!openSettings)}>
 								<img src={pfp} alt="" />
+								{openSettings && <DropdownMenu />}
 							</div>
 						) : (
 							""

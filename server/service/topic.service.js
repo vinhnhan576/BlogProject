@@ -92,9 +92,10 @@ let getAllTopicsByUserID = async (userID) => {
 					"id",
 					"topicName",
 					"userID",
-					"slug"
+					"slug",
 					// We had to list all attributes... // To add the aggregation...
 				],
+				include: [{ model: db.Blog, as: "Blog" }],
 			});
 			if (topic) resolve(topic);
 			resolve("Cannot find topic with id " + userId);
