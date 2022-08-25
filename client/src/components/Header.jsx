@@ -27,15 +27,35 @@ const mainNav = [
 function Header(props) {
 	const params = useParams();
 	const pathName = useLocation().pathname;
-	console.log(pathName);
 	var activeNav = mainNav.findIndex(
 		(e) => `/${params.alias}`.concat(e.path) === pathName
 	);
 
-	const [currentTopic, setCurrentTopic] = useState("");
-	const handleTopic = (topicName) => {
-		setCurrentTopic(topicName);
-	};
+	var currentTopic;
+	const slug = useRef(params["*"].split("/")[1]);
+	const dispatch = useDispatch();
+	const blog = useSelector((state) => state.blog);
+	const blogger = useSelector((state) => state.blogger);
+	useEffect(() => {
+		dispatch(getBloggerByAliasAsync(params.alias));
+		dispatch(getBlogBySlugAsync(slug.current));
+	}, [dispatch, slug, params.alias]);
+	const slugType = params["*"].split("/")[0];
+	switch (slugType) {
+		case "topic":
+			const topic = blogger.Topic?.find((topic) => topic.slug === slug.current);
+			topic && (currentTopic = topic.topicName.toUpperCase());
+			break;
+		case "blog":
+			console.log(blog);
+			if (!Array.isArray(blog) && blog && typeof blog !== "string") {
+				currentTopic = blog.Topic.topicName.toUpperCase();
+			}
+			break;
+		default:
+			break;
+	}
+
 	currentTopic && (activeNav = 2);
 
 	const headerRef = useRef(null);
@@ -103,14 +123,10 @@ function Header(props) {
 								activeNav === 2 ? "active" : ""
 							}`}>
 							{params["*"].includes("topic") || params["*"].includes("blog")
-								? currentTopic.toUpperCase()
+								? currentTopic
 								: "CHỦ ĐỀ"}
 							{openTopics && (
-								<DropdownMenu
-									blogger={props.blogger}
-									onclick={menuToggle}
-									handleTopic={handleTopic}
-								/>
+								<DropdownMenu blogger={props.blogger} onclick={menuToggle} />
 							)}
 						</div>
 					</div>

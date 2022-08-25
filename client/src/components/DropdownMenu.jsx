@@ -7,7 +7,6 @@ function DropdownMenu(props) {
 		const dropdownItemClick = (e) => {
 			e.preventDefault();
 			navigate(`/${props.bloggerAlias}/topic/${props.slug}`);
-			props.handleTopic(props.topicName);
 		};
 		return (
 			<div className="dropdown__item" onClick={dropdownItemClick}>
@@ -23,11 +22,9 @@ function DropdownMenu(props) {
 			{props.blogger.Topic.map((topic, index) => {
 				return (
 					<DropdownItem
-						handleTopic={props.handleTopic}
 						key={index}
 						slug={topic.slug}
-						bloggerAlias={props.blogger.alias}
-						topicName={topic.topicName}>
+						bloggerAlias={props.blogger.alias}>
 						{topic.topicName}
 					</DropdownItem>
 				);

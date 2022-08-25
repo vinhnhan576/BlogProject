@@ -16,18 +16,19 @@ function Category() {
 	const dispatch = useDispatch();
 	const params = useParams();
 	const alias = params.alias;
-	const allBlogs = useSelector((state) => state.blog);
+	// const allBlogs = useSelector((state) => state.blog);
 	const blogger = useSelector((state) => state.blogger);
 	// const [topic, setTopic] = useState();
 	// const [allBlogsByTopic, setAllBlogsByTopic] = useState();
 	useEffect(() => {
 		dispatch(getBloggerByAliasAsync(alias));
-		dispatch(getAllBlogsByUserIDAsync(blogger.id));
-	}, [dispatch, blogger.id, alias]);
+		// dispatch(getAllBlogsByUserIDAsync(blogger.id));
+	}, [dispatch, alias]);
 	const topic = blogger.Topic?.find((topic) => topic.slug === params.slug);
-	const allBlogsByTopic = Array.isArray(allBlogs)
-		? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
-		: [allBlogs];
+	// const allBlogsByTopic = Array.isArray(allBlogs)
+	// 	? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
+	// 	: [allBlogs];
+	const allBlogsByTopic = topic ? topic.Blog : null;
 
 	if (
 		(typeof topic !== "undefined" && topic.length === 0) ||
