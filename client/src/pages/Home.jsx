@@ -12,7 +12,6 @@ import { useState, useEffect } from "react";
 function Home(props) {
 	const allTopics = useSelector((state) => state.topic);
 	const userID = props.blogger.id;
-	console.log(userID);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllTopicsByUserIDAsync(userID));
@@ -25,6 +24,7 @@ function Home(props) {
 				userID={topic.userID}
 				topicName={topic.topicName}
 				slug={topic.slug}
+				blogs={topic.Blog}
 			/>
 		);
 	});

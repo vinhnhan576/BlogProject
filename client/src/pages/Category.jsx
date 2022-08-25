@@ -10,53 +10,63 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import CategoryCard from "../components/CategoryCard";
+import PageNotFound from "./PageNotFound";
 
 function Category() {
 	const dispatch = useDispatch();
 	const params = useParams();
 	const alias = params.alias;
-	const allBlogs = useSelector((state) => state.blog);
+	// const allBlogs = useSelector((state) => state.blog);
 	const blogger = useSelector((state) => state.blogger);
+	// const [topic, setTopic] = useState();
+	// const [allBlogsByTopic, setAllBlogsByTopic] = useState();
 	useEffect(() => {
 		dispatch(getBloggerByAliasAsync(alias));
-		dispatch(getAllBlogsByUserIDAsync(blogger.id));
-	}, [dispatch, blogger.id, alias]);
-	const allBlogsByTopicID = allBlogs?.filter(
-		(blog) => blog.Topic.slug === params.slug
-	);
+		// dispatch(getAllBlogsByUserIDAsync(blogger.id));
+	}, [dispatch, alias]);
 	const topic = blogger.Topic?.find((topic) => topic.slug === params.slug);
+	// const allBlogsByTopic = Array.isArray(allBlogs)
+	// 	? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
+	// 	: [allBlogs];
+	const allBlogsByTopic = topic ? topic.Blog : null;
 
-	return (
-		<div>
-			<Helmet title="Chủ đề">
-				<div className="allCategoryCards">
-					<div className="allCategoryCards_banner">
-						<Banner
-							img={require(`../assets/image/topic/${topic.img}`)}
-							width="100"
-							height="440"
-							quote={topic.quote}
-						/>
-					</div>
-					<div className="allCategoryCards_container">
-						{allBlogsByTopicID.map((blog, index) => {
-							return (
-								<CategoryCard
-									urlImage={require(`../assets/image/blog/${blog.coverImg}`)}
-									date={`${blog.location} - ${blog.date}`}
-									title={`${blog.title}`}
-									content={`${blog.content}`}
-									slug={`${blog.slug}`}
-								/>
-							);
-						})}
-					</div>
-				</div>
+	if (
+		(typeof topic !== "undefined" && topic.length === 0) ||
+		typeof topic === "string"
+	)
+		return <PageNotFound />;
 
-				{/* <AllCategoryCards /> */}
-			</Helmet>
-		</div>
-	);
+	if (topic)
+		return (
+			<div>
+				<Helmet title="Chủ đề">
+					<div className="allCategoryCards">
+						<div className="allCategoryCards_banner">
+							<Banner
+								img={require(`../assets/image/topic/${topic.img}`)}
+								width="100"
+								height="440"
+								quote={topic.quote}
+							/>
+						</div>
+						<div className="allCategoryCards_container">
+							{allBlogsByTopic.map((blog, index) => {
+								return (
+									<CategoryCard
+										key={index}
+										urlImage={require(`../assets/image/blog/${blog.coverImg}`)}
+										date={`${blog.location} - ${blog.date}`}
+										title={`${blog.title}`}
+										content={`${blog.content}`}
+										slug={`${blog.slug}`}
+									/>
+								);
+							})}
+						</div>
+					</div>
+				</Helmet>
+			</div>
+		);
 }
 
 export default Category;

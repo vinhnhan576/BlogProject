@@ -11,32 +11,37 @@ function Blog() {
 	const params = useParams();
 	const slug = params.slug;
 	const dispatch = useDispatch();
-	const blog = useSelector((state) => state.blog);
+	const blogs = useSelector((state) => state.blog);
 	useEffect(() => {
 		dispatch(getBlogBySlugAsync(slug));
 	}, [dispatch, slug]);
-	if (
-		(typeof blog !== "undefined" && blog.length === 0) ||
-		typeof blog === "string"
-	)
-		return <PageNotFound />;
+	const blog = Array.isArray(blogs)
+		? blogs?.find((blog) => blog.slug === slug)
+		: blogs;
+	// if (
+	// 	(typeof blog !== "undefined" && blog.length === 0) ||
+	// 	typeof blog === "string"
+	// )
+	// 	return <PageNotFound />;
 
-	return (
-		<Helmet title="Blog">
-			<div className="blog">
-				<Banner
-					img={require(`../assets/image/blog/${blog.coverImg}`)}
-					quote={blog.quote}
-				/>
-				<div className="blog__timestamp">{`${blog.location} - ${blog.date}`}</div>
-				<div className="blog__content">
-					<div className="blog__content__title">{blog.title}</div>
-					<div className="blog__content__body">{blog.content}</div>
-					<div className="blog__content__signature">Hương Lé thân iu</div>
+	// if (typeof blog === "object")
+	if (blog)
+		return (
+			<Helmet title="Blog">
+				<div className="blog">
+					<Banner
+						img={require(`../assets/image/blog/${blog.coverImg}`)}
+						quote={blog.quote}
+					/>
+					<div className="blog__timestamp">{`${blog.location} - ${blog.date}`}</div>
+					<div className="blog__content">
+						<div className="blog__content__title">{blog.title}</div>
+						<div className="blog__content__body">{blog.content}</div>
+						<div className="blog__content__signature">Hương Lé thân iu</div>
+					</div>
 				</div>
-			</div>
-		</Helmet>
-	);
+			</Helmet>
+		);
 }
 
 export default Blog;

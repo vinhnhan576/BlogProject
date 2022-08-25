@@ -6,17 +6,19 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Topic(props) {
-	const dispatch = useDispatch();
-	const userID = 10;
-	const topicID = props.id;
-	const allBlogs = useSelector((state) => state.blog);
-	useEffect(() => {
-		dispatch(getAllBlogsByUserIDAsync(userID));
-	}, [dispatch, userID]);
-	const allBlogsByTopicID = allBlogs.filter((blog) => blog.topicID === topicID);
-	// console.log(allBlogsByTopicID);
+	// const dispatch = useDispatch();
+	// const userID = 13;
+	// const topicID = props.id;
+	// const allBlogs = useSelector((state) => state.blog);
+	// useEffect(() => {
+	// 	dispatch(getAllBlogsByUserIDAsync(userID));
+	// }, [dispatch, userID]);
+	// const allBlogsByTopic = allBlogs?.filter((blog) => blog.topicID === topicID);
+	// console.log(allBlogsByTopic);
+	const allBlogsByTopic = props.blogs;
+	// console.log(allBlogsByTopic)
 
-	const allPostsElements = allBlogsByTopicID.map((blog) => {
+	const allPostsElements = allBlogsByTopic.map((blog) => {
 		return (
 			// eslint-disable-next-line react/jsx-pascal-case
 			<BlogCard
