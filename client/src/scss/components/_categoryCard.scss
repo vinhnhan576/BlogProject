@@ -7,15 +7,15 @@ $image-width-mobile: 25em;
 		padding-top: 60px;
 		margin: 0 40px;
 
-    @include tablet{
-      padding-top: 40px;
-      margin: 0 60px;
-    }
+		@include tablet {
+			padding-top: 40px;
+			margin: 0 60px;
+		}
 
-    @include mobile{
-      padding-top: 20px;
-      margin: 0 10px;
-    }
+		@include mobile {
+			padding-top: 20px;
+			margin: 0 10px;
+		}
 	}
 
 	&_container {
@@ -48,6 +48,21 @@ $image-width-mobile: 25em;
 		height: 14rem;
 		overflow: hidden;
 		border-radius: 7px;
+		@include flex(center, center);
+
+		&.landscape {
+			img {
+				// position: absolute;
+				height: 130%;
+			}
+		}
+
+		&.portrait {
+			img {
+				width: 100%;
+				// position: absolute;
+			}
+		}
 
 		@include tablet {
 			width: $image-width-tablet;

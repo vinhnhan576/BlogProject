@@ -24,8 +24,8 @@ function Blog() {
 	// )
 	// 	return <PageNotFound />;
 
-	// if (typeof blog === "object")
-	if (blog)
+	 if (typeof blog === "object")
+	// if (blog)
 		return (
 			<Helmet title="Blog">
 				<div className="blog">
