@@ -25,6 +25,7 @@ function Home(props) {
 				topicName={topic.topicName}
 				slug={topic.slug}
 				blogs={topic.Blog}
+				alias={props.blogger.alias}
 			/>
 		);
 	});

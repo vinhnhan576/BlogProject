@@ -47,10 +47,10 @@ function Header(props) {
 			topic && (currentTopic = topic.topicName.toUpperCase());
 			break;
 		case "blog":
-			console.log(blog);
-			if (!Array.isArray(blog) && blog && typeof blog !== "string") {
-				currentTopic = blog.Topic.topicName.toUpperCase();
-			}
+			if (blog)
+				if (!Array.isArray(blog) && typeof blog !== "string") {
+					currentTopic = blog.Topic.topicName.toUpperCase();
+				}
 			break;
 		default:
 			break;
