@@ -13,6 +13,7 @@ module.exports = {
 					tel: "0123456789",
 					job: "tutor",
 					address: "Thủy Dương, Huế",
+					profilepic: "huonglehere.jpg",
 				},
 				{
 					name: "Lê Văn Vĩnh Nhân",

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 import DropdownMenu from "./DropdownMenu";
 
-import pfp from "../assets/image/user/pfp.jpg";
+import pfp from "../assets/image/user/huonglehere.jpg";
 import { useState } from "react";
 import { getAllTopicsByUserIDAsync } from "../features/topic/topicSlice";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
