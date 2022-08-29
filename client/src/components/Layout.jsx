@@ -1,21 +1,31 @@
-import { HashRouter } from "react-router-dom";
-
 import Footer from "./Footer";
 import Header from "./Header";
 import Routes from "../routes/routes";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 
 function Layout() {
+	const params = useParams();
+	const alias = params.alias;
+	const dispatch = useDispatch();
+	const blogger = useSelector((state) => state.blogger);
+	useEffect(() => {
+		dispatch(getBloggerByAliasAsync(alias));
+	}, [dispatch, alias]);
+
 	return (
 		// <HashRouter>
-			<div className="App">
-				<Header></Header>
-				<div className="container">
-					<div className="main">
-						<Routes />
-					</div>
+		<div className="App">
+			<Header blogger={blogger}></Header>
+			<div className="container">
+				<div className="main">
+					<Routes blogger={blogger} />
 				</div>
-				<Footer></Footer>
 			</div>
+			<Footer></Footer>
+		</div>
 		// </HashRouter>
 	);
 }

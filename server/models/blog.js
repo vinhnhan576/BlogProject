@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 			coverImg: DataTypes.STRING,
 			quote: DataTypes.STRING,
 			date: DataTypes.DATE,
+			location: DataTypes.STRING,
 			content: DataTypes.TEXT,
 			slug: DataTypes.STRING,
 			// userID: DataTypes.STRING,

@@ -22,10 +22,8 @@ export const userSlice = createSlice({
 	extraReducers: {
 		[getUserByUsernameAsync.fulfilled]: (state, action) => {
 			console.log("get user by username successfully");
-			if (action.payload.tasks)
-				// state.user = action.payload.tasks;
-				return action.payload.tasks;
-			return null;
+			// state.user = action.payload.tasks;
+			return action.payload.tasks;
 		},
 	},
 });

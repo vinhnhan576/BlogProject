@@ -6,7 +6,10 @@ const userController = require("../controllers/user.controllers");
 const db = require("../models");
 
 //get user by username
-router.post("/getuserbyusername/", userController.getUserByUsername);
+router.post("/getuserbyusername", userController.getUserByUsername);
+
+//get use by alias
+router.get("/getuserbyalias", userController.getUserByAlias);
 
 //get all users
 router.get("/", userController.getAllUsers);

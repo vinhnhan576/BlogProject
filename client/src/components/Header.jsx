@@ -1,10 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
+import DropdownMenu from "./DropdownMenu";
 
-import Banner from "../assets/image/banner/banner.png";
 import pfp from "../assets/image/user/pfp.jpg";
+import { useState } from "react";
+import { getAllTopicsByUserIDAsync } from "../features/topic/topicSlice";
+import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
+import { getBlogBySlugAsync } from "../features/post/blogSlice";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -14,18 +18,45 @@ const mainNav = [
 		display: "TỚ LÀ?",
 		path: "/about",
 	},
-	{
-		display: "CHỦ ĐỀ",
-		path: "/topic",
-	},
+	// {
+	// 	display: "CHỦ ĐỀ",
+	// 	path: "/",
+	// },
 ];
 
-function Header() {
+function Header(props) {
 	const params = useParams();
 	const pathName = useLocation().pathname;
-	const activeNav = mainNav.findIndex(
+	var activeNav = mainNav.findIndex(
 		(e) => `/${params.alias}`.concat(e.path) === pathName
 	);
+
+	var currentTopic;
+	const slug = useRef(params["*"].split("/")[1]);
+	const dispatch = useDispatch();
+	const blog = useSelector((state) => state.blog);
+	const blogger = useSelector((state) => state.blogger);
+	useEffect(() => {
+		dispatch(getBloggerByAliasAsync(params.alias));
+		dispatch(getBlogBySlugAsync(slug.current));
+	}, [dispatch, slug, params.alias]);
+	const slugType = params["*"].split("/")[0];
+	switch (slugType) {
+		case "topic":
+			const topic = blogger.Topic?.find((topic) => topic.slug === slug.current);
+			topic && (currentTopic = topic.topicName.toUpperCase());
+			break;
+		case "blog":
+			if (blog)
+				if (!Array.isArray(blog) && typeof blog !== "string") {
+					currentTopic = blog.Topic.topicName.toUpperCase();
+				}
+			break;
+		default:
+			break;
+	}
+
+	currentTopic && (activeNav = 2);
 
 	const headerRef = useRef(null);
 	const logoRef = useRef(null);
@@ -53,6 +84,10 @@ function Header() {
 	const menuLeft = useRef(null);
 	const menuToggle = () => menuLeft.current.classList.toggle("active");
 
+	const [openTopics, setOpenTopics] = useState(false);
+
+	const [openSettings, setOpenSettings] = useState(false);
+
 	return (
 		<div className="header" ref={headerRef}>
 			<div className="container" ref={containerRef}>
@@ -79,6 +114,21 @@ function Header() {
 								<Link to={`/${params.alias}${item.path}`}>{item.display}</Link>
 							</div>
 						))}
+						<div
+							onClick={() => {
+								// menuToggle();
+								setOpenTopics(!openTopics);
+							}}
+							className={`header__menu__left__item header__menu__item ${
+								activeNav === 2 ? "active" : ""
+							}`}>
+							{params["*"].includes("topic") || params["*"].includes("blog")
+								? currentTopic
+								: "CHỦ ĐỀ"}
+							{openTopics && (
+								<DropdownMenu blogger={props.blogger} onclick={menuToggle} />
+							)}
+						</div>
 					</div>
 					<div className="header__menu__right">
 						<div className="header__menu__right__item header__menu__item">
@@ -87,8 +137,11 @@ function Header() {
 							<i className="bx bx-bell"></i>
 						</div>
 						{account ? (
-							<div className="header__menu__right__pfp">
+							<div
+								className="header__menu__right__pfp"
+								onClick={() => setOpenSettings(!openSettings)}>
 								<img src={pfp} alt="" />
+								{openSettings && <DropdownMenu />}
 							</div>
 						) : (
 							""
