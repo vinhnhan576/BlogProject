@@ -14,4 +14,6 @@ router.post("/", topicController.addNewTopic);
 
 router.get("/query", topicController.getAllTopicsByUserID);
 
+router.get("/gettopicbyslug", topicController.getTopicBySlug);
+
 module.exports = router;
