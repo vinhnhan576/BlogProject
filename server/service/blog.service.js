@@ -53,7 +53,26 @@ let getBlogBySlug = async (slug) => {
 		}
 	});
 };
+let addNewBlog = async (blogReqData) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      await db.Blog.create({
+        title: blogReqData.title,
+        content: blogReqData.content,
+        coverImg:blogReqData.coverImg,
+			  quote: blogReqData.quote,
+			  date: blogReqData.date,
+			  slug: blogReqData.slug,
+			topicID: blogReqData.topicID,
+      });
+      resolve("blog added successfully!");
+    } catch (e) {
+      reject("Error adding blog: " + e);
+    }
+  });
+};
 module.exports = {
 	getAllBlogsByUserID: getAllBlogsByUserID,
-	getBlogBySlug: getBlogBySlug,
+	getBlogBySlug:getBlogBySlug,
+  addNewBlog:addNewBlog,
 };

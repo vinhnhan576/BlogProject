@@ -104,6 +104,35 @@ let getAllTopicsByUserID = async (userID) => {
 		}
 	});
 };
+let getTopicBySlug = async (slug) => {
+	return new Promise(async (resolve, reject) => {
+		try {
+		  let topic = await db.Topic.findAll({
+			include: [
+			  {
+				model: db.Blog,
+				as: "Topic",
+				where: {
+				  slug: slug,
+				},
+			  },
+			],
+	
+			attributes: [
+				"topicName",
+				"img",
+				"quote",
+				"slug",
+				"userID",
+			],
+		  });
+		  if (blog) resolve(blog);
+		  resolve("Cannot find blog with slug " + slug);
+		} catch (e) {
+		  reject(e);
+		}
+	});
+};
 
 module.exports = {
 	getAllTopics: getAllTopics,
@@ -112,4 +141,5 @@ module.exports = {
 	updateTopic: updateTopic,
 	deleteTopicByID: deleteTopicByID,
 	getAllTopicsByUserID: getAllTopicsByUserID,
+	getTopicBySlug:getTopicBySlug,
 };
