@@ -23,6 +23,7 @@ exports.getAllTopicsByUserID = async (req, res) => {
     let topicList = await topicService.getAllTopicsByUserID(req.query.userID);
   return res.send(topicList);
 };
+
 exports.getTopicBySlug = async (req, res) => {
 	let topic = await topicService.getTopicBySlug(req.query.slug);
 	return res.send(topic);

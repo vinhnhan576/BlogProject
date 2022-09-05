@@ -9,6 +9,7 @@ import { useState } from "react";
 import { getAllTopicsByUserIDAsync } from "../features/topic/topicSlice";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import { getBlogBySlugAsync } from "../features/post/blogSlice";
+import { getTopicBySlug } from "../../../server/service/topic.service";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -35,16 +36,18 @@ function Header(props) {
 	const slug = useRef(params["*"].split("/")[1]);
 	const dispatch = useDispatch();
 	const blog = useSelector((state) => state.blog);
-	const blogger = useSelector((state) => state.blogger);
+	const topic = useSelector((state) => state.topic);
 	useEffect(() => {
-		dispatch(getBloggerByAliasAsync(params.alias));
+		dispatch(getTopicBySlug(slug.current));
 		dispatch(getBlogBySlugAsync(slug.current));
-	}, [dispatch, slug, params.alias]);
+	}, [dispatch, slug]);
 	const slugType = params["*"].split("/")[0];
 	switch (slugType) {
 		case "topic":
-			const topic = blogger.Topic?.find((topic) => topic.slug === slug.current);
-			topic && (currentTopic = topic.topicName.toUpperCase());
+			if (topic)
+				if (!Array.isArray(topic) && typeof topic !== "string") {
+					currentTopic = topic.topicName.toUpperCase();
+				}
 			break;
 		case "blog":
 			if (blog)
