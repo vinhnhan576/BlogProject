@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/vinhnhan576/BlogProject#readme",
   "dependencies": {
+    "cucumber": "^6.0.7",
     "gh-pages": "^4.0.0"
   }
 }
