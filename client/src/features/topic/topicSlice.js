@@ -2,10 +2,21 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import Axios from "axios";
 
 export const getAllTopicsByUserIDAsync = createAsyncThunk(
-	"blogs/getAllTopicssByUserIDAsync",
+	"topic/getAllTopicssByUserIDAsync",
 	async (userID) => {
 		const response = await Axios.get(
 			`http://localhost:5000/api/topic/query?userID=${userID}`
+		);
+		const tasks = response.data;
+		return { tasks };
+	}
+);
+
+export const getAllTopicBySlugAsync = createAsyncThunk(
+	"topic/getAllTopicBySlugAsync",
+	async (slug) => {
+		const response = await Axios.get(
+			`http://localhost:5000/api/topic/gettopicbyslug?slug=${slug}`
 		);
 		const tasks = response.data;
 		return { tasks };

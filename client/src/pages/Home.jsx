@@ -7,11 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import PostSlice, {
 	getAllTopicsByUserIDAsync,
 } from "../features/topic/topicSlice";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function Home(props) {
+function Home({ blogger }) {
 	const allTopics = useSelector((state) => state.topic);
-	const userID = props.blogger.id;
+	const user = useSelector((state) => state.user);
+	const userID = blogger.id;
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllTopicsByUserIDAsync(userID));
@@ -25,14 +27,41 @@ function Home(props) {
 				topicName={topic.topicName}
 				slug={topic.slug}
 				blogs={topic.Blog}
-				alias={props.blogger.alias}
+				alias={blogger.alias}
 			/>
 		);
 	});
-	// console.log(allTopicElements);
+
+	const isEqual = (...objects) =>
+		objects.every((obj) => JSON.stringify(obj) === JSON.stringify(objects[0]));
+	const isLoggedIn = isEqual(user, blogger);
+
 	return (
 		<div>
-			<Helmet title="Trang chủ">{allTopicElements}</Helmet>
+			<Helmet title="Trang chủ">
+				{
+					<div className="home">
+						{isLoggedIn ? (
+							<div className="home__new-blog">
+								<Link to="/" className="home__link">
+									<div className="home__new-blog__pfp">
+										<img
+											src={require(`../assets/image/user/${blogger.profilepic}`)}
+											alt=""
+										/>
+									</div>
+									<div className="home__new-blog__placeholder">
+										{"Tạo nguồn cảm hứng mới <3"}
+									</div>
+								</Link>
+							</div>
+						) : (
+							""
+						)}
+						<div className="home__topics">{allTopicElements}</div>
+					</div>
+				}
+			</Helmet>
 		</div>
 	);
 }

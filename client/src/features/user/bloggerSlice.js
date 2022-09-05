@@ -4,7 +4,6 @@ import Axios from "axios";
 export const getBloggerByAliasAsync = createAsyncThunk(
 	"api/user/getBloggerByAliasAsync",
 	async (alias) => {
-		console.log(alias);
 		const response = await Axios.get(
 			`http://localhost:5000/api/user/getuserbyalias?alias=${alias}`
 		);
