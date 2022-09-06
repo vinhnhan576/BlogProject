@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Category from "../pages/Category";
 import About from "../pages/About";
 import Blog from "../pages/Blog";
+import NewBlog from "../pages/NewBlog";
 
 function routes(props) {
 	return (
@@ -13,6 +14,7 @@ function routes(props) {
 			<Route path="/about" element={<About />} />
 			<Route path="/topic/:slug" element={<Category />} />
 			<Route path="/blog/:slug" element={<Blog />} />
+			<Route path="/newBlog" element={<NewBlog />} />
 		</Routes>
 	);
 }

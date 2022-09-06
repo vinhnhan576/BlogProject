@@ -3,6 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 import DropdownMenu from "./DropdownMenu";
+import SettingsMenu from "./SettingsMenu";
 
 import pfp from "../assets/image/user/huonglehere.jpg";
 import { useState } from "react";
@@ -23,6 +24,13 @@ const mainNav = [
 	// 	display: "CHỦ ĐỀ",
 	// 	path: "/",
 	// },
+];
+
+const settings = [
+	{
+		name: "Đăng xuất",
+		slug: "/",
+	},
 ];
 
 function Header(props) {
@@ -147,7 +155,12 @@ function Header(props) {
 								className="header__menu__right__pfp"
 								onClick={() => setOpenSettings(!openSettings)}>
 								<img src={pfp} alt="" />
-								{openSettings && <DropdownMenu />}
+								{openSettings && (
+									<SettingsMenu
+										alias={props.blogger.alias}
+										settings={settings}
+									/>
+								)}
 							</div>
 						) : (
 							""
