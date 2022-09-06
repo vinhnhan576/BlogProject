@@ -5,7 +5,7 @@ export const getUserByUsernameAsync = createAsyncThunk(
 	"api/user/getUserByUsernameAsync",
 	async (username) => {
 		const response = await Axios.post(
-			"http://localhost:5000/api/user/getuserbyusername",
+			"http://blogprojectpbl3.herokuapp.com/api/user/getuserbyusername",
 			username
 		);
 		const tasks = response.data;

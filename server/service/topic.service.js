@@ -120,7 +120,7 @@ let getTopicBySlug = async (slug) => {
 
 				// attributes: ["topicName", "img", "quote", "slug", "userID"],
 			});
-			if (blog) resolve(blog);
+			if (topic) resolve(topic);
 			resolve("Cannot find blog with slug " + slug);
 		} catch (e) {
 			reject(e);

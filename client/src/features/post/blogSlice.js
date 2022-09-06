@@ -5,7 +5,7 @@ export const getAllBlogsByUserIDAsync = createAsyncThunk(
 	"blogs/getAllBlogsByUserIDAsync",
 	async (userID) => {
 		const response = await Axios.get(
-			`http://localhost:5000/api/blog?userID=${userID}`
+			`http://blogprojectpbl3.herokuapp.com/api/blog?userID=${userID}`
 		);
 		const tasks = response.data;
 		return { tasks };
@@ -16,7 +16,7 @@ export const getBlogBySlugAsync = createAsyncThunk(
 	"blog/getBlogBySlugAsync",
 	async (slug) => {
 		const response = await Axios.get(
-			`http://localhost:5000/api/blog/getblogbyslug?slug=${slug}`
+			`http://blogprojectpbl3.herokuapp.com/api/blog/getblogbyslug?slug=${slug}`
 		);
 		const tasks = response.data;
 		return { tasks };
