@@ -1,17 +1,11 @@
 import React from "react";
-import CategoryCard from "../components/CategoryCard";
 import Helmet from "../components/Helmet";
 import Topic from "../components/Topic";
-import Category from "./Category";
-import { useSelector, useDispatch } from "react-redux";
-import PostSlice, {
-	getAllTopicsByUserIDAsync,
-} from "../features/topic/topicSlice";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Home({ blogger }) {
-	const allTopics = useSelector((state) => state.topic);
+	// const allTopics = useSelector((state) => state.topic);
 	const user = useSelector((state) => state.user);
 	// const userID = blogger.id;
 	// const dispatch = useDispatch();
@@ -46,7 +40,7 @@ function Home({ blogger }) {
 					<div className="home">
 						{isLoggedIn ? (
 							<div className="home__new-blog">
-								<Link to="/" className="home__link">
+								<Link to={`/${user.alias}/newBlog`} className="home__link">
 									<div className="home__new-blog__pfp">
 										<img
 											src={require(`../assets/image/user/${blogger.profilepic}`)}

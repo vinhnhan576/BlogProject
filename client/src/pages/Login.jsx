@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { authenticateUserAsync } from "../features/account/accountSlice";
 import { getUserByUsernameAsync } from "../features/user/userSlice";
-import { selectUser } from "../features/user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 
 import loginImage01 from "../assets/image/login/login-image-01.png";
@@ -13,7 +12,6 @@ import { unwrapResult } from "@reduxjs/toolkit";
 const Login = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const user = useSelector(selectUser);
 
 	const initialUserState = {
 		username: "",
@@ -72,7 +70,9 @@ const Login = () => {
 						onChange={handleChange("password")}
 					/>
 				</div>
-				<button type="submit" className="login__form__button">
+				<button
+					type="submit"
+					className="login__form__button login__form__login-button">
 					đăng nhập
 				</button>
 				<Link to="signup">

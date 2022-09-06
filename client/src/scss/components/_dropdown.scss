@@ -10,7 +10,28 @@ $dropdown-border-radius: 7px;
 	padding: 0.3rem;
 	max-height: 300px;
 	overflow: auto;
-  transform: translateX(-7%);
+	transform: translateX(-7%);
+
+	@include mobile {
+		position: relative;
+		// transform: translateX(0%);
+		box-shadow: none;
+		width: 100%;
+		top: 0;
+		transform: none;
+		padding: 0;
+	}
+
+	&.settings{
+		top: 68px;
+		transform: translateX(-85%);
+		width: 260px;
+
+		@include mobile{
+			position: absolute;
+			width: 120px;
+		}
+	}
 
 	&__item {
 		height: 50px;
@@ -18,6 +39,11 @@ $dropdown-border-radius: 7px;
 		border-radius: $dropdown-border-radius;
 		transition: background 0.3s;
 		padding: 0.5rem;
+
+		@include mobile{
+			// padding: 0;
+			height: auto;
+		}
 
 		p {
 			margin-left: 10px;
