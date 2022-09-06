@@ -53,6 +53,6 @@ module.exports = {
 		// });
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable("blogs");
+		await queryInterface.dropTable("Blogs");
 	},
 };
