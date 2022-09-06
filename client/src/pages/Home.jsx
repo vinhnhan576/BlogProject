@@ -13,12 +13,12 @@ import { Link } from "react-router-dom";
 function Home({ blogger }) {
 	const allTopics = useSelector((state) => state.topic);
 	const user = useSelector((state) => state.user);
-	const userID = blogger.id;
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getAllTopicsByUserIDAsync(userID));
-	}, [dispatch, userID]);
-	const allTopicElements = allTopics.map((topic) => {
+	// const userID = blogger.id;
+	// const dispatch = useDispatch();
+	// useEffect(() => {
+	// 	dispatch(getAllTopicsByUserIDAsync(userID));
+	// }, [dispatch, userID]);
+	const allTopicElements = blogger.Topic.map((topic) => {
 		return (
 			<Topic
 				key={topic.id}
