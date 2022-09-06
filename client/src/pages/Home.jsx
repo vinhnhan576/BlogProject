@@ -18,19 +18,22 @@ function Home({ blogger }) {
 	// useEffect(() => {
 	// 	dispatch(getAllTopicsByUserIDAsync(userID));
 	// }, [dispatch, userID]);
-	const allTopicElements = blogger.Topic.map((topic) => {
-		return (
-			<Topic
-				key={topic.id}
-				id={topic.id}
-				userID={topic.userID}
-				topicName={topic.topicName}
-				slug={topic.slug}
-				blogs={topic.Blog}
-				alias={blogger.alias}
-			/>
-		);
-	});
+	var allTopicElements;
+	if (blogger) {
+		allTopicElements = blogger.Topic.map((topic) => {
+			return (
+				<Topic
+					key={topic.id}
+					id={topic.id}
+					userID={topic.userID}
+					topicName={topic.topicName}
+					slug={topic.slug}
+					blogs={topic.Blog}
+					alias={blogger.alias}
+				/>
+			);
+		});
+	}
 
 	const isEqual = (...objects) =>
 		objects.every((obj) => JSON.stringify(obj) === JSON.stringify(objects[0]));

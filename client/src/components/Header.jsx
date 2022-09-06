@@ -34,12 +34,15 @@ function Header(props) {
 
 	var currentTopic;
 	const slug = useRef(params["*"].split("/")[1]);
+	console.log(slug);
 	const dispatch = useDispatch();
 	const blog = useSelector((state) => state.blog);
 	const topic = useSelector((state) => state.topic);
 	useEffect(() => {
-		dispatch(getAllTopicBySlugAsync(slug.current));
-		dispatch(getBlogBySlugAsync(slug.current));
+		if (typeof slug !== "object") {
+			dispatch(getAllTopicBySlugAsync(slug.current));
+			dispatch(getBlogBySlugAsync(slug.current));
+		}
 	}, [dispatch, slug]);
 	const slugType = params["*"].split("/")[0];
 	switch (slugType) {
