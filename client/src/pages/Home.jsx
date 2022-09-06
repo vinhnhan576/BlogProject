@@ -19,7 +19,7 @@ function Home({ blogger }) {
 	// 	dispatch(getAllTopicsByUserIDAsync(userID));
 	// }, [dispatch, userID]);
 	var allTopicElements;
-	if (blogger) {
+	if (blogger.id) {
 		allTopicElements = blogger.Topic.map((topic) => {
 			return (
 				<Topic
