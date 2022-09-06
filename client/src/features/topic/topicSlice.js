@@ -16,7 +16,7 @@ export const getAllTopicBySlugAsync = createAsyncThunk(
 	"topic/getAllTopicBySlugAsync",
 	async (slug) => {
 		const response = await Axios.get(
-			`http://blogprojectpbl3.herokuapp.com/api/topic/gettopicbyslug?slug=${slug}`
+			`https://blogprojectpbl3.herokuapp.com/api/topic/gettopicbyslug?slug=${slug}`
 		);
 		const tasks = response.data;
 		return { tasks };
