@@ -9,7 +9,7 @@ module.exports = {
 		const vnhanTopicRows = topics[1];
 
 		await queryInterface.bulkInsert(
-			"blogs",
+			"Blogs",
 			[
 				{
 					title: "Đánh bài cùng Hương Lê và những người bạn",

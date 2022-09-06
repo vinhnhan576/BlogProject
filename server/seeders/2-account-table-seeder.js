@@ -6,7 +6,7 @@ module.exports = {
 		const userRows = users[0];
 
 		await queryInterface.bulkInsert(
-			"accounts",
+			"Accounts",
 			[
 				{
 					userID: userRows[0].id,
