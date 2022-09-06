@@ -9,7 +9,7 @@ import { useState } from "react";
 import { getAllTopicsByUserIDAsync } from "../features/topic/topicSlice";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import { getBlogBySlugAsync } from "../features/post/blogSlice";
-import { getTopicBySlug } from "../../../server/service/topic.service";
+import { getAllTopicBySlugAsync } from "../features/topic/topicSlice";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -38,7 +38,7 @@ function Header(props) {
 	const blog = useSelector((state) => state.blog);
 	const topic = useSelector((state) => state.topic);
 	useEffect(() => {
-		dispatch(getTopicBySlug(slug.current));
+		dispatch(getAllTopicBySlugAsync(slug.current));
 		dispatch(getBlogBySlugAsync(slug.current));
 	}, [dispatch, slug]);
 	const slugType = params["*"].split("/")[0];
