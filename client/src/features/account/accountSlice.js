@@ -5,7 +5,10 @@ export const authenticateUserAsync = createAsyncThunk(
 	"auth/authenticateUserAsync",
 	async (user) => {
 		console.log();
-		const response = await Axios.post("http://localhost:5000/auth", user);
+		const response = await Axios.post(
+			"https://blogprojectpbl3.herokuapp.com/auth",
+			user
+		);
 		const tasks = response.data;
 		return { tasks };
 	}
