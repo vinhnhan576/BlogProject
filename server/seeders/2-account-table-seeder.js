@@ -2,7 +2,7 @@
 
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		const users = await queryInterface.sequelize.query("SELECT id FROM USERS");
+		const users = await queryInterface.sequelize.query("SELECT id FROM Users");
 		const userRows = users[0];
 
 		await queryInterface.bulkInsert(

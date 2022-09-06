@@ -3,7 +3,7 @@
 module.exports = {
 	async up(queryInterface, Sequelize) {
 		const topics = await queryInterface.sequelize.query(
-			"SELECT id FROM TOPICS"
+			"SELECT id FROM Topics"
 		);
 		const huongleTopicRows = topics[0]; // topic cua huongle
 		const vnhanTopicRows = topics[1];
