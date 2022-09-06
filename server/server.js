@@ -18,12 +18,12 @@ const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
-	res.send("hello world");
+	res.send("server index page");
 });
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+// 	app.use(express.static("client/build"));
+// }
 
 // app.get("*", (request, response) => {
 // 	response.sendFile(path.join(__dirname, "client/build", "index.html"));
