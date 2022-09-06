@@ -9,7 +9,7 @@ module.exports = {
 		const vnhanTopicRows = topics[1];
 
 		await queryInterface.bulkInsert(
-			"Blogs",
+			"blogs",
 			[
 				{
 					title: "Đánh bài cùng Hương Lê và những người bạn",
@@ -92,6 +92,6 @@ module.exports = {
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete("Blogs", null, {});
+		await queryInterface.bulkDelete("blogs", null, {});
 	},
 };

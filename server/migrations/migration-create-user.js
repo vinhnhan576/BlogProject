@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
 	async up(queryInterface, Sequelize) {
-		await queryInterface.createTable("Users", {
+		await queryInterface.createTable("users", {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
@@ -52,7 +52,7 @@ module.exports = {
 				type: Sequelize.DATE,
 			},
 		});
-		await queryInterface.addColumn("Users", "testID", {
+		await queryInterface.addColumn("users", "testID", {
 			type: Sequelize.INTEGER,
 			// references: {
 			//   model: "User",
@@ -61,6 +61,6 @@ module.exports = {
 		});
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable("Users");
+		await queryInterface.dropTable("users");
 	},
 };

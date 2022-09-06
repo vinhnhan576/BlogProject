@@ -6,7 +6,7 @@ module.exports = {
 		const userRows = users[0];
 
 		await queryInterface.bulkInsert(
-			"Accounts",
+			"accounts",
 			[
 				{
 					userID: userRows[0].id,
@@ -24,6 +24,6 @@ module.exports = {
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete("Accounts", null, {});
+		await queryInterface.bulkDelete("accounts", null, {});
 	},
 };

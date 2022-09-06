@@ -6,7 +6,7 @@ module.exports = {
 		const userRows = users[0];
 
 		await queryInterface.bulkInsert(
-			"Topics",
+			"topics",
 			[
 				{
 					topicName: "Đời sống",
@@ -42,6 +42,6 @@ module.exports = {
 	},
 
 	async down(queryInterface, Sequelize) {
-		await queryInterface.bulkDelete("Topics", null, {});
+		await queryInterface.bulkDelete("topics", null, {});
 	},
 };
