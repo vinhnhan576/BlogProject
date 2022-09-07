@@ -97,4 +97,26 @@ $image-width-mobile: 25em;
 			overflow: hidden;
 		}
 	}
+
+	&-functions {
+		@include flex(center, space-between);
+		border-top: 3px solid white;
+		margin-top: 10px;
+		padding-top: 10px;
+
+		&-left,
+		&-right {
+			font-size: 18px;
+			// margin: 0 5px;
+
+			.bx {
+				padding: 0 5px;
+				cursor: pointer;
+			}
+
+			.hidden {
+				display: none;
+			}
+		}
+	}
 }
