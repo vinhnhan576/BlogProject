@@ -1,13 +1,9 @@
 import React from "react";
 import Helmet from "../components/Helmet";
-import AllCategoryCards from "../components/AllCategoryCards";
 import Banner from "../components/Banner";
 import { useSelector, useDispatch } from "react-redux";
-import PostSlice, {
-	getAllBlogsByUserIDAsync,
-} from "../features/post/blogSlice";
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import CategoryCard from "../components/CategoryCard";
 import PageNotFound from "./PageNotFound";
@@ -18,7 +14,7 @@ function Category() {
 	const alias = params.alias;
 	const blogger = useSelector((state) => state.blogger);
 	useEffect(() => {
-		dispatch(getBloggerByAliasAsync(alias));		
+		dispatch(getBloggerByAliasAsync(alias));
 	}, [dispatch, alias]);
 	const topic = blogger.Topic?.find((topic) => topic.slug === params.slug);
 	// const allBlogsByTopic = Array.isArray(allBlogs)

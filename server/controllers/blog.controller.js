@@ -11,4 +11,4 @@ exports.getBlogBySlug = async (req, res) => {
 exports.addNewBlog = async (req, res) => {
 	let message = await blogService.addNewBlog(req.body);
 	return res.send(message);
-  };
+};
