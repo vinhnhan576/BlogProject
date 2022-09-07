@@ -16,13 +16,9 @@ function Category() {
 	const dispatch = useDispatch();
 	const params = useParams();
 	const alias = params.alias;
-	// const allBlogs = useSelector((state) => state.blog);
 	const blogger = useSelector((state) => state.blogger);
-	// const [topic, setTopic] = useState();
-	// const [allBlogsByTopic, setAllBlogsByTopic] = useState();
 	useEffect(() => {
-		dispatch(getBloggerByAliasAsync(alias));
-		// dispatch(getAllBlogsByUserIDAsync(blogger.id));
+		dispatch(getBloggerByAliasAsync(alias));		
 	}, [dispatch, alias]);
 	const topic = blogger.Topic?.find((topic) => topic.slug === params.slug);
 	// const allBlogsByTopic = Array.isArray(allBlogs)

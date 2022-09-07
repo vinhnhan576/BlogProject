@@ -11,7 +11,6 @@ function Layout() {
 	const alias = params.alias;
 	const dispatch = useDispatch();
 	const blogger = useSelector((state) => state.blogger);
-	console.log(blogger)
 	useEffect(() => {
 		dispatch(getBloggerByAliasAsync(alias));
 	}, [dispatch, alias]);
