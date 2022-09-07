@@ -14,7 +14,7 @@ function routes(props) {
 			<Route path="/about" element={<About />} />
 			<Route path="/topic/:slug" element={<Category />} />
 			<Route path="/blog/:slug" element={<Blog />} />
-			<Route path="/newBlog" element={<NewBlog />} />
+			<Route path="/newBlog" element={<NewBlog alias={props.blogger.alias} />} />
 		</Routes>
 	);
 }

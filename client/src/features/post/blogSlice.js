@@ -23,6 +23,18 @@ export const getBlogBySlugAsync = createAsyncThunk(
 	}
 );
 
+export const createNewBlogAsync = createAsyncThunk(
+	"blog/createNewBlogAsync",
+	async (blogReqData) => {
+		const response = await Axios.post(
+			"https://blogprojectpbl3.herokuapp.com/api/blog",
+			blogReqData
+		);
+		const tasks = response.data;
+		return { tasks };
+	}
+);
+
 const blogSlice = createSlice({
 	name: "blog",
 	initialState: [],
@@ -34,6 +46,10 @@ const blogSlice = createSlice({
 		},
 		[getBlogBySlugAsync.fulfilled]: (state, action) => {
 			console.log("fetching blog by slug successfully");
+			return action.payload.tasks;
+		},
+		[createNewBlogAsync.fulfilled]: (state, action) => {
+			console.log("added new blog successfully");
 			return action.payload.tasks;
 		},
 	},

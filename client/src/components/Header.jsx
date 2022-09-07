@@ -1,16 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 import DropdownMenu from "./DropdownMenu";
 import SettingsMenu from "./SettingsMenu";
 
 import pfp from "../assets/image/user/huonglehere.jpg";
 import { useState } from "react";
-import { getAllTopicsByUserIDAsync } from "../features/topic/topicSlice";
-import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
-import { getBlogBySlugAsync } from "../features/post/blogSlice";
-import { getAllTopicBySlugAsync } from "../features/topic/topicSlice";
 const mainNav = [
 	{
 		display: "TRANG CHỦ",
@@ -41,7 +37,6 @@ function Header(props) {
 	);
 
 	var currentTopic;
-	const dispatch = useDispatch();
 	const blog = useSelector((state) => state.blog);
 	const topics = props.blogger.Topic;
 	// useEffect(() => {
@@ -55,8 +50,10 @@ function Header(props) {
 		case "topic":
 			if (topics)
 				// if (!Array.isArray(topic) && typeof topic !== "string") {
-					currentTopic = topics.find((topic) => topic.slug === params["*"].split("/")[1]).topicName.toUpperCase();
-				// }
+				currentTopic = topics
+					.find((topic) => topic.slug === params["*"].split("/")[1])
+					.topicName.toUpperCase();
+			// }
 			break;
 		case "blog":
 			if (blog)
