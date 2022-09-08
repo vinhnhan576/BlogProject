@@ -22,8 +22,6 @@ export const getBlogBySlugAsync = createAsyncThunk(
 		return { tasks };
 	}
 );
-<<<<<<< HEAD
-=======
 
 export const createNewBlogAsync = createAsyncThunk(
 	"blog/createNewBlogAsync",
@@ -38,7 +36,6 @@ export const createNewBlogAsync = createAsyncThunk(
 	}
 );
 
->>>>>>> a10179f03953799fcff24f3aa975a3c7e2c5f2b9
 const blogSlice = createSlice({
 	name: "blog",
 	initialState: [],
