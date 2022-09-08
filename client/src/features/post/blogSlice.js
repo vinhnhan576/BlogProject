@@ -25,12 +25,24 @@ export const getBlogBySlugAsync = createAsyncThunk(
 
 export const createNewBlogAsync = createAsyncThunk(
 	"blog/createNewBlogAsync",
-	async (blogReqData) => {
+	async ({ blogReqData }) => {
 		console.log(blogReqData);
 		const response = await Axios.post(
 			"https://blogprojectpbl3.herokuapp.com/api/blog",
 			blogReqData
 		);
+		const tasks = response.data;
+		return { tasks };
+	}
+);
+
+export const deleteBlogAsync = createAsyncThunk(
+	"blog/deleteBlogAsync",
+	async (id) => {
+		const response = await Axios.delete(
+			`https://blogprojectpbl3.herokuapp.com/api/blog/${id}`
+		);
+		window.location.reload(false);
 		const tasks = response.data;
 		return { tasks };
 	}

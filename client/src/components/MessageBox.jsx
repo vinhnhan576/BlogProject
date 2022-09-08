@@ -1,8 +1,14 @@
 import React from "react";
 
-const MessageBox = ({ title, body, blogName }) => {
+const MessageBox = ({
+	title,
+	body,
+	blogName,
+	onCheckButtonClick,
+	onCloseButtonClick,
+}) => {
 	const [isCheck, setIsCheck] = React.useState(false);
-	
+
 	function handleClick() {
 		console.log("clicked");
 	}
@@ -15,11 +21,13 @@ const MessageBox = ({ title, body, blogName }) => {
 				</div>
 				<div className="message-box__content">
 					<div className="message-box__content__title">{title}</div>
-					<div className="message-box__content__body">{body} "{blogName}"</div>
+					<div className="message-box__content__body">
+						{body} "{blogName}"
+					</div>
 				</div>
 				<div className="message-box__close">
-					<i className="bx bx-check" onClick={handleClick}></i>
-					<i className="bx bx-x"></i>
+					<i className="bx bx-check" onClick={onCheckButtonClick}></i>
+					<i className="bx bx-x" onClick={onCloseButtonClick}></i>
 				</div>
 			</div>
 		</div>

@@ -2,8 +2,11 @@ import React, { useRef } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import MessageBox from "./MessageBox";
+import { deleteBlogAsync } from "../features/post/blogSlice";
+import { useDispatch } from "react-redux";
 
-const CategoryCard = (props) => {
+const CategoryCard = (props, { deleteButtonClick }) => {
+	const dispatch = useDispatch();
 	const params = useParams();
 	const bodyImageRef = useRef();
 	const onImgLoad = ({ target: img }) => {
@@ -19,6 +22,16 @@ const CategoryCard = (props) => {
 
 	const publish = useRef();
 	const store = useRef();
+
+	const onCheckButtonClick = () => {
+		setOpenMessageBox(false);
+		dispatch(deleteBlogAsync(props.id));
+		
+	};
+
+	const onCloseButtonClick = () => {
+		setOpenMessageBox(false);
+	};
 
 	return (
 		<div className="category_container" id={props.id}>
@@ -40,7 +53,7 @@ const CategoryCard = (props) => {
 						onClick={() => {
 							setOpenMessageBox(!openMessageBox);
 							setMessageBoxType("Xuất bản");
-							store.current.classList.toggle("hidden")
+							store.current.classList.toggle("hidden");
 						}}></i>
 					<i
 						className="bx bxs-box hidden"
@@ -72,6 +85,8 @@ const CategoryCard = (props) => {
 					title={`${messageBoxType} blog`}
 					body={`Bạn có chắc chắn muốn ${messageBoxType.toLowerCase()} `}
 					blogName={props.title}
+					onCloseButtonClick={onCloseButtonClick}
+					onCheckButtonClick={onCheckButtonClick}
 				/>
 			)}
 		</div>

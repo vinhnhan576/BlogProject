@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import CategoryCard from "../components/CategoryCard";
 import PageNotFound from "./PageNotFound";
+import { useState } from "react";
 
 function Category() {
 	const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function Category() {
 								return (
 									<CategoryCard
 										key={index}
+										id={blog.id}
 										urlImage={require(`../assets/image/blog/${blog.coverImg}`)}
 										date={`${blog.location} - ${blog.date}`}
 										title={`${blog.title}`}
