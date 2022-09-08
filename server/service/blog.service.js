@@ -72,8 +72,29 @@ let addNewBlog = async (blogReqData) => {
 		}
 	});
 };
+
+let deleteBlogByID = async (id) => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			await db.Blog.destroy({ where: { id: id } }).then((deletedBlog) => {
+				if (deletedBlog) {
+					resolve("Deleted blog with id " + id + " successfully!");
+				}
+				resolve(
+					"Cannot delete blog with id " +
+						id +
+						". Maybe the blog cannot be found!"
+				);
+			});
+		} catch (e) {
+			reject("Error deleting blog with id " + id + ": " + e);
+		}
+	});
+};
+
 module.exports = {
 	getAllBlogsByUserID: getAllBlogsByUserID,
 	getBlogBySlug: getBlogBySlug,
 	addNewBlog: addNewBlog,
+	deleteBlogByID: deleteBlogByID,
 };
