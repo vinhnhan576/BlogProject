@@ -2,16 +2,11 @@ import React from "react";
 import Helmet from "../components/Helmet";
 import Banner from "../components/Banner";
 import { useSelector, useDispatch } from "react-redux";
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-import { Link,useNavigate, useParams} from "react-router-dom";
-=======
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import CategoryCard from "../components/CategoryCard";
 import PageNotFound from "./PageNotFound";
->>>>>>> a10179f03953799fcff24f3aa975a3c7e2c5f2b9
 
 function Category() {
 	const dispatch = useDispatch();

@@ -7,18 +7,6 @@ import { Link } from "react-router-dom";
 import BlogCard from '../components/BlogCard'
 
 export default function Topic(props) {
-<<<<<<< HEAD
-	const [userID, setUserID] = useState(1);
-	const [topicID, setTopicID] = useState(props.id);
-	const allPosts = useSelector((state) => state.blog);
-	const allPostsByTopicID = allPosts.find(post=>post.topicID===topicID);
-	console.log(allPosts);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getAllBlogsByUserIDAsync(userID));
-	}, [dispatch]);
-	const allPostsElements = allPostsByTopicID.map((blog) => {
-=======
 	// const dispatch = useDispatch();
 	// const userID = 13;
 	// const topicID = props.id;
@@ -49,7 +37,6 @@ export default function Topic(props) {
 	const mainBlog = allBlogsByTopic[0];
 
 	const allPostsElements = first2BlogsByTopic.map((blog) => {
->>>>>>> a10179f03953799fcff24f3aa975a3c7e2c5f2b9
 		return (
 			// eslint-disable-next-line react/jsx-pascal-case
 			<BlogCard
