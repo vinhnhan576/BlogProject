@@ -16,6 +16,6 @@ exports.addNewBlog = async (req, res) => {
 };
 
 exports.deleteBlogByID = async (req, res) => {
-	let message = await userService.deleteBlogByID(req.params.id);
+	let message = await blogService.deleteBlogByID(req.params.id);
 	return res.send(message);
 };
