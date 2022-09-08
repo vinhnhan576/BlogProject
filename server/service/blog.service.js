@@ -64,7 +64,7 @@ let addNewBlog = async (blogReqData) => {
 				date: blogReqData?.date,
 				location: blogReqData?.location,
 				slug: blogReqData?.slug,
-				topicID: blogReqData?.topicID,
+				topicID: blogReqData.topicID,
 			});
 			resolve("blog added successfully!");
 		} catch (e) {
