@@ -25,18 +25,11 @@ if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
 }
 
-const { createProxyMiddleware } = require("http-proxy-middleware");
-app.use(
-	"/api",
-	createProxyMiddleware({
-		target: "https://https://blogprojectpbl3.herokuapp.com/", //original url
-		changeOrigin: true,
-		//secure: false,
-		onProxyRes: function (proxyRes, req, res) {
-			proxyRes.headers["Access-Control-Allow-Origin"] = "*";
-		},
-	})
-);
+app.all("/", function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	next();
+});
 
 // app.get("*", (request, response) => {
 // 	response.sendFile(path.join(__dirname, "client/build", "index.html"));
