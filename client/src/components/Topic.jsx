@@ -4,21 +4,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllBlogsByUserIDAsync } from "../features/post/blogSlice";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import BlogCard from '../components/BlogCard'
 
 export default function Topic(props) {
 	const [userID, setUserID] = useState(1);
-	const [topicID, setTopicID] = useState(1);
+	const [topicID, setTopicID] = useState(props.id);
 	const allPosts = useSelector((state) => state.blog);
+	const allPostsByTopicID = allPosts.find(post=>post.topicID===topicID);
 	console.log(allPosts);
-	console.log(allPostsBytopicID);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllBlogsByUserIDAsync(userID));
 	}, [dispatch]);
-	const allPostsElements = allPosts.map((blog) => {
+	const allPostsElements = allPostsByTopicID.map((blog) => {
 		return (
 			// eslint-disable-next-line react/jsx-pascal-case
-			<Topic_Post
+			<BlogCard
 				key={blog.id}
 				id={blog.id}
 				urlImage={blog.coverImg}

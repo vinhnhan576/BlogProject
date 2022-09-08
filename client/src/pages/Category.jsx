@@ -3,9 +3,6 @@ import Helmet from "../components/Helmet";
 import AllCategoryCards from "../components/AllCategoryCards";
 import Banner from "../components/Banner";
 import { useSelector, useDispatch } from "react-redux";
-import PostSlice, {
-  getAllBlogsByUserIDAsync,
-} from "../features/post/PostSlice";
 import { useState, useEffect } from "react";
 import { Link,useNavigate, useParams} from "react-router-dom";
 
