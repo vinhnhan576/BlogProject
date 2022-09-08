@@ -76,7 +76,7 @@ function Header(props) {
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
 			if (document.documentElement.scrollTop > 80) {
-					headerRef.current.classList.add("shrink");
+				headerRef.current.classList.add("shrink");
 				logoRef.current.classList.add("shrink");
 				containerRef.current.classList.add("shrink");
 			} else {
