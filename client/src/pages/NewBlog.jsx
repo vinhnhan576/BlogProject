@@ -49,7 +49,7 @@ const NewBlog = ({ alias }) => {
 	const handleNewBlog = (e) => {
 		e.preventDefault();
 		dispatch(createNewBlogAsync({ blogReqData: newBlog }));
-		navigate(`/${alias}`);	
+		navigate(`/${alias}`);
 	};
 
 	return (
