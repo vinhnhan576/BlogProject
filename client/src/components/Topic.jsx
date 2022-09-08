@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllBlogsByUserIDAsync } from "../features/post/blogSlice";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BlogCard from '../components/BlogCard'
+
 
 export default function Topic(props) {
 	// const dispatch = useDispatch();
