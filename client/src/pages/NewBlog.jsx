@@ -21,6 +21,7 @@ const NewBlog = ({ alias }) => {
 		location: "",
 		slug: "",
 		topicID: "5",
+		coverImg: "huonglehere_doi-song_danh-bai.jpg",
 	};
 
 	const [newBlog, setNewBlog] = useState(initialBlogState);

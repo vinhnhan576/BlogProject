@@ -67,16 +67,16 @@ function Header(props) {
 
 	currentTopic && (activeNav = 2);
 
-	const headerRef = useRef(null);
-	const logoRef = useRef(null);
-	const containerRef = useRef(null);
+	const headerRef = useRef();
+	const logoRef = useRef();
+	const containerRef = useRef();
 
 	const account = useSelector(selectAccount);
 
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
 			if (document.documentElement.scrollTop > 80) {
-				headerRef.current.classList.add("shrink");
+					headerRef.current.classList.add("shrink");
 				logoRef.current.classList.add("shrink");
 				containerRef.current.classList.add("shrink");
 			} else {
