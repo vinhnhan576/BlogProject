@@ -126,6 +126,30 @@ let getUserByUsername = async (userReqData) => {
 	});
 };
 
+let getUserByAlias = async (alias) => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			await db.User.findOne({
+				include: [
+					{
+						model: db.Topic,
+						as: "Topic",
+						include: [{ model: db.Blog, as: "Blog" }],
+					},
+				],
+				where: { alias: alias },
+			}).then((user) => {
+				if (user) {
+					resolve(user);
+				}
+				resolve("Cannot find user with alias " + alias);
+			});
+		} catch (e) {
+			reject("Error finding user with alias " + alias + ": " + e);
+		}
+	});
+};
+
 module.exports = {
 	getAllUsers: getAllUsers,
 	getUserByID: getUserByID,
@@ -133,4 +157,5 @@ module.exports = {
 	updateUser: updateUser,
 	deleteUserByID: deleteUserByID,
 	getUserByUsername: getUserByUsername,
+	getUserByAlias: getUserByAlias,
 };

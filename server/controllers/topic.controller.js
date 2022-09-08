@@ -24,3 +24,7 @@ exports.getAllTopicsByUserID = async (req, res) => {
   return res.send(topicList);
 };
 
+exports.getTopicBySlug = async (req, res) => {
+	let topic = await topicService.getTopicBySlug(req.query.slug);
+	return res.send(topic);
+};

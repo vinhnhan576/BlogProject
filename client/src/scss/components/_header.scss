@@ -76,7 +76,6 @@
 
 	&__menu {
 		@include flex(center, space-between);
-
 		height: 100%;
 		font-size: 1.5rem;
 
@@ -103,7 +102,7 @@
 		&__left,
 		&__right {
 			@include flex(flex-start, center);
-			padding-top: 20px;
+			padding-top: 25px;
 			height: 100%;
 
 			@include tablet {
@@ -123,13 +122,19 @@
 
 				@include mobile {
 					font-size: 20px;
-          margin-right: 6px;
+					margin-right: 6px;
 				}
 			}
 		}
 
 		&__right {
 			font-size: 2.25rem;
+			font-family: "Genos", sans-serif;
+
+			p {
+				font-size: 24px;
+				color: white
+			}
 
 			&__item {
 				@include flex(center, center);
@@ -144,14 +149,14 @@
 			}
 
 			&__pfp {
-				width: 2.5rem;
-				height: 2.5rem;
+				width: 2.25rem;
+				height: 2.25rem;
 				overflow: hidden;
 				border-radius: 50%;
 				margin-left: 10px;
 
 				img {
-					width: 2.5rem;
+					width: 2.25rem;
 					position: relative;
 					top: -20%;
 				}

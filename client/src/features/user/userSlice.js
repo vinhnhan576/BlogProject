@@ -5,7 +5,7 @@ export const getUserByUsernameAsync = createAsyncThunk(
 	"api/user/getUserByUsernameAsync",
 	async (username) => {
 		const response = await Axios.post(
-			"http://localhost:5000/api/user/getuserbyusername",
+			"https://blogprojectpbl3.herokuapp.com/api/user/getuserbyusername",
 			username
 		);
 		const tasks = response.data;
@@ -22,10 +22,8 @@ export const userSlice = createSlice({
 	extraReducers: {
 		[getUserByUsernameAsync.fulfilled]: (state, action) => {
 			console.log("get user by username successfully");
-			if (action.payload.tasks)
-				// state.user = action.payload.tasks;
-				return action.payload.tasks;
-			return null;
+			// state.user = action.payload.tasks;
+			return action.payload.tasks;
 		},
 	},
 });

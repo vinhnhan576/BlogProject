@@ -30,6 +30,11 @@ exports.getUserByUsername = async (req, res) => {
 	return res.send(user);
 };
 
+exports.getUserByAlias = async (req, res) => {
+	let user = await userService.getUserByAlias(req.query.alias);
+	return res.send(user);
+};
+
 // //update user
 // exports.updateUser = (req, res) => {
 //   const userReqData = new userModel(req.body);

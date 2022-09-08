@@ -92,12 +92,36 @@ let getAllTopicsByUserID = async (userID) => {
 					"id",
 					"topicName",
 					"userID",
-					"slug"
+					"slug",
 					// We had to list all attributes... // To add the aggregation...
 				],
+				include: [{ model: db.Blog, as: "Blog" }],
 			});
 			if (topic) resolve(topic);
 			resolve("Cannot find topic with id " + userId);
+		} catch (e) {
+			reject(e);
+		}
+	});
+};
+let getTopicBySlug = async (slug) => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			let topic = await db.Topic.findOne({
+				include: [
+					{
+						model: db.Blog,
+						as: "Blog",
+						where: {
+							slug: slug,
+						},
+					},
+				],
+
+				// attributes: ["topicName", "img", "quote", "slug", "userID"],
+			});
+			if (topic) resolve(topic);
+			resolve("Cannot find blog with slug " + slug);
 		} catch (e) {
 			reject(e);
 		}
@@ -111,4 +135,5 @@ module.exports = {
 	updateTopic: updateTopic,
 	deleteTopicByID: deleteTopicByID,
 	getAllTopicsByUserID: getAllTopicsByUserID,
+	getTopicBySlug: getTopicBySlug,
 };

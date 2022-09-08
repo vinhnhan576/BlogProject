@@ -10,4 +10,5 @@ router.get("/getblogbyslug", blogController.getBlogBySlug);
 //get all blogs by userID
 router.get("/", blogController.getAllBlogsByUserID);
 
+router.post("/", blogController.addNewBlog);
 module.exports = router;
