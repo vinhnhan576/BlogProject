@@ -5,7 +5,6 @@ import { getAllBlogsByUserIDAsync } from "../features/post/blogSlice";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
 export default function Topic(props) {
 	// const dispatch = useDispatch();
 	// const userID = 13;

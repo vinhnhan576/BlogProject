@@ -67,9 +67,9 @@ function Header(props) {
 
 	currentTopic && (activeNav = 2);
 
-	const headerRef = useRef(null);
-	const logoRef = useRef(null);
-	const containerRef = useRef(null);
+	const headerRef = useRef();
+	const logoRef = useRef();
+	const containerRef = useRef();
 
 	const account = useSelector(selectAccount);
 
