@@ -74,6 +74,24 @@ let addNewBlog = async (blogReqData) => {
 	});
 };
 
+<<<<<<< HEAD
+let updateBlog = async (id, blogReqData) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      await db.Blog.update(blogReqData, { where: { id: id } }).then((blog) => {
+        if (blog) {
+          resolve("Blog with id " + id + " updated successfully!");
+        }
+        resolve(
+          "Cannot update blog with id" + id
+        );
+      });
+    } catch (e) {
+     console.log(e);
+    }
+  });
+};
+=======
 let deleteBlogByID = async (id) => {
 	return new Promise(async (resolve, reject) => {
 		try {
@@ -93,9 +111,14 @@ let deleteBlogByID = async (id) => {
 	});
 };
 
+>>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
 module.exports = {
 	getAllBlogsByUserID: getAllBlogsByUserID,
 	getBlogBySlug: getBlogBySlug,
 	addNewBlog: addNewBlog,
+<<<<<<< HEAD
+	updateBlog: updateBlog,
+=======
 	deleteBlogByID: deleteBlogByID,
+>>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
 };
