@@ -87,7 +87,7 @@ let deleteUserByID = async (id) => {
 				);
 			});
 		} catch (e) {
-			reject("Error updating user with id " + id + ": " + e);
+			reject("Error deleting user with id " + id + ": " + e);
 		}
 	});
 };

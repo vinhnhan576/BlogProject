@@ -56,6 +56,7 @@ let getBlogBySlug = async (slug) => {
 let addNewBlog = async (blogReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
+			console.log(blogReqData);
 			await db.Blog.create({
 				title: blogReqData?.title,
 				content: blogReqData?.content,
@@ -64,7 +65,7 @@ let addNewBlog = async (blogReqData) => {
 				date: blogReqData?.date,
 				location: blogReqData?.location,
 				slug: blogReqData?.slug,
-				topicID: blogReqData?.topicID,
+				topicID: blogReqData.topicID,
 			});
 			resolve("blog added successfully!");
 		} catch (e) {
@@ -73,6 +74,7 @@ let addNewBlog = async (blogReqData) => {
 	});
 };
 
+<<<<<<< HEAD
 let updateBlog = async (id, blogReqData) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -89,9 +91,34 @@ let updateBlog = async (id, blogReqData) => {
     }
   });
 };
+=======
+let deleteBlogByID = async (id) => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			await db.Blog.destroy({ where: { id: id } }).then((deletedBlog) => {
+				if (deletedBlog) {
+					resolve("Deleted blog with id " + id + " successfully!");
+				}
+				resolve(
+					"Cannot delete blog with id " +
+						id +
+						". Maybe the blog cannot be found!"
+				);
+			});
+		} catch (e) {
+			reject("Error deleting blog with id " + id + ": " + e);
+		}
+	});
+};
+
+>>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
 module.exports = {
 	getAllBlogsByUserID: getAllBlogsByUserID,
 	getBlogBySlug: getBlogBySlug,
 	addNewBlog: addNewBlog,
+<<<<<<< HEAD
 	updateBlog: updateBlog,
+=======
+	deleteBlogByID: deleteBlogByID,
+>>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
 };

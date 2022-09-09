@@ -25,7 +25,7 @@ export const getBlogBySlugAsync = createAsyncThunk(
 
 export const createNewBlogAsync = createAsyncThunk(
 	"blog/createNewBlogAsync",
-	async (blogReqData) => {
+	async ({ blogReqData }) => {
 		console.log(blogReqData);
 		const response = await Axios.post(
 			"https://blogprojectpbl3.herokuapp.com/api/blog",
@@ -36,6 +36,7 @@ export const createNewBlogAsync = createAsyncThunk(
 	}
 );
 
+<<<<<<< HEAD
 export const updateBlogAsync = createAsyncThunk(
   "blog/updateBlogAsync",
 	async (blogReqData) => {
@@ -53,6 +54,20 @@ export const updateBlogAsync = createAsyncThunk(
 );
 
 
+=======
+export const deleteBlogAsync = createAsyncThunk(
+	"blog/deleteBlogAsync",
+	async (id) => {
+		const response = await Axios.delete(
+			`https://blogprojectpbl3.herokuapp.com/api/blog/${id}`
+		);
+		window.location.reload(false);
+		const tasks = response.data;
+		return { tasks };
+	}
+);
+
+>>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
 const blogSlice = createSlice({
 	name: "blog",
 	initialState: [],

@@ -20,7 +20,8 @@ const NewBlog = ({ alias }) => {
 		date: new Date().toLocaleDateString(),
 		location: "",
 		slug: "",
-		topicID: "5",
+		topicID: "13",
+		coverImg: "huonglehere_doi-song_danh-bai.jpg",
 	};
 
 	const [newBlog, setNewBlog] = useState(initialBlogState);
@@ -49,7 +50,7 @@ const NewBlog = ({ alias }) => {
 	const handleNewBlog = (e) => {
 		e.preventDefault();
 		dispatch(createNewBlogAsync({ blogReqData: newBlog }));
-		navigate(`/${alias}`);	
+		navigate(`/${alias}/`);
 	};
 
 	return (
