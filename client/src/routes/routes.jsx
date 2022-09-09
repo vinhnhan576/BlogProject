@@ -6,6 +6,7 @@ import Category from "../pages/Category";
 import About from "../pages/About";
 import Blog from "../pages/Blog";
 import NewBlog from "../pages/NewBlog";
+import EditBlog from "../pages/EditBlog";
 
 function routes(props) {
   return (
@@ -17,6 +18,10 @@ function routes(props) {
       <Route
         path="/newBlog"
         element={<NewBlog alias={props.blogger.alias} />}
+      />
+      <Route
+        path="/editBlog/:slug"
+        element={<EditBlog alias={props.blogger.alias} />}
       />
     </Routes>
   );

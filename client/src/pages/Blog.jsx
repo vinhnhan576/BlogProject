@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getBlogBySlugAsync } from "../features/post/blogSlice";
-
 import Helmet from "../components/Helmet";
 import Banner from "../components/Banner";
 import { useDispatch, useSelector } from "react-redux";

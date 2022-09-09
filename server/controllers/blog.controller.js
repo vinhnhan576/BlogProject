@@ -12,3 +12,8 @@ exports.addNewBlog = async (req, res) => {
 	let message = await blogService.addNewBlog(req.body);
 	return res.send(message);
 };
+
+exports.updateBlog = async (req, res) => {
+  let message = await blogService.updateBlog(req.params.id, req.body);
+  return res.send(message);
+};

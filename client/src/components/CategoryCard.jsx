@@ -5,6 +5,7 @@ import MessageBox from "./MessageBox";
 
 const CategoryCard = (props) => {
 	const params = useParams();
+	console.log(params);
 	const bodyImageRef = useRef();
 	const onImgLoad = ({ target: img }) => {
 		const { offsetHeight, offsetWidth } = img;
@@ -69,6 +70,8 @@ const CategoryCard = (props) => {
 			</div>
 			{openMessageBox && (
 				<MessageBox
+					alias={params.alias}
+					slug={props.slug}
 					title={`${messageBoxType} blog`}
 					body={`Bạn có chắc chắn muốn ${messageBoxType.toLowerCase()} `}
 					blogName={props.title}
