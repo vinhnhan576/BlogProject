@@ -24,7 +24,6 @@ const EditBlog = ({ alias }) => {
 	const [newBlog, setNewBlog] = useState(blog);
 	useEffect(() => {
 		if (newBlog.slug !== blog.slug || slug !== blog.slug) {
-			console.log(111);
 			dispatch(getBlogBySlugAsync(slug));
 			setNewBlog(blog);
 		}
@@ -33,15 +32,6 @@ const EditBlog = ({ alias }) => {
 	const handleChange = (input) => (event) => {
 		setNewBlog({ ...newBlog, [input]: event.target.value });
 	};
-
-	const handleTitleChange = () => (event) => {
-		setNewBlog({
-			...newBlog,
-			["title"]: event.target.value,
-			["slug"]: namingBlogSlug(event.target.value),
-		});
-	};
-
 	// const [image, setImage] = useState();
 
 	const readImage = (e) => {
@@ -53,6 +43,7 @@ const EditBlog = ({ alias }) => {
 
 	const handleNewBlog = (e) => {
 		e.preventDefault();
+		console.log(newBlog)
 		dispatch(updateBlogAsync({ blogReqData: newBlog }));
 		navigate(`/${alias}/`);
 	};
@@ -88,7 +79,7 @@ const EditBlog = ({ alias }) => {
 						name="title"
 						className="new-blog__form__title"
 						placeholder="Tiêu đề"
-						onChange={handleTitleChange()}
+						onChange={handleChange("title")}
 						value={newBlog?.title}
 					/>
 					<textarea

@@ -39,7 +39,7 @@ export const createNewBlogAsync = createAsyncThunk(
 
 export const updateBlogAsync = createAsyncThunk(
   "blog/updateBlogAsync",
-	async (blogReqData) => {
+	async ({blogReqData}) => {
 		const id = blogReqData.id;
 		console.log(id);
     console.log(blogReqData);
