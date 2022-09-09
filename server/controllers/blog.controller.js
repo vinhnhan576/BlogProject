@@ -15,14 +15,14 @@ exports.addNewBlog = async (req, res) => {
 	return res.send(message);
 };
 
-<<<<<<< HEAD
+
 exports.updateBlog = async (req, res) => {
   let message = await blogService.updateBlog(req.params.id, req.body);
   return res.send(message);
 };
-=======
+
 exports.deleteBlogByID = async (req, res) => {
 	let message = await blogService.deleteBlogByID(req.params.id);
 	return res.send(message);
 };
->>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
+

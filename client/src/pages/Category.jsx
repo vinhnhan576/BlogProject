@@ -22,7 +22,7 @@ function Category() {
 	// 	? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
 	// 	: [allBlogs];
 	const allBlogsByTopic = topic ? topic.Blog : null;
-
+console.log(allBlogsByTopic);
 	if (
 		(typeof topic !== "undefined" && topic.length === 0) ||
 		typeof topic === "string"

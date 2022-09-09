@@ -77,15 +77,6 @@ module.exports = {
 					slug: "huong-le-vao-bep",
 					topicID: huongleTopicRows[2].id, //topic an uong
 				},
-				{
-					title: "test",
-					coverImg: "",
-					quote: "đây là một dòng quote",
-					date: new Date(19, 8, 2022),
-					content: "test",
-					slug: "du-lich-bien-canh-duong",
-					topicID: 23, //topic du lich
-				},
 			],
 			{}
 		);

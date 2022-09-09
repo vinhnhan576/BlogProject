@@ -20,7 +20,7 @@ const NewBlog = ({ alias }) => {
 		date: new Date().toLocaleDateString(),
 		location: "",
 		slug: "",
-		topicID: "13",
+		topicID: "25",
 		coverImg: "huonglehere_doi-song_danh-bai.jpg",
 	};
 
