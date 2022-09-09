@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 const CategoryCard = (props, { deleteButtonClick }) => {
 	const dispatch = useDispatch();
 	const params = useParams();
-	console.log(params);
 	const bodyImageRef = useRef();
 	const onImgLoad = ({ target: img }) => {
 		const { offsetHeight, offsetWidth } = img;
@@ -27,7 +26,6 @@ const CategoryCard = (props, { deleteButtonClick }) => {
 	const onCheckButtonClick = () => {
 		setOpenMessageBox(false);
 		dispatch(deleteBlogAsync(props.id));
-		
 	};
 
 	const onCloseButtonClick = () => {
@@ -90,6 +88,7 @@ const CategoryCard = (props, { deleteButtonClick }) => {
 					blogName={props.title}
 					onCloseButtonClick={onCloseButtonClick}
 					onCheckButtonClick={onCheckButtonClick}
+					functionType={messageBoxType}
 				/>
 			)}
 		</div>

@@ -36,7 +36,7 @@ export const createNewBlogAsync = createAsyncThunk(
 	}
 );
 
-<<<<<<< HEAD
+
 export const updateBlogAsync = createAsyncThunk(
   "blog/updateBlogAsync",
 	async (blogReqData) => {
@@ -53,8 +53,6 @@ export const updateBlogAsync = createAsyncThunk(
   }
 );
 
-
-=======
 export const deleteBlogAsync = createAsyncThunk(
 	"blog/deleteBlogAsync",
 	async (id) => {
@@ -67,7 +65,6 @@ export const deleteBlogAsync = createAsyncThunk(
 	}
 );
 
->>>>>>> df2558a3eb00814dd38ef89c1684e2dd15f45b7a
 const blogSlice = createSlice({
 	name: "blog",
 	initialState: [],

@@ -62,12 +62,10 @@ export default function Topic(props) {
 						""
 					)}
 					<div className="topic__line"></div>
-					{props.id % 2 === 1 ? (
+					{props.id % 2 === 1 && (
 						<Link to={`/${props.alias}/topic/${props.slug}`}>
 							{props.topicName.toUpperCase()}
 						</Link>
-					) : (
-						""
 					)}
 				</div>
 			</div>
