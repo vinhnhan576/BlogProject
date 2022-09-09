@@ -36,21 +36,20 @@ export const createNewBlogAsync = createAsyncThunk(
 	}
 );
 
-
 export const updateBlogAsync = createAsyncThunk(
-  "blog/updateBlogAsync",
-	async ({blogReqData}) => {
+	"blog/updateBlogAsync",
+	async ({ blogReqData }) => {
 		const id = blogReqData.id;
 		console.log(id);
-    console.log(blogReqData);
-    const response = await Axios.put(
-      `https://blogprojectpbl3.herokuapp.com/api/blog/${blogReqData.id}`,
-      blogReqData
-    );
-	  const tasks = response.data;
-	  console.log(tasks);
-    return { tasks };
-  }
+		console.log(blogReqData);
+		const response = await Axios.put(
+			`https://blogprojectpbl3.herokuapp.com/api/blog/${blogReqData.id}`,
+			blogReqData
+		);
+		const tasks = response.data;
+		console.log(tasks);
+		return { tasks };
+	}
 );
 
 export const deleteBlogAsync = createAsyncThunk(
@@ -85,7 +84,7 @@ const blogSlice = createSlice({
 		[updateBlogAsync.fulfilled]: (state, action) => {
 			console.log("updated blog successfully");
 			return action.payload.tasks;
-		}
+		},
 	},
 });
 export const {} = blogSlice.actions;
