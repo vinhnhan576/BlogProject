@@ -14,6 +14,18 @@ export const authenticateUserAsync = createAsyncThunk(
 	}
 );
 
+export const createNewAccountAsync = createAsyncThunk(
+	"api/user/createNewAccountAsync",
+	async ({ accountReqData }) => {
+		const response = await Axios.post(
+			"https://blogprojectpbl3.herokuapp.com/api/account",
+			accountReqData
+		);
+		const tasks = response.data;
+		return { tasks };
+	}
+);
+
 export const accountSlice = createSlice({
 	name: "account",
 	initialState: {
@@ -46,6 +58,10 @@ export const accountSlice = createSlice({
 			if (action.payload.tasks) state.account = action.payload.tasks;
 			else state.account = null;
 			console.log(state.account);
+		},
+		[createNewAccountAsync.fulfilled]: (state, action) => {
+			console.log("added new account successfully");
+			return action.payload.tasks;
 		},
 	},
 });
