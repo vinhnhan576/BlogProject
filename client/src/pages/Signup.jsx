@@ -47,6 +47,7 @@ const Login = () => {
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		console.log("form submitted");
+		setAccount({ ...account, date: new Date(account.date) });
 		dispatch(createNewAccountAsync({ account }));
 	};
 
