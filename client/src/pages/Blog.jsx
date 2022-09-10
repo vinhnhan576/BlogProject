@@ -17,12 +17,11 @@ function Blog() {
 	const blog = Array.isArray(blogs)
 		? blogs?.find((blog) => blog.slug === slug)
 		: blogs;
-	// if (
-	// 	(typeof blog !== "undefined" && blog.length === 0) ||
-	// 	typeof blog === "string"
-	// )
-	// 	return <PageNotFound />;
-	console.log(blog);
+	if (
+		(typeof blog !== "undefined" && blog.length === 0) ||
+		typeof blog === "string"
+	)
+		return <PageNotFound />;
 
 	 if (typeof blog === "object")
 	// if (blog)

@@ -16,10 +16,11 @@ export const authenticateUserAsync = createAsyncThunk(
 
 export const createNewAccountAsync = createAsyncThunk(
 	"api/user/createNewAccountAsync",
-	async ({ accountReqData }) => {
+	async ({account}) => {
+		console.log(account)
 		const response = await Axios.post(
 			"https://blogprojectpbl3.herokuapp.com/api/account",
-			accountReqData
+			account
 		);
 		const tasks = response.data;
 		return { tasks };

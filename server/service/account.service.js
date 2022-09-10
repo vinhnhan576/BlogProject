@@ -34,17 +34,17 @@ let addNewAccount = async (accountReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			let user = await db.User.create({
-				name: userReqData.name,
-				alias: userReqData.alias,
-				gender: userReqData.gender === "1" ? true : false,
-				date: userReqData.date,
-				tel: userReqData.tel,
-				job: userReqData.job,
-				address: userReqData.address,
-				email: userReqData.email,
-				profilepic: userReqData.profilepic,
-				upperpic: userReqData.upperpic,
-				lowerpic: userReqData.lowerpic,
+				name: accountReqData.name,
+				alias: accountReqData.alias,
+				gender: accountReqData.gender,
+				date: accountReqData.date,
+				tel: accountReqData.tel,
+				job: accountReqData.job,
+				address: accountReqData.address,
+				email: accountReqData.email,
+				profilepic: accountReqData.profilepic,
+				upperpic: accountReqData.upperpic,
+				lowerpic: accountReqData.lowerpic,
 			});
 			await db.Account.create({
 				userID: user.userID,

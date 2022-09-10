@@ -22,9 +22,13 @@ const Login = () => {
 		address: "",
 		email: "",
 		profilepic: "",
+		upperpic: "",
+		lowerpic: "",
 		username: "",
 		password: "",
 	};
+
+	const [fullName, setFullName] = useState({ firstName: "", surName: "" });
 
 	const [account, setAccount] = useState(initialAccountState);
 
@@ -32,11 +36,21 @@ const Login = () => {
 		setAccount({ ...account, [input]: event.target.value });
 	};
 
+	const handleNameChange = (input) => (event) => {
+		setFullName({ ...fullName, [input]: event.target.value });
+		setAccount({
+			...account,
+			name: fullName.surName + " " + fullName.firstName,
+		});
+	};
+
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		console.log("form submitted");
 		dispatch(createNewAccountAsync({ account }));
 	};
+
+	console.log(account);
 
 	return (
 		<div className="login">
@@ -53,56 +67,65 @@ const Login = () => {
 							<div className="login__form__item__title"> Họ</div>
 							<input
 								type="text"
-								name="username"
-								id="username"
-								onChange={handleChange("username")}
-								placeholder={"Cẩm".toString()}
-							/>{" "}
+								name="surName"
+								id="surName"
+								onChange={handleNameChange("surName")}
+								// placeholder={"Cẩm".toString()}
+							/>
 						</div>
 						<div className="login__form__item__small__title">
 							<div className="login__form__item__title"> Tên</div>
 							<input
 								type="text"
-								name="username"
-								id="username"
-								onChange={handleChange("username")}
-								placeholder={"Sục".toString()}
+								name="firstName"
+								id="firstName"
+								onChange={handleNameChange("firstName")}
+								// placeholder={"Sục".toString()}
 							/>
 						</div>
 					</div>
 				</div>
 				<div className="login__form__item">
-					<div className="login__form__item__title">Tên tài khoản </div>
+					<div className="login__form__item__title">Biệt danh</div>
+					<input
+						type="text"
+						name="alias"
+						id="alias"
+						onChange={handleChange("alias")}
+						// placeholder={"huongleehere".toString()}
+					/>
+				</div>
+				<div className="login__form__item">
+					<div className="login__form__item__title">Tên tài khoản</div>
 					<input
 						type="text"
 						name="username"
-						id="username"
+						id="username-signup"
 						onChange={handleChange("username")}
-						placeholder={"huongleehere".toString()}
-					/>{" "}
+						// placeholder={"huongleehere".toString()}
+					/>
 				</div>
-
 				<div className="login__form__item">
 					<div className="login__form__item__title">Mật khẩu</div>
 					<input
 						type="password"
 						name="password"
-						id="password"
+						id="password-signup"
 						onChange={handleChange("password")}
-						placeholder={"Abc_123456".toString()}
+						// placeholder={"Abc_123456".toString()}
 					/>
 				</div>
 				<div className="login__form__item">
-					<div className="login__form__item__title">Gmail </div>
+					<div className="login__form__item__title">Email</div>
 					<input
 						type="text"
 						name="email"
 						id="email"
 						onChange={handleChange("email")}
-						placeholder={"Bloggit@gmail.com".toString()}
+						// placeholder={"Bloggit@gmail.com".toString()}
 					/>
 				</div>
-				<div className="login__form__item">
+				{/* <div className="login__form__item">
 					<div className="login__form__item__title">Số điện thoại </div>
 					<input
 						type="text"
@@ -111,7 +134,7 @@ const Login = () => {
 						onChange={handleChange("tel")}
 						placeholder={"0123456789".toString()}
 					/>
-				</div>
+				</div> */}
 				<div className="login__form__item">
 					<div className="login__form__item__title">Ngày sinh </div>
 					<input
@@ -119,10 +142,10 @@ const Login = () => {
 						name="date"
 						id="date"
 						onChange={handleChange("date")}
-						placeholder={"02/11/2002".toString()}
+						// placeholder="02/11/2002"
 					/>
 				</div>
-				<div className="login__form__item">
+				{/* <div className="login__form__item">
 					<div className="login__form__item__title">Địa chỉ </div>
 					<input
 						type="text"
@@ -131,9 +154,8 @@ const Login = () => {
 						onChange={handleChange("location")}
 						placeholder={"ex: Thủy Phương, Hương Thủy".toString()}
 					/>
-				</div>
-
-				<div className="login__form__item">
+				</div> */}
+				{/* <div className="login__form__item">
 					<div className="login__form__item__title"> Nghề nghiệp </div>
 					<input
 						type="text"
@@ -142,7 +164,7 @@ const Login = () => {
 						onChange={handleChange("job")}
 						placeholder={"Má thiên hạ".toString()}
 					/>
-				</div>
+				</div> */}
 				<button type="submit" className="login__form__button">
 					Đăng ký
 				</button>
