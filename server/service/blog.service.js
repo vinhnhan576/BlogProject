@@ -47,9 +47,9 @@ let getBlogBySlug = async (slug) => {
 				include: [{ model: db.Topic, as: "Topic" }],
 			});
 			if (blog !== null) resolve(blog);
-			resolve("Cannot find blog with slug " + slug);
+			resolve(null);
 		} catch (e) {
-			reject("Error fetching blog by slug: " + e);
+			reject(null);
 		}
 	});
 };

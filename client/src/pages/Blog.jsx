@@ -22,6 +22,7 @@ function Blog() {
 	// 	typeof blog === "string"
 	// )
 	// 	return <PageNotFound />;
+	console.log(blog);
 
 	 if (typeof blog === "object")
 	// if (blog)
