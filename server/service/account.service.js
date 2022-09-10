@@ -46,9 +46,9 @@ let addNewAccount = async (accountReqData) => {
 				upperpic: accountReqData.upperpic,
 				lowerpic: accountReqData.lowerpic,
 			});
-			console.log(user);
+			console.log(user.dataValues.id);
 			await db.Account.create({
-				userID: user.userID,
+				userID: user.dataValues.id,
 				username: accountReqData.username,
 				password: accountReqData.password,
 			});
