@@ -26,7 +26,6 @@ export const getBlogBySlugAsync = createAsyncThunk(
 export const createNewBlogAsync = createAsyncThunk(
 	"blog/createNewBlogAsync",
 	async ({ blogReqData }) => {
-		console.log(blogReqData);
 		const response = await Axios.post(
 			"https://blogprojectpbl3.herokuapp.com/api/blog",
 			blogReqData
@@ -40,8 +39,6 @@ export const updateBlogAsync = createAsyncThunk(
 	"blog/updateBlogAsync",
 	async ({ blogReqData }) => {
 		const id = blogReqData.id;
-		console.log(id);
-		console.log(blogReqData);
 		const response = await Axios.put(
 			`https://blogprojectpbl3.herokuapp.com/api/blog/${blogReqData.id}`,
 			blogReqData
