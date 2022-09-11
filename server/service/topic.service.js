@@ -37,6 +37,7 @@ let addNewTopic = async (topicReqData) => {
 				slug: topicReqData.slug,
 				quote: topicReqData?.quote,
 				img: topicReqData?.img,
+				userID: topicReqData.userID,
 			});
 			resolve(topic.id);
 		} catch (e) {

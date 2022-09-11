@@ -54,6 +54,7 @@ const NewBlog = ({ alias, blogger }) => {
 		slug: "",
 		quote: "",
 		img: "",
+		userID: blogger.id,
 	});
 
 	const handleNewBlog = async (e) => {
@@ -62,7 +63,8 @@ const NewBlog = ({ alias, blogger }) => {
 			// console.log(topic);
 			const res = await dispatch(createNewTopic({ topic: topic }));
 			const result = unwrapResult(res);
-			console.log(result);
+			newBlog.topicID = result.tasks;
+			console.log(newBlog);
 		}
 		// dispatch(createNewBlogAsync({ blogReqData: newBlog }));
 		// navigate(`/${alias}/`);
