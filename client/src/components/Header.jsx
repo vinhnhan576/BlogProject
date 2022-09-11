@@ -102,7 +102,7 @@ function Header(props) {
 			<div className="container" ref={containerRef}>
 				<div className="header__logo" ref={logoRef}>
 					<Link to="/BlogProject/">
-						<p>Huong Le Blog</p>
+						<p>{props.blogger.alias}'s Blog</p>
 					</Link>
 				</div>
 				<div className="header__menu">
