@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BlogProject/static/css/main.212c0c51.css",
-    "main.js": "/BlogProject/static/js/main.9af1a88b.js",
+    "main.css": "/BlogProject/static/css/main.df9491d2.css",
+    "main.js": "/BlogProject/static/js/main.ae0da2e5.js",
     "static/js/787.c4e7f8f9.chunk.js": "/BlogProject/static/js/787.c4e7f8f9.chunk.js",
     "static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.png": "/BlogProject/static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.9bbe1cde7030fe6f7de2.png",
     "static/media/boxicons.svg": "/BlogProject/static/media/boxicons.0153fb5e5b5f697b4bcc.svg",
@@ -18,6 +18,7 @@
     "static/media/huonglehere.jpg": "/BlogProject/static/media/huonglehere.803939b3dc4d1b1b5fc2.jpg",
     "static/media/huonglehere_an-uong_che-hue-co-gi-ngon.jpg": "/BlogProject/static/media/huonglehere_an-uong_che-hue-co-gi-ngon.803939b3dc4d1b1b5fc2.jpg",
     "static/media/huonglehere_doi-song_danh-bai.jpg": "/BlogProject/static/media/huonglehere_doi-song_danh-bai.27ec8bde0f854e6daf46.jpg",
+    "static/media/signup-image.jpg": "/BlogProject/static/media/signup-image.c97822b007f5a279bc4d.jpg",
     "static/media/huonglehere_du-lich.jpg": "/BlogProject/static/media/huonglehere_du-lich.7fbb91f78bb115a92973.jpg",
     "static/media/boxicons.woff2": "/BlogProject/static/media/boxicons.0335b427967c56248ea6.woff2",
     "static/media/huonglehere_doi-song.jpg": "/BlogProject/static/media/huonglehere_doi-song.18e31ceb84ce8e20a07f.jpg",
@@ -26,12 +27,12 @@
     "static/media/sloganblog.png": "/BlogProject/static/media/sloganblog.f391c6d4b755859fceb1.png",
     "static/media/Logo.png": "/BlogProject/static/media/Logo.3e47ded7734e8f247fb9.png",
     "index.html": "/BlogProject/index.html",
-    "main.212c0c51.css.map": "/BlogProject/static/css/main.212c0c51.css.map",
-    "main.9af1a88b.js.map": "/BlogProject/static/js/main.9af1a88b.js.map",
+    "main.df9491d2.css.map": "/BlogProject/static/css/main.df9491d2.css.map",
+    "main.ae0da2e5.js.map": "/BlogProject/static/js/main.ae0da2e5.js.map",
     "787.c4e7f8f9.chunk.js.map": "/BlogProject/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.212c0c51.css",
-    "static/js/main.9af1a88b.js"
+    "static/css/main.df9491d2.css",
+    "static/js/main.ae0da2e5.js"
   ]
 }
