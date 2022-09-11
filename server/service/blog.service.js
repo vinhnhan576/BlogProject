@@ -61,7 +61,7 @@ let addNewBlog = async (blogReqData, blogReqFile) => {
 			await db.Blog.create({
 				title: blogReqData?.title,
 				content: blogReqData?.content,
-				coverImg: blogReqFile?.path,
+				coverImg: blogReqData?.coverImg,
 				quote: blogReqData?.quote,
 				date: blogReqData?.date,
 				location: blogReqData?.location,
