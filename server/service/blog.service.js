@@ -54,14 +54,14 @@ let getBlogBySlug = async (slug) => {
 	});
 };
 
-let addNewBlog = async (blogReqData, blogReqFile) => {
+let addNewBlog = async (blogReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			console.log(blogReqData);
 			await db.Blog.create({
 				title: blogReqData?.title,
 				content: blogReqData?.content,
-				coverImg: blogReqFile?.path,
+				coverImg: blogReqData?.coverImg,
 				quote: blogReqData?.quote,
 				date: blogReqData?.date,
 				location: blogReqData?.location,
@@ -115,5 +115,4 @@ module.exports = {
 	addNewBlog: addNewBlog,
 	updateBlog: updateBlog,
 	deleteBlogByID: deleteBlogByID,
-	upload: upload,
 };

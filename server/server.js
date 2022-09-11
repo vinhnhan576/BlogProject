@@ -4,8 +4,6 @@ const connectDb = require("./config/db.config");
 const cors = require("cors");
 var multer = require("multer");
 var upload = multer();
-app.use(upload.array());
-app.use(express.static("public"));
 
 require("dotenv").config();
 
@@ -13,6 +11,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(upload.array());
+app.use(express.static("public"));
 
 connectDb();
 
