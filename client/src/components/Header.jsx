@@ -38,7 +38,7 @@ function Header(props) {
 
 	var currentTopic;
 	const blog = useSelector((state) => state.blog);
-	const topics = props.blogger.Topic;
+	const topics = props?.blogger?.Topic;
 	// useEffect(() => {
 	// 	if (typeof slug !== "object") {
 	// 		dispatch(getAllTopicBySlugAsync(slug.current));
@@ -102,7 +102,7 @@ function Header(props) {
 			<div className="container" ref={containerRef}>
 				<div className="header__logo" ref={logoRef}>
 					<Link to="/BlogProject/">
-						<p>{props.blogger.alias}'s Blog</p>
+						<p>{props?.blogger?.alias}'s Blog</p>
 					</Link>
 				</div>
 				<div className="header__menu">
@@ -113,7 +113,7 @@ function Header(props) {
 						<div className="header__menu__left__close" onClick={menuToggle}>
 							<i className="bx bx-x"></i>
 						</div>
-						{mainNav.map((item, index) => (
+						{mainNav?.map((item, index) => (
 							<div
 								onClick={menuToggle}
 								key={index}
@@ -135,7 +135,7 @@ function Header(props) {
 								? currentTopic
 								: "CHỦ ĐỀ"}
 							{openTopics && (
-								<DropdownMenu blogger={props.blogger} onclick={menuToggle} />
+								<DropdownMenu blogger={props?.blogger} onclick={menuToggle} />
 							)}
 						</div>
 					</div>
@@ -149,7 +149,7 @@ function Header(props) {
 							<div
 								className="header__menu__right__pfp"
 								onClick={() => setOpenSettings(!openSettings)}>
-								{props.blogger.profilepic !== "" ? (
+								{props?.blogger?.profilepic !== "" && typeof props.blogger.profilepic !== 'undefined' ? (
 									<img
 										src={require(`../assets/image/user/${props.blogger.profilepic}`)}
 										alt={alt}
@@ -160,7 +160,7 @@ function Header(props) {
 							</div>
 						)}
 						{openSettings && (
-							<SettingsMenu alias={props.blogger.alias} settings={settings} />
+							<SettingsMenu alias={props?.blogger?.alias} settings={settings} />
 						)}
 					</div>
 				</div>
