@@ -7,6 +7,7 @@ import { createNewBlogAsync } from "../features/post/blogSlice";
 import { createNewTopic } from "../features/topic/topicSlice";
 import Helmet from "../components/Helmet";
 import { useNavigate } from "react-router-dom";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const NewBlog = ({ alias, blogger }) => {
 	const textareaRef = useRef();
@@ -55,11 +56,13 @@ const NewBlog = ({ alias, blogger }) => {
 		img: "",
 	});
 
-	const handleNewBlog = (e) => {
+	const handleNewBlog = async (e) => {
 		e.preventDefault();
 		if (newBlog.topicID === 0) {
-			
-			// dispatch(createNewTopic({ topic: topic }));
+			// console.log(topic);
+			const res = await dispatch(createNewTopic({ topic: topic }));
+			const result = unwrapResult(res);
+			console.log(result);
 		}
 		// dispatch(createNewBlogAsync({ blogReqData: newBlog }));
 		// navigate(`/${alias}/`);
@@ -71,14 +74,10 @@ const NewBlog = ({ alias, blogger }) => {
 		const onTopicClick = () => {
 			var option = document.getElementById("topic").value;
 			if (option === "0") {
-				console.log("1111111111");
 				const input = prompt("Nhập chủ đề mới");
 				setNewTopic(input);
-				setTopic({
-					...topic,
-					topicName: input,
-					slug: namingBlogSlug(input),
-				});
+				topic.topicName = input;
+				topic.slug = namingBlogSlug(input);
 				newBlog.topicID = 0;
 			} else {
 				newBlog.topicID = option;
