@@ -109,63 +109,60 @@ const NewBlog = ({ alias, blogger }) => {
 	return (
 		<Helmet title="Tạo blog mới">
 			<div className="new-blog">
+				<div className="new-blog__form__topic">
+					<TopicMenu topics={blogger.Topic}></TopicMenu>
+				</div>
 				<form className="new-blog__form" onSubmit={handleNewBlog}>
-					<div className="new-blog__form__topic">
-						<TopicMenu topics={blogger.Topic}></TopicMenu>
-					</div>
-
-					<div className="new-blog__form__container">
-						<input
-							type="file"
-							ref={imageRef}
-							onChange={readImage}
-							className="new-blog__form__image"
-						/>
-						<input
-							type="text"
-							name="quote"
-							onChange={handleChange("quote")}
-							className="new-blog__form__quote"
-							placeholder="Châm ngôn"
-						/>
-						<input
-							type="text"
-							name="location"
-							className="new-blog__form__place"
-							placeholder="Địa điểm"
-							onChange={handleChange("location")}
-						/>
-						<input
-							type="text"
-							name="title"
-							className="new-blog__form__title"
-							placeholder="Tiêu đề"
-							onChange={handleTitleChange()}
-						/>
-						<textarea
-							type="text"
-							name="content"
-							className="new-blog__form__body"
-							placeholder="Nội dung"
-							ref={textareaRef}
-							onChange={handleChange("content")}
-							onKeyUp={(e) => {
-								textareaRef.current.style.height = "200px";
-								let height = e.target.scrollHeight;
-								if (height > 200) {
-									// textareaRef.current.style.height = "auto";
-									textareaRef.current.style.height = `${height}px`;
-								}
-							}}></textarea>
-						<input
-							type="text"
-							className="new-blog__form__signature"
-							placeholder="Chữ ký"
-						/>
-						<button className="new-blog__form__create-button" type="submit">
-							Tạo bài viết
-						</button>
-					</div>
+					<input
+						type="file"
+						ref={imageRef}
+						onChange={readImage}
+						className="new-blog__form__image"
+					/>
+					<input
+						type="text"
+						name="quote"
+						onChange={handleChange("quote")}
+						className="new-blog__form__quote"
+						placeholder="Châm ngôn"
+					/>
+					<input
+						type="text"
+						name="location"
+						className="new-blog__form__place"
+						placeholder="Địa điểm"
+						onChange={handleChange("location")}
+					/>
+					<input
+						type="text"
+						name="title"
+						className="new-blog__form__title"
+						placeholder="Tiêu đề"
+						onChange={handleTitleChange()}
+					/>
+					<textarea
+						type="text"
+						name="content"
+						className="new-blog__form__body"
+						placeholder="Nội dung"
+						ref={textareaRef}
+						onChange={handleChange("content")}
+						onKeyUp={(e) => {
+							textareaRef.current.style.height = "200px";
+							let height = e.target.scrollHeight;
+							if (height > 200) {
+								// textareaRef.current.style.height = "auto";
+								textareaRef.current.style.height = `${height}px`;
+							}
+						}}></textarea>
+					<input
+						type="text"
+						className="new-blog__form__signature"
+						placeholder="Chữ ký"
+					/>
+					<button className="new-blog__form__create-button" type="submit">
+						Tạo bài viết
+					</button>
 				</form>
 			</div>
 		</Helmet>

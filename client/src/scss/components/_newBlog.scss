@@ -1,8 +1,11 @@
 .new-blog {
 	&__form {
-		padding-top: 30px;
-		.select {
-			margin: 20px 75px;
+		@include flex(center, center);
+		flex-direction: column;
+		padding-top: 15px;
+		&__topic {
+			margin: 0px 75px;
+			padding-top: 50px;
 		}
 
 		input,
@@ -28,8 +31,8 @@
 		}
 
 		&__container {
-			@include flex(center, center);
-			flex-direction: column;
+			
+			
 			width: 100%;
 		}
 
