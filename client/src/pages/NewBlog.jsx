@@ -66,7 +66,7 @@ const NewBlog = ({ alias, blogger }) => {
 			newBlog.topicID = result.tasks;
 			console.log(newBlog);
 		}
-		// dispatch(createNewBlogAsync({ blogReqData: newBlog }));
+		dispatch(createNewBlogAsync({ blogReqData: newBlog }));
 		// navigate(`/${alias}/`);
 	};
 
