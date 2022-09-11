@@ -54,7 +54,7 @@ let getBlogBySlug = async (slug) => {
 	});
 };
 
-let addNewBlog = async (blogReqData, blogReqFile) => {
+let addNewBlog = async (blogReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			console.log(blogReqData);
