@@ -17,6 +17,11 @@ app.use("/api", apiRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
+app.use(
+	"../client/src/assets/image/blog",
+	express.static("../client/src/assets/image/blog")
+);
+
 app.get("/", (req, res) => {
 	res.send("server index page");
 });
