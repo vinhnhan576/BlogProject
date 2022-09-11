@@ -2,6 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const connectDb = require("./config/db.config");
 const cors = require("cors");
+var multer = require("multer");
+var upload = multer();
+app.use(upload.array());
+app.use(express.static("public"));
 
 require("dotenv").config();
 
