@@ -1,8 +1,9 @@
 .new-blog {
 	&__form {
-		@include flex(center, center);
-		flex-direction: column;
 		padding-top: 30px;
+		.select {
+			margin: 20px 75px;
+		}
 
 		input,
 		textarea {
@@ -24,6 +25,12 @@
 				border-color: white;
 				border-width: 3px;
 			}
+		}
+
+		&__container {
+			@include flex(center, center);
+			flex-direction: column;
+			width: 100%;
 		}
 
 		&__image {

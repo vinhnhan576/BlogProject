@@ -33,10 +33,10 @@ let addNewTopic = async (topicReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			await db.Topic.create({
-				topicID: topicReqData.topicID,
-				name: topicReqData.name,
-				maxim: topicReqData.maxim,
-				coverimage: topicReqData.coverimage,
+				topicName: topicReqData.topicName,
+				slug: topicReqData.slug,
+				quote: topicReqData?.quote,
+				img: topicReqData?.img,
 			});
 			resolve("topic added successfully!");
 		} catch (e) {

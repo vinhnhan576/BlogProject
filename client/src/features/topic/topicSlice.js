@@ -23,13 +23,29 @@ export const getAllTopicBySlugAsync = createAsyncThunk(
 	}
 );
 
+export const createNewTopic = createAsyncThunk(
+	"topic/createNewTopic",
+	async ({ topic }) => {
+		const response = await Axios.post(
+			`https://blogprojectpbl3.herokuapp.com/api/topic/`,
+			topic
+		);
+		const tasks = response.data;
+		return { tasks };
+	}
+);
+
 const topicSlice = createSlice({
 	name: "topic",
 	initialState: [],
 	reducers: {},
 	extraReducers: {
 		[getAllTopicsByUserIDAsync.fulfilled]: (state, action) => {
-			console.log("fetching data successfully");
+			console.log("fetching topics successfully");
+			return action.payload.tasks;
+		},
+		[createNewTopic.fulfilled]: (state, action) => {
+			console.log("create new topic successfully");
 			return action.payload.tasks;
 		},
 	},
