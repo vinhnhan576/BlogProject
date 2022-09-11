@@ -115,5 +115,4 @@ module.exports = {
 	addNewBlog: addNewBlog,
 	updateBlog: updateBlog,
 	deleteBlogByID: deleteBlogByID,
-	upload: upload,
 };
