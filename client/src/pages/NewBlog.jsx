@@ -8,6 +8,7 @@ import { createNewTopic } from "../features/topic/topicSlice";
 import Helmet from "../components/Helmet";
 import { useNavigate } from "react-router-dom";
 import { unwrapResult } from "@reduxjs/toolkit";
+import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 
 const NewBlog = ({ alias, blogger }) => {
 	const textareaRef = useRef();
@@ -22,29 +23,26 @@ const NewBlog = ({ alias, blogger }) => {
 		date: new Date().toLocaleDateString(),
 		location: "",
 		slug: "",
-		topicID: "",
-		coverImg: "huonglehere_doi-song_danh-bai.jpg",
+		topicID: blogger?.Topic[0]?.id,
+		coverImg: "",
 	};
 
 	const [newBlog, setNewBlog] = useState(initialBlogState);
 
 	const handleChange = (input) => (event) => {
-		setNewBlog({ ...newBlog, [input]: event.target.value });
+		newBlog[input] = event.target.value;
 	};
 
 	const handleTitleChange = () => (event) => {
-		setNewBlog({
-			...newBlog,
-			["title"]: event.target.value,
-			["slug"]: namingBlogSlug(event.target.value),
-		});
+		newBlog.title = event.target.value;
+		newBlog.slug = namingBlogSlug(event.target.value);
 	};
 
 	// const [image, setImage] = useState();
 
 	const readImage = (e) => {
 		const image = e.target.files[0];
-		console.log(image);
+		setNewBlog({ ...newBlog, ["coverImg"]: image });
 	};
 
 	const imageUploadHandler = (e) => {};
@@ -67,7 +65,7 @@ const NewBlog = ({ alias, blogger }) => {
 			console.log(newBlog);
 		}
 		dispatch(createNewBlogAsync({ blogReqData: newBlog }));
-		// navigate(`/${alias}/`);
+		navigate(`/${alias}/`);
 	};
 
 	function TopicMenu({ topics }) {
@@ -75,6 +73,7 @@ const NewBlog = ({ alias, blogger }) => {
 
 		const onTopicClick = () => {
 			var option = document.getElementById("topic").value;
+			console.log(option);
 			if (option === "0") {
 				const input = prompt("Nhập chủ đề mới");
 				setNewTopic(input);
@@ -90,13 +89,17 @@ const NewBlog = ({ alias, blogger }) => {
 		return (
 			<div className="select">
 				<select name="topic" id="topic" onChange={onTopicClick}>
-					{topics?.map((topic, index) => {
-						return (
-							<option key={index} value={topic.id}>
-								{topic.topicName}
-							</option>
-						);
-					})}
+					{topics.length !== 0 ? (
+						topics.map((topic, index) => {
+							return (
+								<option key={index} value={topic.id}>
+									{topic.topicName}
+								</option>
+							);
+						})
+					) : (
+						<option value="1">Chưa có chủ đề nào</option>
+					)}
 					<option value="0">{newTopic}</option>
 				</select>
 			</div>

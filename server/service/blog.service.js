@@ -1,5 +1,4 @@
 const db = require("../models");
-const Op = require("sequelize");
 
 let getAllBlogsByUserID = async (userID) => {
 	return new Promise(async (resolve, reject) => {
@@ -38,6 +37,7 @@ let getAllBlogsByUserID = async (userID) => {
 		}
 	});
 };
+
 let getBlogBySlug = async (slug) => {
 	return new Promise(async (resolve, reject) => {
 		try {
@@ -53,14 +53,15 @@ let getBlogBySlug = async (slug) => {
 		}
 	});
 };
-let addNewBlog = async (blogReqData) => {
+
+let addNewBlog = async (blogReqData, blogReqFile) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			console.log(blogReqData);
 			await db.Blog.create({
 				title: blogReqData?.title,
 				content: blogReqData?.content,
-				coverImg: blogReqData?.coverImg,
+				coverImg: blogReqFile?.path,
 				quote: blogReqData?.quote,
 				date: blogReqData?.date,
 				location: blogReqData?.location,
@@ -114,4 +115,5 @@ module.exports = {
 	addNewBlog: addNewBlog,
 	updateBlog: updateBlog,
 	deleteBlogByID: deleteBlogByID,
+	upload: upload,
 };

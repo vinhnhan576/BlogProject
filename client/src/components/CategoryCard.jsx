@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import MessageBox from "./MessageBox";
 import { deleteBlogAsync } from "../features/post/blogSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const CategoryCard = (props, { deleteButtonClick }) => {
+import alt from "../assets/image/blog/alt.jpg";
+
+const CategoryCard = (props) => {
 	const dispatch = useDispatch();
 	const params = useParams();
 	const bodyImageRef = useRef();
@@ -32,11 +34,26 @@ const CategoryCard = (props, { deleteButtonClick }) => {
 		setOpenMessageBox(false);
 	};
 
+	const user = useSelector((state) => state.user);
+	const blogger = useSelector((state) => state.blogger);
+
+	const isEqual = (...objects) =>
+		objects.every((obj) => JSON.stringify(obj) === JSON.stringify(objects[0]));
+	const isLoggedIn = isEqual(user, blogger);
+
 	return (
 		<div className="category_container" id={props.id}>
 			<Link to={`/${params.alias}/blog/${props.slug}`}>
 				<div className="category_container-image" ref={bodyImageRef}>
-					<img onLoad={onImgLoad} src={props.urlImage} alt="" />
+					{props.urlImage !== "" ? (
+						<img
+							onLoad={onImgLoad}
+							src={require(`../assets/image/blog/${props.urlImage}`)}
+							alt=""
+						/>
+					) : (
+						<img onLoad={onImgLoad} src={alt} alt="" />
+					)}
 				</div>
 				<div className="category_container-content">
 					<h3>{props.date}</h3>
@@ -44,41 +61,43 @@ const CategoryCard = (props, { deleteButtonClick }) => {
 					<p>{props.content}</p>
 				</div>
 			</Link>
-			<div className="category_container-functions">
-				<div className="category_container-functions-left">
-					<i
-						className="bx bx-paper-plane"
-						ref={publish}
-						onClick={() => {
-							setOpenMessageBox(!openMessageBox);
-							setMessageBoxType("Xuất bản");
-							store.current.classList.toggle("hidden");
-						}}></i>
-					<i
-						className="bx bxs-box hidden"
-						ref={store}
-						onClick={() => {
-							setOpenMessageBox(!openMessageBox);
-							setMessageBoxType("Lưu trữ");
-							publish.current.classList.toggle("hidden");
-						}}></i>
-				</div>
+			{isLoggedIn && (
+				<div className="category_container-functions">
+					<div className="category_container-functions-left">
+						<i
+							className="bx bx-paper-plane"
+							ref={publish}
+							onClick={() => {
+								setOpenMessageBox(!openMessageBox);
+								setMessageBoxType("Xuất bản");
+								store.current.classList.toggle("hidden");
+							}}></i>
+						<i
+							className="bx bxs-box hidden"
+							ref={store}
+							onClick={() => {
+								setOpenMessageBox(!openMessageBox);
+								setMessageBoxType("Lưu trữ");
+								publish.current.classList.toggle("hidden");
+							}}></i>
+					</div>
 
-				<div className="category_container-functions-right">
-					<i
-						className="bx bxs-edit-alt"
-						onClick={() => {
-							setOpenMessageBox(!openMessageBox);
-							setMessageBoxType("Chỉnh sửa");
-						}}></i>
-					<i
-						className="bx bxs-trash"
-						onClick={() => {
-							setOpenMessageBox(!openMessageBox);
-							setMessageBoxType("Xóa");
-						}}></i>
+					<div className="category_container-functions-right">
+						<i
+							className="bx bxs-edit-alt"
+							onClick={() => {
+								setOpenMessageBox(!openMessageBox);
+								setMessageBoxType("Chỉnh sửa");
+							}}></i>
+						<i
+							className="bx bxs-trash"
+							onClick={() => {
+								setOpenMessageBox(!openMessageBox);
+								setMessageBoxType("Xóa");
+							}}></i>
+					</div>
 				</div>
-			</div>
+			)}
 			{openMessageBox && (
 				<MessageBox
 					alias={params.alias}

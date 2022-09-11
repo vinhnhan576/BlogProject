@@ -39,6 +39,7 @@ $new-blog-mobile-pfp-size: 3rem;
 			overflow: hidden;
 			border-radius: 50%;
 			margin-left: 40px;
+			@include flex(center, center);
 
 			@include tablet {
 				margin-left: 20px;
@@ -51,9 +52,9 @@ $new-blog-mobile-pfp-size: 3rem;
 			}
 
 			img {
-				width: $new-blog-pfp-size;
+				width:10rem;
 				position: relative;
-				top: -20%;
+				// top: -20%;
 
 				@include mobile {
 					width: $new-blog-mobile-pfp-size;

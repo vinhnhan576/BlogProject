@@ -33,6 +33,7 @@ let getAccountByUsername = async (username) => {
 let addNewAccount = async (accountReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
+			console.log(accountReqData);
 			let user = await db.User.create({
 				name: accountReqData.name,
 				alias: accountReqData.alias,

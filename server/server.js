@@ -2,6 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const connectDb = require("./config/db.config");
 const cors = require("cors");
+var multer = require("multer");
+var upload = multer();
+app.use(upload.array());
+app.use(express.static("public"));
 
 require("dotenv").config();
 
@@ -16,6 +20,11 @@ const apiRoutes = require("./routes/api.routes");
 app.use("/api", apiRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
+
+app.use(
+	"../client/src/assets/image/blog",
+	express.static("../client/src/assets/image/blog")
+);
 
 app.get("/", (req, res) => {
 	res.send("server index page");

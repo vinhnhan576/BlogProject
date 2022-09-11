@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
 import BlogCard from "./BlogCard";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllBlogsByUserIDAsync } from "../features/post/blogSlice";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import alt from "../assets/image/blog/alt.jpg";
 
 export default function Topic(props) {
 	// const dispatch = useDispatch();
@@ -17,7 +15,8 @@ export default function Topic(props) {
 	// console.log(allBlogsByTopic);
 
 	// console.log(allBlogsByTopic)
-
+	const allBlogsByTopic = props.blogs;
+	var first2BlogsByTopic;
 	const bodyImageRef = useRef();
 	const onImgLoad = ({ target: img }) => {
 		const { offsetHeight, offsetWidth } = img;
@@ -26,8 +25,6 @@ export default function Topic(props) {
 		else bodyImageRef.current.classList.add("portrait");
 	};
 
-	const allBlogsByTopic = props.blogs;
-	var first2BlogsByTopic;
 	if (window.matchMedia("(max-width: 500px)").matches) {
 		first2BlogsByTopic = allBlogsByTopic.slice(0, 2);
 	} else {
@@ -41,7 +38,7 @@ export default function Topic(props) {
 			<BlogCard
 				key={blog.id}
 				id={blog.id}
-				urlImage={require(`../assets/image/blog/${blog.coverImg}`)}
+				urlImage={blog.coverImg}
 				content={blog.content}
 				title={blog.title}
 				slug={blog.slug}
@@ -76,11 +73,15 @@ export default function Topic(props) {
 							<div
 								className="featured-blogs__main-blog__image__container"
 								ref={bodyImageRef}>
-								<img
-									onLoad={onImgLoad}
-									src={require(`../assets/image/blog/${mainBlog.coverImg}`)}
-									alt=""
-								/>
+								{mainBlog.coverImg !== "" ? (
+									<img
+										onLoad={onImgLoad}
+										src={require(`../assets/image/blog/${mainBlog.coverImg}`)}
+										alt=""
+									/>
+								) : (
+									<img onLoad={onImgLoad} src={alt} alt="" />
+								)}
 							</div>
 						</div>
 						<div className="featured-blogs__main-blog__content">
