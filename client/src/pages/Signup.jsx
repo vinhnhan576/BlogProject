@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { authenticateUserAsync } from "../features/account/accountSlice";
 import { createNewAccountAsync } from "../features/account/accountSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import loginImage01 from "../assets/image/login/login-image-01.png";
 import loginImage02 from "../assets/image/login/signup-image.jpg";
@@ -11,6 +11,7 @@ import logo from "../assets/image/login/login-logo.png";
 
 const Login = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const initialAccountState = {
 		name: "",
@@ -49,6 +50,7 @@ const Login = () => {
 		console.log("form submitted");
 		setAccount({ ...account, date: new Date(account.date) });
 		dispatch(createNewAccountAsync({ account }));
+		navigate("/");
 	};
 
 	console.log(account);

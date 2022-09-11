@@ -5,7 +5,7 @@ import { selectAccount } from "../features/account/accountSlice";
 import DropdownMenu from "./DropdownMenu";
 import SettingsMenu from "./SettingsMenu";
 
-import pfp from "../assets/image/user/huonglehere.jpg";
+import alt from "../assets/image/user/alt.png";
 import { useState } from "react";
 const mainNav = [
 	{
@@ -145,20 +145,22 @@ function Header(props) {
 							<i className="bx bx-wrench"></i>
 							<i className="bx bx-bell"></i>
 						</div>
-						{account ? (
+						{account && (
 							<div
 								className="header__menu__right__pfp"
 								onClick={() => setOpenSettings(!openSettings)}>
-								<img src={pfp} alt="" />
-								{openSettings && (
-									<SettingsMenu
-										alias={props.blogger.alias}
-										settings={settings}
+								{props.blogger.profilepic !== "" ? (
+									<img
+										src={require(`../assets/image/user/${props.blogger.profilepic}`)}
+										alt={alt}
 									/>
+								) : (
+									<img src={alt} alt={alt} />
 								)}
 							</div>
-						) : (
-							""
+						)}
+						{openSettings && (
+							<SettingsMenu alias={props.blogger.alias} settings={settings} />
 						)}
 					</div>
 				</div>

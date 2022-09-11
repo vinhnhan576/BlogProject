@@ -5,6 +5,7 @@ import Helmet from "../components/Helmet";
 import Banner from "../components/Banner";
 import { useDispatch, useSelector } from "react-redux";
 import PageNotFound from "./PageNotFound";
+import alt from "../assets/image/blog/alt.jpg";
 
 function Blog() {
 	const params = useParams();
@@ -23,15 +24,20 @@ function Blog() {
 	)
 		return <PageNotFound />;
 
-	 if (typeof blog === "object")
-	// if (blog)
+	if (typeof blog === "object")
+		// if (blog)
 		return (
 			<Helmet title="Blog">
 				<div className="blog">
-					<Banner
-						img={require(`../assets/image/blog/${blog.coverImg}`)}
-						quote={blog.quote}
-					/>
+					{blog.coverImg !== "" ? (
+						<Banner
+							img={require(`../assets/image/blog/${blog.coverImg}`)}
+							alt={alt}
+							quote={blog.quote}
+						/>
+					) : (
+						<Banner img={alt} alt={alt} quote={blog.quote} />
+					)}
 					<div className="blog__timestamp">{`${blog.location} - ${blog.date}`}</div>
 					<div className="blog__content">
 						<div className="blog__content__title">{blog.title}</div>

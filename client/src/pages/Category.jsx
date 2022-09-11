@@ -8,6 +8,7 @@ import { getBloggerByAliasAsync } from "../features/user/bloggerSlice";
 import CategoryCard from "../components/CategoryCard";
 import PageNotFound from "./PageNotFound";
 import { useState } from "react";
+import alt from "../assets/image/topic/alt.jpg";
 
 function Category() {
 	const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function Category() {
 	// 	? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
 	// 	: [allBlogs];
 	const allBlogsByTopic = topic ? topic.Blog : null;
-console.log(allBlogsByTopic);
+
 	if (
 		(typeof topic !== "undefined" && topic.length === 0) ||
 		typeof topic === "string"
@@ -35,12 +36,21 @@ console.log(allBlogsByTopic);
 				<Helmet title="Chủ đề">
 					<div className="allCategoryCards">
 						<div className="allCategoryCards_banner">
-							<Banner
-								img={require(`../assets/image/topic/${topic.img}`)}
-								width="100"
-								height="440"
-								quote={topic.quote}
-							/>
+							{topic.img !== "" ? (
+								<Banner
+									img={require(`../assets/image/topic/${topic.img}`)}
+									width="100"
+									height="440"
+									quote={topic.quote}
+								/>
+							) : (
+								<Banner
+									img={alt}
+									width="100"
+									height="440"
+									quote={topic.quote}
+								/>
+							)}
 						</div>
 						<div className="allCategoryCards_container">
 							{allBlogsByTopic.map((blog, index) => {
@@ -48,11 +58,12 @@ console.log(allBlogsByTopic);
 									<CategoryCard
 										key={index}
 										id={blog.id}
-										urlImage={require(`../assets/image/blog/${blog.coverImg}`)}
+										urlImage={blog.coverImg}
 										date={`${blog.location} - ${blog.date}`}
 										title={`${blog.title}`}
 										content={`${blog.content}`}
 										slug={`${blog.slug}`}
+										blogger={blogger}
 									/>
 								);
 							})}

@@ -4,6 +4,8 @@ import Topic from "../components/Topic";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import alt from "../assets/image/user/alt.png";
+
 function Home({ blogger }) {
 	// const allTopics = useSelector((state) => state.topic);
 	const user = useSelector((state) => state.user);
@@ -42,10 +44,14 @@ function Home({ blogger }) {
 							<div className="home__new-blog">
 								<Link to={`/${user.alias}/newBlog`} className="home__link">
 									<div className="home__new-blog__pfp">
-										<img
-											src={require(`../assets/image/user/${blogger.profilepic}`)}
-											alt=""
-										/>
+										{blogger.profilepic !== "" ? (
+											<img
+												src={require(`../assets/image/user/${blogger.profilepic}`)}
+												alt={alt}
+											/>
+										) : (
+											<img src={alt} alt={alt} />
+										)}
 									</div>
 									<div className="home__new-blog__placeholder">
 										{"Tạo nguồn cảm hứng mới <3"}
