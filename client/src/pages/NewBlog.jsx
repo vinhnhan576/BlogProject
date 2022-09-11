@@ -23,7 +23,7 @@ const NewBlog = ({ alias, blogger }) => {
 		location: "",
 		slug: "",
 		topicID: "",
-		coverImg: "huonglehere_doi-song_danh-bai.jpg",
+		coverImg: "",
 	};
 
 	const [newBlog, setNewBlog] = useState(initialBlogState);
@@ -44,7 +44,7 @@ const NewBlog = ({ alias, blogger }) => {
 
 	const readImage = (e) => {
 		const image = e.target.files[0];
-		console.log(image);
+		setNewBlog({ ...newBlog, ["coverImg"]: image });
 	};
 
 	const imageUploadHandler = (e) => {};
