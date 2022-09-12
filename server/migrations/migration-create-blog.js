@@ -44,14 +44,14 @@ module.exports = {
 		// 		type: Sequelize.DATE,
 		// 	},
 		// });
-		await queryInterface.addColumn("Blogs", "signature", Sequelize.STRING);
-		// await queryInterface.addColumn("Blogs", "testID", {
-		// 	type: Sequelize.INTEGER,
-		// 	// references: {
-		// 	//   model: "User",
-		// 	//   key: "id",
-		// 	// },
-		// });
+		// await queryInterface.addColumn("Blogs", "signature", Sequelize.STRING);
+		await queryInterface.addColumn("Blogs", "signature", {
+			type: Sequelize.STRING,
+			// references: {
+			//   model: "User",
+			//   key: "id",
+			// },
+		});
 	},
 	async down(queryInterface, Sequelize) {
 		await queryInterface.dropTable("Blogs");
