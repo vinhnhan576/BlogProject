@@ -95,7 +95,6 @@ let deleteUserByID = async (id) => {
 let getUserByUsername = async (userReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			console.log(userReqData);
 			const username = userReqData.username;
 
 			await db.User.findOne({
