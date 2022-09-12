@@ -21,10 +21,7 @@ app.use("/api", apiRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
-app.use(
-	"/image",
-	express.static(path.join(__dirname, "./client/src/assets/image/blog"))
-);
+app.use("/blog", express.static(path.join(__dirname, "../image/blog")));
 
 app.get("/", (req, res) => {
 	res.send("server index page");
