@@ -30,7 +30,7 @@ exports.deleteBlogByID = async (req, res) => {
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, path.join(__dirname, "./client/src/assets/image/blog");
+		cb(null, path.join(__dirname, "./client/src/assets/image/blog"));
 	},
 	filename: (req, file, cb) => {
 		cb(
