@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BlogProject/static/css/main.4f5ced1f.css",
-    "main.js": "/BlogProject/static/js/main.80c03413.js",
+    "main.css": "/BlogProject/static/css/main.9de096e4.css",
+    "main.js": "/BlogProject/static/js/main.6e58ba14.js",
     "static/js/787.c4e7f8f9.chunk.js": "/BlogProject/static/js/787.c4e7f8f9.chunk.js",
     "static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.png": "/BlogProject/static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.9bbe1cde7030fe6f7de2.png",
     "static/media/boxicons.svg": "/BlogProject/static/media/boxicons.0153fb5e5b5f697b4bcc.svg",
@@ -29,12 +29,12 @@
     "static/media/sloganblog.png": "/BlogProject/static/media/sloganblog.f391c6d4b755859fceb1.png",
     "static/media/Logo.png": "/BlogProject/static/media/Logo.3e47ded7734e8f247fb9.png",
     "index.html": "/BlogProject/index.html",
-    "main.4f5ced1f.css.map": "/BlogProject/static/css/main.4f5ced1f.css.map",
-    "main.80c03413.js.map": "/BlogProject/static/js/main.80c03413.js.map",
+    "main.9de096e4.css.map": "/BlogProject/static/css/main.9de096e4.css.map",
+    "main.6e58ba14.js.map": "/BlogProject/static/js/main.6e58ba14.js.map",
     "787.c4e7f8f9.chunk.js.map": "/BlogProject/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f5ced1f.css",
-    "static/js/main.80c03413.js"
+    "static/css/main.9de096e4.css",
+    "static/js/main.6e58ba14.js"
   ]
 }
