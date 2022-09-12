@@ -28,3 +28,8 @@ exports.getTopicBySlug = async (req, res) => {
 	let topic = await topicService.getTopicBySlug(req.query.slug);
 	return res.send(topic);
 };
+
+exports.deleteTopic = async (req, res) => {
+	let message = await topicService.deleteTopicByID(req.params.id);
+	return res.send(message);
+};
