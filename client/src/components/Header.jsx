@@ -50,11 +50,11 @@ function Header(props) {
 	switch (slugType) {
 		case "topic":
 			if (topics)
-				if (!Array.isArray(topics) && typeof topics !== "string") {
+				// if (!Array.isArray(topics) && typeof topics !== "string") {
 				currentTopic = topics
-					?.find((topic) => topic.slug === params["*"].split("/")[1])
-					?.topicName.toUpperCase();
-			}
+					.find((topic) => topic.slug === params["*"].split("/")[1])
+					.topicName.toUpperCase();
+			// }
 			break;
 		case "blog":
 			if (blog)
