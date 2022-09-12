@@ -9,8 +9,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(upload.array());
-app.use(express.static("public"));
+// app.use(upload.array());
+// app.use(express.static("public"));
 
 connectDb();
 
