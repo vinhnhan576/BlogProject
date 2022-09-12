@@ -8,7 +8,7 @@ const blogController = require("../controllers/blog.controller");
 router.get("/getblogbyslug", blogController.getBlogBySlug);
 
 //get all blogs by userID
-router.get("/", blogController.getAllBlogsByUserID);
+router.get("/", blogController.upload, blogController.getAllBlogsByUserID);
 
 router.post("/", blogController.addNewBlog);
 
