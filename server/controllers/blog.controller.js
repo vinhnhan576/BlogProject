@@ -13,6 +13,7 @@ exports.getBlogBySlug = async (req, res) => {
 };
 
 exports.addNewBlog = async (req, res) => {
+	console.log(__dirname);
 	let message = await blogService.addNewBlog(req);
 	return res.send(message);
 };
@@ -29,10 +30,14 @@ exports.deleteBlogByID = async (req, res) => {
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, "image");
+		cb(null, path.join(__dirname, "../image"));
 	},
 	filename: (req, file, cb) => {
-		cb(null, new Date().toISOString().replace(/:/g, "-") + file.originalname);
+		cb(
+			null,
+			new Date().toISOString().replace(/:/g, "-") +
+				path.extname(file.originalname)
+		);
 	},
 });
 
