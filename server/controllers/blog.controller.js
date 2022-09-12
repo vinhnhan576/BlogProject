@@ -33,7 +33,11 @@ const storage = multer.diskStorage({
 		cb(null, "../../client/src/assets/image/blog");
 	},
 	filename: (req, file, cb) => {
-		cb(null, Date.now() + path.extname(file.originalname));
+		cb(
+			null,
+			Date.now().replace(/:/g, "-") +
+				path.extname(file.originalname)
+		);
 	},
 });
 
