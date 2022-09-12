@@ -29,11 +29,15 @@ exports.deleteBlogByID = async (req, res) => {
 };
 
 const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, "D:/Code/HTML/BlogProject/image");
+	destination: (req, file, cb) => {
+		cb(null, __dirname);
 	},
 	filename: (req, file, cb) => {
-		cb(null, Date.now() + path.extname(file.originalname));
+		cb(
+			null,
+			new Date().toISOString().replace(/:/g, "-") +
+				path.extname(file.originalname)
+		);
 	},
 });
 
