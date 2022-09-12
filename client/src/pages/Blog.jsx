@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PageNotFound from "./PageNotFound";
 import alt from "../assets/image/blog/alt.jpg";
 
-function Blog() {
+function Blog({name}) {
 	const params = useParams();
 	const slug = params.slug;
 	const dispatch = useDispatch();
@@ -42,7 +42,7 @@ function Blog() {
 					<div className="blog__content">
 						<div className="blog__content__title">{blog.title}</div>
 						<div className="blog__content__body">{blog.content}</div>
-						<div className="blog__content__signature">Hương Lé thân iu</div>
+						<div className="blog__content__signature">by {name}</div>
 					</div>
 				</div>
 			</Helmet>
