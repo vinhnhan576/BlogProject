@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
 			location: DataTypes.STRING,
 			content: DataTypes.TEXT,
 			slug: DataTypes.STRING,
-			signature: DataTypes.STRING,
 			// userID: DataTypes.STRING,
 			topicID: DataTypes.INTEGER,
 		},
