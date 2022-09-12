@@ -91,9 +91,11 @@ $image-width-mobile: 25em;
 
 		p {
 			font-size: 1.1em;
-			font-weight: 300;
+			// font-weight: 300;
+			font-family: 'Source Sans Pro', sans-serif;
+			white-space: pre-wrap;
 			color: $text-third-color;
-			max-height: 85px;
+			max-height: 76px;
 			overflow: hidden;
 		}
 	}
