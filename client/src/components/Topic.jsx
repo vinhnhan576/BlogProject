@@ -68,12 +68,13 @@ export default function Topic(props) {
 			</div>
 			<div className="featured-blogs">
 				<div className="featured-blogs__main-blog">
-					<Link to={`/${props.alias}/blog/${mainBlog.slug}`}>
+					<Link to={`/${props.alias}/blog/${mainBlog?.slug}`}>
 						<div className="featured-blogs__main-blog__image">
 							<div
 								className="featured-blogs__main-blog__image__container"
 								ref={bodyImageRef}>
-								{mainBlog.coverImg !== "" ? (
+								{mainBlog?.coverImg !== "" &&
+								typeof mainBlog?.coverImg !== "undefined" ? (
 									<img
 										onLoad={onImgLoad}
 										src={require(`../assets/image/blog/${mainBlog.coverImg}`)}
@@ -86,8 +87,8 @@ export default function Topic(props) {
 						</div>
 						<div className="featured-blogs__main-blog__content">
 							<div className="featured-blogs__main-blog__content__border"></div>
-							<h3>{mainBlog.title}</h3>
-							<p>{mainBlog.content}</p>
+							<h3>{mainBlog?.title}</h3>
+							<p>{mainBlog?.content}</p>
 						</div>
 					</Link>
 				</div>

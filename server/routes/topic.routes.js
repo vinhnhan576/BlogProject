@@ -16,4 +16,6 @@ router.get("/query", topicController.getAllTopicsByUserID);
 
 router.get("/gettopicbyslug", topicController.getTopicBySlug);
 
+router.delete("/:id", topicController.deleteTopic);
+
 module.exports = router;
