@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const connectDb = require("./config/db.config");
 const cors = require("cors");
 const multer = require("multer");
-const path = require('path')
+const path = require("path");
 
 require("dotenv").config();
 
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-// app.use(forms.array()); 
+// app.use(forms.array());
 
 connectDb();
 
@@ -21,10 +21,7 @@ app.use("/api", apiRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
-app.use(
-	"../client/src/assets/image/blog",
-	express.static("../client/src/assets/image/blog")
-);
+app.use("../image/blog", express.static("../image/blog"));
 
 app.get("/", (req, res) => {
 	res.send("server index page");
