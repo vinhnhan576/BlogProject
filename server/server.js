@@ -4,7 +4,6 @@ const connectDb = require("./config/db.config");
 const cors = require("cors");
 const multer = require("multer");
 const path = require('path')
-var forms = multer();
 
 require("dotenv").config();
 
@@ -12,9 +11,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(upload.array());
 app.use(express.static("public"));
-app.use(forms.array()); 
+// app.use(forms.array()); 
 
 connectDb();
 
