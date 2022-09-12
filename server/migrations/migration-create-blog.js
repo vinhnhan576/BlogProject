@@ -44,7 +44,7 @@ module.exports = {
 		// 		type: Sequelize.DATE,
 		// 	},
 		// });
-		return queryInterface.addColumn("Blogs", "signature", Sequelize.STRING);
+		await queryInterface.addColumn("Blogs", "signature", Sequelize.STRING);
 		// await queryInterface.addColumn("Blogs", "testID", {
 		// 	type: Sequelize.INTEGER,
 		// 	// references: {
