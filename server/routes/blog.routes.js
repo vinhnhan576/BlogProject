@@ -10,7 +10,7 @@ router.get("/getblogbyslug", blogController.getBlogBySlug);
 //get all blogs by userID
 router.get("/", blogController.getAllBlogsByUserID);
 
-router.post("/", blogController.upload, blogController.addNewBlog);
+router.post("/", blogController.addNewBlog);
 
 router.put("/:id", blogController.updateBlog);
 

@@ -57,15 +57,16 @@ let getBlogBySlug = async (slug) => {
 let addNewBlog = async (blogReqData) => {
 	return new Promise(async (resolve, reject) => {
 		try {
+			console.log(blogReqData);
 			await db.Blog.create({
-				title: blogReqData?.body.title,
-				content: blogReqData?.body.content,
-				coverImg: blogReqData?.file.path,
-				quote: blogReqData?.body.quote,
-				date: blogReqData?.body.date,
-				location: blogReqData?.body.location,
-				slug: blogReqData?.body.slug,
-				topicID: blogReqData.body.topicID,
+				title: blogReqData?.title,
+				content: blogReqData?.content,
+				coverImg: blogReqData?.coverImg,
+				quote: blogReqData?.quote,
+				date: blogReqData?.date,
+				location: blogReqData?.location,
+				slug: blogReqData?.slug,
+				topicID: blogReqData.topicID,
 			});
 			resolve("blog added successfully!");
 		} catch (e) {
