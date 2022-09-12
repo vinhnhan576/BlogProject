@@ -70,16 +70,20 @@ let updateTopic = async (id, topicReqData) => {
 
 let deleteTopicByID = async (id) => {
 	return new Promise(async (resolve, reject) => {
-		await db.Topic.destroy({ where: { id: id } }).then((deletedTopic) => {
-			if (deletedTopic) {
-				resolve("Deleted topic with id " + id + " successfully!");
-			}
-			resolve(
-				"Cannot delete topic with id " +
-					id +
-					". Maybe the topic cannot be found!"
-			);
-		});
+		try {
+			await db.Topic.destroy({ where: { id: id } }).then((deletedTopic) => {
+				if (deletedTopic) {
+					resolve("Deleted topic with id " + id + " successfully!");
+				}
+				resolve(
+					"Cannot delete topic with id " +
+						id +
+						". Maybe the topic cannot be found!"
+				);
+			});
+		} catch (e) {
+			reject("Error deleting topic with id " + id + ": " + e);
+		}
 	});
 };
 
