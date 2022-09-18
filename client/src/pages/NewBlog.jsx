@@ -116,7 +116,7 @@ const NewBlog = ({ alias, blogger }) => {
 					<input
 						type="file"
 						ref={imageRef}
-						onChange={readImage}
+						// onChange={readImage}
 						className="new-blog__form__image"
 					/>
 					<input

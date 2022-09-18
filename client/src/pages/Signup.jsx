@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { authenticateUserAsync } from "../features/account/accountSlice";
 import { createNewAccountAsync } from "../features/account/accountSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import loginImage01 from "../assets/image/login/login-image-01.png";
-import loginImage02 from "../assets/image/login/signup-image.jpg";
-import logo from "../assets/image/login/login-logo.png";
 
-const Login = () => {
+const Signup = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -38,11 +35,13 @@ const Login = () => {
 	};
 
 	const handleNameChange = (input) => (event) => {
-		setFullName({ ...fullName, [input]: event.target.value });
-		setAccount({
-			...account,
-			name: fullName.surName + " " + fullName.firstName,
-		});
+		fullName[input] = event.target.value;
+		account.name = fullName.surName + " " + fullName.firstName;
+		console.log(account);
+		// setAccount({
+		// 	...account,
+		// 	name: fullName.surName + " " + fullName.firstName,
+		// });
 	};
 
 	const handleSignUp = (e) => {
@@ -53,7 +52,7 @@ const Login = () => {
 		navigate("/");
 	};
 
-	console.log(account);
+	
 
 	return (
 		<div className="login">
@@ -176,4 +175,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Signup;
