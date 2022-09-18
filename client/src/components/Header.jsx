@@ -136,7 +136,7 @@ function Header(props) {
 								? currentTopic
 								: "CHỦ ĐỀ"}
 							{openTopics && (
-								<DropdownMenu blogger={props?.blogger} onclick={menuToggle} />
+								<DropdownMenu blogger={props.blogger} onclick={menuToggle} />
 							)}
 						</div>
 					</div>
