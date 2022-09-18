@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PageNotFound from "./PageNotFound";
 import alt from "../assets/image/blog/alt.jpg";
 
-function Blog({name}) {
+function Blog({ name }) {
 	const params = useParams();
 	const slug = params.slug;
 	const dispatch = useDispatch();
@@ -18,11 +18,13 @@ function Blog({name}) {
 	const blog = Array.isArray(blogs)
 		? blogs?.find((blog) => blog.slug === slug)
 		: blogs;
-	if (
-		(typeof blog !== "undefined" && blog.length === 0) ||
-		typeof blog === "string"
-	)
-		return <PageNotFound />;
+
+	console.log(blog);
+
+	// if (
+	// 	(blog.length === 0)
+	// )
+	// 	return <PageNotFound />;
 
 	if (typeof blog === "object")
 		// if (blog)
@@ -38,7 +40,9 @@ function Blog({name}) {
 					) : (
 						<Banner img={alt} alt={alt} quote={blog.quote} />
 					)}
-					<div className="blog__timestamp">{`${blog.location.length !== 0 ? (blog.location + " - ") : ""}${blog.date.slice(0,10)}`}</div>
+					<div className="blog__timestamp">{`${
+						blog.location.length !== 0 ? blog.location + " - " : ""
+					}${blog.date.slice(0, 10)}`}</div>
 					<div className="blog__content">
 						<div className="blog__content__title">{blog.title}</div>
 						<div className="blog__content__body">{blog.content}</div>
