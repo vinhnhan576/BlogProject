@@ -59,7 +59,9 @@ function Category() {
 										key={index}
 										id={blog.id}
 										urlImage={blog.coverImg}
-										date={`${blog.location} - ${blog.date}`}
+										date={`${
+											blog.location.length !== 0 ? blog.location + " - " : ""
+										}${blog.date.slice(0, 10)}`}
 										title={`${blog.title}`}
 										content={`${blog.content}`}
 										slug={`${blog.slug}`}

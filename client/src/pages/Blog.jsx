@@ -38,7 +38,7 @@ function Blog({name}) {
 					) : (
 						<Banner img={alt} alt={alt} quote={blog.quote} />
 					)}
-					<div className="blog__timestamp">{`${blog.location} - ${blog.date}`}</div>
+					<div className="blog__timestamp">{`${blog.location.length !== 0 ? (blog.location + " - ") : ""}${blog.date.slice(0,10)}`}</div>
 					<div className="blog__content">
 						<div className="blog__content__title">{blog.title}</div>
 						<div className="blog__content__body">{blog.content}</div>
