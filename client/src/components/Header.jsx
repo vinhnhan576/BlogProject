@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAccount } from "../features/account/accountSlice";
 import DropdownMenu from "./DropdownMenu";
@@ -36,6 +36,8 @@ function Header(props) {
 		(e) => `/${params.alias}`.concat(e.path) === pathName
 	);
 
+	const navigate = useNavigate();
+
 	var currentTopic;
 	const blog = useSelector((state) => state.blog);
 	const topics = props.blogger.Topic;
@@ -46,7 +48,7 @@ function Header(props) {
 	// 	}
 	// }, [dispatch, slug]);
 	const slugType = params["*"].split("/")[0];
-	console.log(props)
+	console.log(props);
 	switch (slugType) {
 		case "topic":
 			if (topics)
@@ -142,15 +144,16 @@ function Header(props) {
 					</div>
 					<div className="header__menu__right">
 						<div className="header__menu__right__item header__menu__item">
-							<i className="bx bx-search"></i>
+							{/* <i className="bx bx-search"></i>
 							<i className="bx bx-wrench"></i>
-							<i className="bx bx-bell"></i>
+							<i className="bx bx-bell"></i> */}
 						</div>
-						{account && (
+						{account ? (
 							<div
 								className="header__menu__right__pfp"
 								onClick={() => setOpenSettings(!openSettings)}>
-								{props?.blogger?.profilepic !== "" && typeof props.blogger.profilepic !== 'undefined' ? (
+								{props?.blogger?.profilepic !== "" &&
+								typeof props.blogger.profilepic !== "undefined" ? (
 									<img
 										src={require(`../assets/image/user/${props.blogger.profilepic}`)}
 										alt={alt}
@@ -158,6 +161,10 @@ function Header(props) {
 								) : (
 									<img src={alt} alt={alt} />
 								)}
+							</div>
+						) : (
+							<div className="header__menu__right__login-button">
+								<button onClick={() => navigate("/")}>Đăng nhập</button>
 							</div>
 						)}
 						{openSettings && (
