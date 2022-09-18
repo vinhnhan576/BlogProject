@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BlogProject/static/css/main.cb479d74.css",
-    "main.js": "/BlogProject/static/js/main.2352f4c8.js",
+    "main.css": "/BlogProject/static/css/main.5b09d79a.css",
+    "main.js": "/BlogProject/static/js/main.7b547957.js",
     "static/js/787.c4e7f8f9.chunk.js": "/BlogProject/static/js/787.c4e7f8f9.chunk.js",
     "static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.png": "/BlogProject/static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.9bbe1cde7030fe6f7de2.png",
     "static/media/boxicons.svg": "/BlogProject/static/media/boxicons.0153fb5e5b5f697b4bcc.svg",
@@ -21,15 +21,15 @@
     "static/media/alt.jpg": "/BlogProject/static/media/alt.286caf92e29f372fdffc.jpg",
     "static/media/huonglehere_doi-song.jpg": "/BlogProject/static/media/huonglehere_doi-song.18e31ceb84ce8e20a07f.jpg",
     "static/media/huonglehere_du-lich_du-lich-bien-canh-duong.jpg": "/BlogProject/static/media/huonglehere_du-lich_du-lich-bien-canh-duong.45e0b918d33aed2fb1a3.jpg",
-    "static/media/pngtree-cute-seamless-pattern-cartoon-cupcake-and-strawberry-png-image_8130376.png": "/BlogProject/static/media/pngtree-cute-seamless-pattern-cartoon-cupcake-and-strawberry-png-image_8130376.2a86446a5d6e7f4546b8.png",
+    "static/media/login-mobile.png": "/BlogProject/static/media/login-mobile.2a86446a5d6e7f4546b8.png",
     "static/media/alt.png": "/BlogProject/static/media/alt.8973ad91ff3039f96c89.png",
     "index.html": "/BlogProject/index.html",
-    "main.cb479d74.css.map": "/BlogProject/static/css/main.cb479d74.css.map",
-    "main.2352f4c8.js.map": "/BlogProject/static/js/main.2352f4c8.js.map",
+    "main.5b09d79a.css.map": "/BlogProject/static/css/main.5b09d79a.css.map",
+    "main.7b547957.js.map": "/BlogProject/static/js/main.7b547957.js.map",
     "787.c4e7f8f9.chunk.js.map": "/BlogProject/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb479d74.css",
-    "static/js/main.2352f4c8.js"
+    "static/css/main.5b09d79a.css",
+    "static/js/main.7b547957.js"
   ]
 }
