@@ -40,6 +40,7 @@ $mobile-border-radius: 10px;
 		&__whole1 {
 			height: $upper-pic-height;
 			width: $upper-pic-width;
+
 			position: relative;
 			z-index: -9;
 
@@ -53,13 +54,21 @@ $mobile-border-radius: 10px;
 				width: calc(#{$upper-pic-width} / #{$mobile-shrink-ratio});
 			}
 
-			img {
-				height: 100%;
-				margin: 20px;
+			&__image {
+				height: $upper-pic-height;
+				width: $upper-pic-width;
 				border-radius: $border-radius;
+				overflow: hidden;
+				@include flex(center, center);
+margin: 20px;
+				img {
+					height: 100%;
+					// 
+					border-radius: $border-radius;
 
-				@include mobile {
-					border-radius: $mobile-border-radius;
+					@include mobile {
+						border-radius: $mobile-border-radius;
+					}
 				}
 			}
 		}
@@ -217,5 +226,22 @@ $mobile-border-radius: 10px;
 				width: 15em;
 			}
 		}
+	}
+}
+
+.about {
+	&-greetings {
+		padding: 20px 0 0 25px;
+		font-size: 3rem;
+	}
+
+	&-name {
+		padding: 0 0 0 25px;
+		font-size: 4rem;
+	}
+
+	&-welcome {
+		padding: 20px 0 0 25px;
+		font-size: 2.5rem;
 	}
 }
