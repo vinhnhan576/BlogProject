@@ -14,8 +14,7 @@
 		// 	animation: left .3s ease-in-out;
 		// }
 
-		&__after{
-
+		&__after {
 		}
 
 		img {
@@ -50,11 +49,12 @@
 
 		@include mobile {
 			position: relative;
-			background-image: url(./pngtree-cute-seamless-pattern-cartoon-cupcake-and-strawberry-png-image_8130376.png);
+			background-image: url(../../assets/image/login/login-mobile.png);
 		}
+
 		@include tablet {
 			width: 100%;
-			background-image: url(./pngtree-cute-seamless-pattern-cartoon-cupcake-and-strawberry-png-image_8130376.png);
+			background-image: url(../../assets/image/login/login-mobile.png);
 		}
 
 		&__item {
@@ -112,8 +112,8 @@
 			margin: 5px 3px;
 		}
 
-		&__login-button{
-			@include mobile{
+		&__login-button {
+			@include mobile {
 				margin-top: 50px;
 			}
 		}

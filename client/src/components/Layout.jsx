@@ -25,7 +25,7 @@ function Layout() {
 					<Routes blogger={blogger} />
 				</div>
 			</div>
-			<Footer></Footer>
+			{/* <Footer></Footer> */}
 		</div>
 		// </HashRouter>
 	);

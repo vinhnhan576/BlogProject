@@ -1,11 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../features/account/accountSlice";
 
 function SettingsMenu(props) {
 	function DropdownItem(props) {
 		const navigate = useNavigate();
+		const dispatch = useDispatch();
+
 		const dropdownItemClick = (e) => {
 			e.preventDefault();
+			dispatch(logout());
 			navigate(`/`);
 		};
 
@@ -22,7 +27,7 @@ function SettingsMenu(props) {
 		);
 	}
 
-  return (
+	return (
 		<div className="dropdown settings">
 			{props.settings.map((settings, index) => {
 				return (

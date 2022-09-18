@@ -64,7 +64,7 @@ const CategoryCard = (props) => {
 			{isLoggedIn && (
 				<div className="category_container-functions">
 					<div className="category_container-functions-left">
-						<i
+						{/* <i
 							className="bx bx-paper-plane"
 							ref={publish}
 							onClick={() => {
@@ -79,7 +79,7 @@ const CategoryCard = (props) => {
 								setOpenMessageBox(!openMessageBox);
 								setMessageBoxType("Lưu trữ");
 								publish.current.classList.toggle("hidden");
-							}}></i>
+							}}></i> */}
 					</div>
 
 					<div className="category_container-functions-right">
