@@ -1,5 +1,20 @@
 const db = require("../models");
 
+let getAllBlogs = async () => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			await db.Blog.findAll().then((blogList) => {
+				if (blogList) {
+					resolve(blogList);
+				}
+				resolve("Cannot fetch the blog list. Maybe the blog list is empty!");
+			});
+		} catch (e) {
+			reject("Error fetching blog list: " + e);
+		}
+	});
+};
+
 let getAllBlogsByUserID = async (userID) => {
 	return new Promise(async (resolve, reject) => {
 		try {
@@ -110,6 +125,7 @@ let deleteBlogByID = async (id) => {
 };
 
 module.exports = {
+	getAllBlogs: getAllBlogs,
 	getAllBlogsByUserID: getAllBlogsByUserID,
 	getBlogBySlug: getBlogBySlug,
 	addNewBlog: addNewBlog,
