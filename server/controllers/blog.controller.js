@@ -2,6 +2,11 @@ const blogService = require("../service/blog.service");
 const multer = require("multer");
 const path = require("path");
 
+exports.getAllBlogs = async (req, res) => {
+	let blogList = await blogService.getAllBlogs();
+	return res.send(blogList);
+};
+
 exports.getAllBlogsByUserID = async (req, res) => {
 	let blog = await blogService.getAllBlogsByUserID(req.query.userID);
 	return res.send(blog);

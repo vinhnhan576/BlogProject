@@ -5,6 +5,8 @@ const namingBlogSlug = (title) => {
 		.replace(/ /g, "-")
 		.replace(/\?/g, "")
 		.replace(/!/g, "")
+		.replace(/\./g, "")
+		.replace(/,/g, "")
 		.toLowerCase();
 };
 
