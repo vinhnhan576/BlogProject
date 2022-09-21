@@ -48,14 +48,13 @@ function Header(props) {
 	// 	}
 	// }, [dispatch, slug]);
 	const slugType = params["*"].split("/")[0];
-	console.log(props);
 	switch (slugType) {
 		case "topic":
 			if (topics)
 				// if (!Array.isArray(topics) && typeof topics !== "string") {
 				currentTopic = topics
 					.find((topic) => topic.slug === params["*"].split("/")[1])
-					.topicName.toUpperCase();
+					?.topicName.toUpperCase();
 			// }
 			break;
 		case "blog":
