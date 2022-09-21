@@ -18,7 +18,9 @@ function Category() {
 	useEffect(() => {
 		dispatch(getBloggerByAliasAsync(alias));
 	}, [dispatch, alias]);
+	
 	const topic = blogger.Topic?.find((topic) => topic.slug === params.slug);
+	console.log(blogger);
 	// const allBlogsByTopic = Array.isArray(allBlogs)
 	// 	? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
 	// 	: [allBlogs];
