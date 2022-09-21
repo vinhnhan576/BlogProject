@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BlogProject/static/css/main.3f364558.css",
-    "main.js": "/BlogProject/static/js/main.634b01f5.js",
+    "main.js": "/BlogProject/static/js/main.24610dd8.js",
     "static/js/787.c4e7f8f9.chunk.js": "/BlogProject/static/js/787.c4e7f8f9.chunk.js",
     "static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.png": "/BlogProject/static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.9bbe1cde7030fe6f7de2.png",
     "static/media/boxicons.svg": "/BlogProject/static/media/boxicons.0153fb5e5b5f697b4bcc.svg",
@@ -25,11 +25,11 @@
     "static/media/alt.png": "/BlogProject/static/media/alt.8973ad91ff3039f96c89.png",
     "index.html": "/BlogProject/index.html",
     "main.3f364558.css.map": "/BlogProject/static/css/main.3f364558.css.map",
-    "main.634b01f5.js.map": "/BlogProject/static/js/main.634b01f5.js.map",
+    "main.24610dd8.js.map": "/BlogProject/static/js/main.24610dd8.js.map",
     "787.c4e7f8f9.chunk.js.map": "/BlogProject/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f364558.css",
-    "static/js/main.634b01f5.js"
+    "static/js/main.24610dd8.js"
   ]
 }
