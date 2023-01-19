@@ -1,3 +1,3 @@
-const serverUrl = 'http://localhost:8081/';
+const serverUrl = 'https://blogit-server.onrender.com/';
 
 export default serverUrl
