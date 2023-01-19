@@ -20,7 +20,6 @@ function Category() {
 	}, [dispatch, alias]);
 	
 	const topic = blogger.Topic?.find((topic) => topic.slug === params.slug);
-	console.log(blogger);
 	// const allBlogsByTopic = Array.isArray(allBlogs)
 	// 	? allBlogs?.filter((blog) => blog.Topic.slug === params.slug)
 	// 	: [allBlogs];
@@ -38,9 +37,9 @@ function Category() {
 				<Helmet title="Chủ đề">
 					<div className="allCategoryCards">
 						<div className="allCategoryCards_banner">
-							{topic.img !== "" ? (
+							{topic.img !== undefined && topic.img !== '' ? (
 								<Banner
-									img={require(`../assets/image/topic/${topic.img}`)}
+									img={'data:image/jpg;base64,' + topic.img.toString('base64')}
 									width="100"
 									height="440"
 									quote={topic.quote}
@@ -60,10 +59,10 @@ function Category() {
 									<CategoryCard
 										key={index}
 										id={blog.id}
-										urlImage={blog.coverImg}
+										img={blog.coverImg}
 										date={`${
-											blog.location.length !== 0 ? blog.location + " - " : ""
-										}${blog.date.slice(0, 10)}`}
+											blog.location !== null ? blog.location + " - " : ""
+										}${blog.date !== undefined ? blog.date.slice(0, 10) : ""}`}
 										title={`${blog.title}`}
 										content={`${blog.content}`}
 										slug={`${blog.slug}`}

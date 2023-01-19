@@ -36,14 +36,12 @@ const EditBlog = ({ alias }) => {
 
 	const readImage = (e) => {
 		const image = e.target.files[0];
-		console.log(image);
 	};
 
 	const imageUploadHandler = (e) => {};
 
 	const handleNewBlog = (e) => {
 		e.preventDefault();
-		console.log(newBlog)
 		dispatch(updateBlogAsync({ blogReqData: newBlog }));
 		navigate(`/${alias}/`);
 	};

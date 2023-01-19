@@ -15,31 +15,30 @@ export default function BlogCard(props) {
 	};
 
 	return (
-		<Link to={`/${props.alias}/blog/${props.slug}`}>
-			<div className="blog-card" id={props.id}>
-				<div className="blog-card__image">
-					<div className="blog-card__image__container" ref={bodyImageRef}>
-						{props.urlImage !== "" ? (
-							<img
-								onLoad={onImgLoad}
-								src={require(`../assets/image/blog/${props.urlImage}`)}
-								alt={alt}
-							/>
-						) : (
-							<img
-								onLoad={onImgLoad}
-								src={alt}
-								alt={alt}
-							/>
-						)}
-					</div>
-				</div>
-				<div className="blog-card__content">
-					<div className="blog-card__content__border"></div>
-					<h3>{props.title}</h3>
-					<p>{props.content}</p>
-				</div>
-			</div>
-		</Link>
-	);
+        <Link to={`/${props.alias}/blog/${props.slug}`}>
+            <div className="blog-card" id={props.id}>
+                <div className="blog-card__image">
+                    <div
+                        className="blog-card__image__container"
+                        ref={bodyImageRef}
+                    >
+                        {props.img !== undefined ? (
+                            <img
+                                onLoad={onImgLoad}
+                                src={'data:image/jpg;base64,' + props.img.toString('base64')}
+                                alt={alt}
+                            />
+                        ) : (
+                            <img onLoad={onImgLoad} src={alt} alt={alt} />
+                        )}
+                    </div>
+                </div>
+                <div className="blog-card__content">
+                    <div className="blog-card__content__border"></div>
+                    <h3>{props.title}</h3>
+                    <p>{props.content}</p>
+                </div>
+            </div>
+        </Link>
+    );
 }

@@ -42,29 +42,29 @@ const CategoryCard = (props) => {
 	const isLoggedIn = isEqual(user, blogger);
 
 	return (
-		<div className="category_container" id={props.id}>
-			<Link to={`/${params.alias}/blog/${props.slug}`}>
-				<div className="category_container-image" ref={bodyImageRef}>
-					{props.urlImage !== "" ? (
-						<img
-							onLoad={onImgLoad}
-							src={require(`../assets/image/blog/${props.urlImage}`)}
-							alt=""
-						/>
-					) : (
-						<img onLoad={onImgLoad} src={alt} alt="" />
-					)}
-				</div>
-				<div className="category_container-content">
-					<h3>{props.date}</h3>
-					<h1>{props.title}</h1>
-					<p>{props.content}</p>
-				</div>
-			</Link>
-			{isLoggedIn && (
-				<div className="category_container-functions">
-					<div className="category_container-functions-left">
-						{/* <i
+        <div className="category_container" id={props.id}>
+            <Link to={`/${params.alias}/blog/${props.slug}`}>
+                <div className="category_container-image" ref={bodyImageRef}>
+                    {props.img !== undefined ? (
+                        <img
+                            onLoad={onImgLoad}
+                            src={'data:image/jpg;base64,' + props.img.toString('base64')}
+                            alt=""
+                        />
+                    ) : (
+                        <img onLoad={onImgLoad} src={alt} alt="" />
+                    )}
+                </div>
+                <div className="category_container-content">
+                    <h3>{props.date}</h3>
+                    <h1>{props.title}</h1>
+                    <p>{props.content}</p>
+                </div>
+            </Link>
+            {isLoggedIn && (
+                <div className="category_container-functions">
+                    <div className="category_container-functions-left">
+                        {/* <i
 							className="bx bx-paper-plane"
 							ref={publish}
 							onClick={() => {
@@ -80,38 +80,40 @@ const CategoryCard = (props) => {
 								setMessageBoxType("Lưu trữ");
 								publish.current.classList.toggle("hidden");
 							}}></i> */}
-					</div>
+                    </div>
 
-					<div className="category_container-functions-right">
-						<i
-							className="bx bxs-edit-alt"
-							onClick={() => {
-								setOpenMessageBox(!openMessageBox);
-								setMessageBoxType("Chỉnh sửa");
-							}}></i>
-						<i
-							className="bx bxs-trash"
-							onClick={() => {
-								setOpenMessageBox(!openMessageBox);
-								setMessageBoxType("Xóa");
-							}}></i>
-					</div>
-				</div>
-			)}
-			{openMessageBox && (
-				<MessageBox
-					alias={params.alias}
-					slug={props.slug}
-					title={`${messageBoxType} blog`}
-					body={`Bạn có chắc chắn muốn ${messageBoxType.toLowerCase()} `}
-					blogName={props.title}
-					onCloseButtonClick={onCloseButtonClick}
-					onCheckButtonClick={onCheckButtonClick}
-					functionType={messageBoxType}
-				/>
-			)}
-		</div>
-	);
+                    <div className="category_container-functions-right">
+                        <i
+                            className="bx bxs-edit-alt"
+                            onClick={() => {
+                                setOpenMessageBox(!openMessageBox);
+                                setMessageBoxType('Chỉnh sửa');
+                            }}
+                        ></i>
+                        <i
+                            className="bx bxs-trash"
+                            onClick={() => {
+                                setOpenMessageBox(!openMessageBox);
+                                setMessageBoxType('Xóa');
+                            }}
+                        ></i>
+                    </div>
+                </div>
+            )}
+            {openMessageBox && (
+                <MessageBox
+                    alias={params.alias}
+                    slug={props.slug}
+                    title={`${messageBoxType} blog`}
+                    body={`Bạn có chắc chắn muốn ${messageBoxType.toLowerCase()} `}
+                    blogName={props.title}
+                    onCloseButtonClick={onCloseButtonClick}
+                    onCheckButtonClick={onCheckButtonClick}
+                    functionType={messageBoxType}
+                />
+            )}
+        </div>
+    );
 };
 
 export default CategoryCard;

@@ -12,9 +12,6 @@ export default function Topic(props) {
 	// 	dispatch(getAllBlogsByUserIDAsync(userID));
 	// }, [dispatch, userID]);
 	// const allBlogsByTopic = allBlogs?.filter((blog) => blog.topicID === topicID);
-	// console.log(allBlogsByTopic);
-
-	// console.log(allBlogsByTopic)
 	const allBlogsByTopic = props.blogs;
 	var first2BlogsByTopic;
 	const bodyImageRef = useRef();
@@ -34,66 +31,65 @@ export default function Topic(props) {
 
 	const allPostsElements = first2BlogsByTopic.map((blog) => {
 		return (
-			// eslint-disable-next-line react/jsx-pascal-case
-			<BlogCard
-				key={blog.id}
-				id={blog.id}
-				urlImage={blog.coverImg}
-				content={blog.content}
-				title={blog.title}
-				slug={blog.slug}
-				alias={props.alias}
-			/>
-		);
+            // eslint-disable-next-line react/jsx-pascal-case
+            <BlogCard
+                key={blog._id}
+                id={blog._id}
+                img={blog.coverImg}
+                content={blog.content}
+                title={blog.title}
+                slug={blog.slug}
+                alias={props.alias}
+            />
+        );
 	});
 
 	return (
-		<div className="topicCard" id={props.id}>
-			<div className="topic">
-				<div className="topic__title">
-					{props.id % 2 === 0 ? (
-						<Link to={`/${props.alias}/topic/${props.slug}`}>
-							{props.topicName.toUpperCase()}
-						</Link>
-					) : (
-						""
-					)}
-					<div className="topic__line"></div>
-					{props.id % 2 === 1 && (
-						<Link to={`/${props.alias}/topic/${props.slug}`}>
-							{props.topicName.toUpperCase()}
-						</Link>
-					)}
-				</div>
-			</div>
-			<div className="featured-blogs">
-				<div className="featured-blogs__main-blog">
-					<Link to={`/${props.alias}/blog/${mainBlog?.slug}`}>
-						<div className="featured-blogs__main-blog__image">
-							<div
-								className="featured-blogs__main-blog__image__container"
-								ref={bodyImageRef}>
-								{mainBlog?.coverImg !== "" &&
-								typeof mainBlog?.coverImg !== "undefined" ? (
-									<img
-										onLoad={onImgLoad}
-										src={require(`../assets/image/blog/${mainBlog.coverImg}`)}
-										alt=""
-									/>
-								) : (
-									<img onLoad={onImgLoad} src={alt} alt="" />
-								)}
-							</div>
-						</div>
-						<div className="featured-blogs__main-blog__content">
-							<div className="featured-blogs__main-blog__content__border"></div>
-							<h3>{mainBlog?.title}</h3>
-							<p>{mainBlog?.content}</p>
-						</div>
-					</Link>
-				</div>
-				<div>{allPostsElements}</div>
-			</div>
-		</div>
-	);
+        <div className="topicCard" id={props.id}>
+            <div className="topic">
+                <div className="topic__title">
+                    {props.index % 2 === 0 && (
+                        <Link to={`/${props.alias}/topic/${props.slug}`}>
+                            {props.topicName.toUpperCase()}
+                        </Link>
+                    )}
+                    <div className="topic__line"></div>
+                    {props.index % 2 === 1 && (
+                        <Link to={`/${props.alias}/topic/${props.slug}`}>
+                            {props.topicName.toUpperCase()}
+                        </Link>
+                    )}
+                </div>
+            </div>
+            <div className="featured-blogs">
+                <div className="featured-blogs__main-blog">
+                    <Link to={`/${props.alias}/blog/${mainBlog?.slug}`}>
+                        <div className="featured-blogs__main-blog__image">
+                            <div
+                                className="featured-blogs__main-blog__image__container"
+                                ref={bodyImageRef}
+                            >
+                                {mainBlog?.coverImg !== '' &&
+                                typeof mainBlog?.coverImg !== 'undefined' ? (
+                                    <img
+                                        onLoad={onImgLoad}
+                                        src={'data:image/jpg;base64,' + mainBlog.coverImg.toString('base64')}
+                                        alt=""
+                                    />
+                                ) : (
+                                    <img onLoad={onImgLoad} src={alt} alt="" />
+                                )}
+                            </div>
+                        </div>
+                        <div className="featured-blogs__main-blog__content">
+                            <div className="featured-blogs__main-blog__content__border"></div>
+                            <h3>{mainBlog?.title}</h3>
+                            <p>{mainBlog?.content}</p>
+                        </div>
+                    </Link>
+                </div>
+                <div>{allPostsElements}</div>
+            </div>
+        </div>
+    );
 }
