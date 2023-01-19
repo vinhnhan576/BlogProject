@@ -1,35 +1,25 @@
 {
   "files": {
-    "main.css": "/BlogProject/static/css/main.3f364558.css",
-    "main.js": "/BlogProject/static/js/main.24610dd8.js",
+    "main.css": "/BlogProject/static/css/main.eba77555.css",
+    "main.js": "/BlogProject/static/js/main.639bc971.js",
     "static/js/787.c4e7f8f9.chunk.js": "/BlogProject/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.png": "/BlogProject/static/media/huonglehere_doi-song_tham-nha-ban-Thao-Quyen.9bbe1cde7030fe6f7de2.png",
     "static/media/boxicons.svg": "/BlogProject/static/media/boxicons.0153fb5e5b5f697b4bcc.svg",
     "static/media/header.png": "/BlogProject/static/media/header.e942bfc471088867ddb7.png",
     "static/media/login-image-01.png": "/BlogProject/static/media/login-image-01.85d0dba7b256f583107c.png",
-    "static/media/huonglehere_an-uong_huong-le-vao-bep.jpg": "/BlogProject/static/media/huonglehere_an-uong_huong-le-vao-bep.3e537134aaa04201b4bd.jpg",
     "static/media/boxicons.eot": "/BlogProject/static/media/boxicons.21f7c5dd64d88e1fc666.eot",
     "static/media/boxicons.woff": "/BlogProject/static/media/boxicons.02aa967c5bfb9489501a.woff",
     "static/media/boxicons.ttf": "/BlogProject/static/media/boxicons.ad0ddae357213656b3e6.ttf",
-    "static/media/huonglehere_an-uong.jpg": "/BlogProject/static/media/huonglehere_an-uong.aff5ce9378d58c169ffa.jpg",
-    "static/media/huonglehere_doi-song_tot-nghiep-cap-3.jpg": "/BlogProject/static/media/huonglehere_doi-song_tot-nghiep-cap-3.5b605e9826e78357c974.jpg",
-    "static/media/huonglehere.jpg": "/BlogProject/static/media/huonglehere.803939b3dc4d1b1b5fc2.jpg",
-    "static/media/huonglehere_an-uong_che-hue-co-gi-ngon.jpg": "/BlogProject/static/media/huonglehere_an-uong_che-hue-co-gi-ngon.803939b3dc4d1b1b5fc2.jpg",
-    "static/media/huonglehere_doi-song_danh-bai.jpg": "/BlogProject/static/media/huonglehere_doi-song_danh-bai.27ec8bde0f854e6daf46.jpg",
-    "static/media/huonglehere_du-lich.jpg": "/BlogProject/static/media/huonglehere_du-lich.7fbb91f78bb115a92973.jpg",
     "static/media/boxicons.woff2": "/BlogProject/static/media/boxicons.0335b427967c56248ea6.woff2",
     "static/media/alt.jpg": "/BlogProject/static/media/alt.286caf92e29f372fdffc.jpg",
-    "static/media/huonglehere_doi-song.jpg": "/BlogProject/static/media/huonglehere_doi-song.18e31ceb84ce8e20a07f.jpg",
-    "static/media/huonglehere_du-lich_du-lich-bien-canh-duong.jpg": "/BlogProject/static/media/huonglehere_du-lich_du-lich-bien-canh-duong.45e0b918d33aed2fb1a3.jpg",
     "static/media/login-mobile.png": "/BlogProject/static/media/login-mobile.2a86446a5d6e7f4546b8.png",
     "static/media/alt.png": "/BlogProject/static/media/alt.8973ad91ff3039f96c89.png",
     "index.html": "/BlogProject/index.html",
-    "main.3f364558.css.map": "/BlogProject/static/css/main.3f364558.css.map",
-    "main.24610dd8.js.map": "/BlogProject/static/js/main.24610dd8.js.map",
+    "main.eba77555.css.map": "/BlogProject/static/css/main.eba77555.css.map",
+    "main.639bc971.js.map": "/BlogProject/static/js/main.639bc971.js.map",
     "787.c4e7f8f9.chunk.js.map": "/BlogProject/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f364558.css",
-    "static/js/main.24610dd8.js"
+    "static/css/main.eba77555.css",
+    "static/js/main.639bc971.js"
   ]
 }
