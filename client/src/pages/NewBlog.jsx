@@ -23,7 +23,7 @@ const NewBlog = ({ alias, blogger }) => {
 		date: new Date().toLocaleDateString(),
 		location: "",
 		slug: "",
-		topicID: blogger?.Topic[0]?.id,
+		topicID: blogger?.Topic[0]?._id,
 		coverImg: "",
 	};
 
@@ -52,7 +52,7 @@ const NewBlog = ({ alias, blogger }) => {
 		slug: "",
 		quote: "",
 		img: "",
-		userID: blogger.id,
+		userID: blogger._id,
 	});
 
 	const handleNewBlog = async (e) => {
@@ -61,8 +61,7 @@ const NewBlog = ({ alias, blogger }) => {
 			// console.log(topic);
 			const res = await dispatch(createNewTopic({ topic: topic }));
 			const result = unwrapResult(res);
-			newBlog.topicID = result.tasks;
-			console.log(newBlog);
+			newBlog.topicID = result.tasks.result._id;
 		}
 		dispatch(createNewBlogAsync({ blogReqData: newBlog }));
 		navigate(`/${alias}/`);
@@ -73,7 +72,6 @@ const NewBlog = ({ alias, blogger }) => {
 
 		const onTopicClick = () => {
 			var option = document.getElementById("topic").value;
-			console.log(option);
 			if (option === "0") {
 				const input = prompt("Nhập chủ đề mới");
 				setNewTopic(input);
@@ -115,8 +113,9 @@ const NewBlog = ({ alias, blogger }) => {
 				<form className="new-blog__form" onSubmit={handleNewBlog}>
 					<input
 						type="file"
+						name="coverImg"
 						ref={imageRef}
-						// onChange={readImage}
+						onChange={readImage}
 						className="new-blog__form__image"
 					/>
 					<input

@@ -15,12 +15,13 @@ function Home({ blogger }) {
 	// 	dispatch(getAllTopicsByUserIDAsync(userID));
 	// }, [dispatch, userID]);
 	var allTopicElements;
-	if (blogger.id) {
-		allTopicElements = blogger.Topic.map((topic) => {
+	if (blogger._id) {
+		allTopicElements = blogger.Topic.map((topic, index) => {
 			return (
 				<Topic
-					key={topic.id}
-					id={topic.id}
+					key={index}
+					index={index}
+					id={topic._id}
 					userID={topic.userID}
 					topicName={topic.topicName}
 					slug={topic.slug}
@@ -44,9 +45,9 @@ function Home({ blogger }) {
 							<div className="home__new-blog">
 								<Link to={`/${user.alias}/newBlog`} className="home__link">
 									<div className="home__new-blog__pfp">
-										{blogger.profilepic !== "" ? (
+										{blogger.profilepic !== undefined ? (
 											<img
-												src={require(`../assets/image/user/${blogger.profilepic}`)}
+												src={'data:image/jpg;base64,' + blogger.profilepic}
 												alt={alt}
 											/>
 										) : (

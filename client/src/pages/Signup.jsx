@@ -37,7 +37,6 @@ const Signup = () => {
 	const handleNameChange = (input) => (event) => {
 		fullName[input] = event.target.value;
 		account.name = fullName.surName + " " + fullName.firstName;
-		console.log(account);
 		// setAccount({
 		// 	...account,
 		// 	name: fullName.surName + " " + fullName.firstName,
